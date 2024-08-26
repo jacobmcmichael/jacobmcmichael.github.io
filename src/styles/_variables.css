@@ -1,0 +1,9 @@
+:root {
+  /* Typography */
+  --font-size-base: 16px;
+
+  /* Font Families */
+  --font-title: "Unbounded", sans-serif;
+  --font-subtitle: "Syne", sans-serif;
+  --font-body: "Syne", sans-serif;
+}
