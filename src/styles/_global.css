@@ -1,5 +1,7 @@
 body {
+  color: var(--color-text);
   font-size: var(--font-size-base);
+  background-color: var(--color-background);
 }
 
 /* Typography */
@@ -56,4 +58,11 @@ h6,
 
 .extra-small {
   font-size: 0.694rem;
+}
+
+
+/* Media */
+svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
 }

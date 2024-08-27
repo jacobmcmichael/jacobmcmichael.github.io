@@ -3,14 +3,16 @@ import React from "react";
 
 /* Components */
 import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
 
 /* Stylesheets */
 import "@/styles/header.css";
 
 export default function Header() {
   return (
-    <nav id="Header">
+    <section id="Header">
       <Logo />
-    </nav>
+      <Navbar />
+    </section>
   );
 }
