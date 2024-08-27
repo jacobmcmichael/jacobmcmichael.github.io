@@ -1,6 +1,6 @@
 /* Dependencies */
-import React, { useRef, useState } from "react";
-import { motion, animate } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useAnimate } from "framer-motion";
 
 /* Components */
 import { Menu, Cross, House, Folder, Person, Chat } from "@/components/Icons";
@@ -9,13 +9,15 @@ import { Menu, Cross, House, Folder, Person, Chat } from "@/components/Icons";
 import "@/styles/navbar.css";
 
 export default function Navbar() {
-  const listVariants = {
+  const listVariant = {
     open: {
+      pointerEvents: "auto",
       transition: {
         staggerChildren: 0.1,
       },
     },
     closed: {
+      pointerEvents: "none",
       transition: {
         staggerChildren: 0.1,
         staggerDirection: -1,
@@ -23,7 +25,7 @@ export default function Navbar() {
     },
   };
 
-  const itemVariants = {
+  const itemVariant = {
     open: {
       opacity: 1,
       y: 0,
@@ -36,7 +38,7 @@ export default function Navbar() {
     },
   };
 
-  const highlightRef = useRef(null);
+  const [highlightRef, animate] = useAnimate();
   const [isOpen, setIsOpen] = useState(false);
 
   const icons = [<House />, <Folder />, <Person />, <Chat />];
@@ -49,6 +51,10 @@ export default function Navbar() {
     );
   };
 
+  const renderMenuIcon = () => {
+    return isOpen ? <Cross /> : <Menu />;
+  };
+
   return (
     <motion.nav
       id="Navbar"
@@ -59,15 +65,16 @@ export default function Navbar() {
         className="menu-toggle"
         whileTap={{ scale: 0.96 }}
         onClick={() => setIsOpen((isOpen) => !isOpen)}
+        aria-label="Toggle Menu"
       >
-        {isOpen ? <Cross /> : <Menu />}
+        {renderMenuIcon()}
       </motion.button>
 
-      <motion.ul variants={listVariants}>
+      <motion.ul variants={listVariant}>
         {icons.map((icon, index) => (
           <React.Fragment key={index}>
             <motion.li
-              variants={itemVariants}
+              variants={itemVariant}
               onClick={(event) => handleSelection(event)}
             >
               {icon}
@@ -78,7 +85,8 @@ export default function Navbar() {
         <motion.div
           className="highlight"
           ref={highlightRef}
-          initial={{ top: 0 }}
+          initial={{ top: 0, opacity: 0 }}
+          variants={itemVariant}
         ></motion.div>
       </motion.ul>
     </motion.nav>

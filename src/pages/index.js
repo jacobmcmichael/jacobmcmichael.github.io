@@ -5,6 +5,8 @@ import React from "react";
 import Header from "@/components/Header";
 import Home from "@/layouts/Home";
 import Hero from "@/sections/Hero";
+import Projects from "@/sections/Projects";
+import About from "@/sections/About";
 
 export function Head() {
   return (
@@ -36,6 +38,8 @@ export default function HomePage() {
 
       <Home>
         <Hero />
+        <Projects />
+        <About />
       </Home>
     </main>
   );

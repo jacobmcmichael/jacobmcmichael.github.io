@@ -1,3 +1,8 @@
+main > section:not(#Header) {
+  min-height: 100vh;
+  border: 1px solid red;
+}
+
 body {
   color: var(--color-text);
   font-size: var(--font-size-base);
