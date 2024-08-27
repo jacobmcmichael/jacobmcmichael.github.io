@@ -2,7 +2,9 @@
   --menu-gap: 0.25rem;
   --icon-padding: 8px;
 
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 #Navbar .menu-toggle,

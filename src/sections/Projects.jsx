@@ -5,5 +5,5 @@ import React from "react";
 import "@/styles/projects.css";
 
 export default function Projects() {
-  return <section id="Projects">Projects Section</section>;
+  return <>Projects Section</>;
 }

@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 /* Components */
@@ -8,7 +8,7 @@ import { Menu, Cross, House, Folder, Person, Chat } from "@/components/Icons";
 /* Stylesheets */
 import "@/styles/navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ activeSection, setActiveSection }) {
   const listVariant = {
     open: {
       pointerEvents: "auto",
@@ -38,22 +38,50 @@ export default function Navbar() {
     },
   };
 
+  const listItems = [
+    { icon: <House />, id: "Hero" },
+    { icon: <Folder />, id: "Projects" },
+    { icon: <Person />, id: "About" },
+    { icon: <Chat />, id: "Contact" },
+  ];
+
+  const listRefs = useRef([]);
   const [highlightRef, animate] = useAnimate();
   const [isOpen, setIsOpen] = useState(false);
-
-  const icons = [<House />, <Folder />, <Person />, <Chat />];
-
-  const handleSelection = (event) => {
-    animate(
-      highlightRef.current,
-      { top: event.currentTarget.offsetTop },
-      { type: "spring", bounce: 0.35 }
-    );
-  };
 
   const renderMenuIcon = () => {
     return isOpen ? <Cross /> : <Menu />;
   };
+
+  const handleSelection = (element) => {
+    const sectionId = element.getAttribute("data-id");
+    const sectionElement = document.getElementById(sectionId);
+
+    animate(
+      highlightRef.current,
+      { top: element.offsetTop },
+      { type: "spring", bounce: 0.35 }
+    );
+
+    // TODO: Find a way to make this smooth scrolling w/o interfering with inView()
+    if (sectionElement) {
+      sectionElement.scrollIntoView({
+        block: "start", // Align to the start of the section
+      });
+    }
+
+    // Updates activeSection in parent
+    setActiveSection(sectionId);
+  };
+
+  useEffect(() => {
+    listRefs.current.forEach((ref) => {
+      if (ref.getAttribute("data-id") === activeSection) {
+        handleSelection(ref);
+      }
+    });
+    console.log(activeSection)
+  }, [activeSection]);
 
   return (
     <motion.nav
@@ -71,15 +99,16 @@ export default function Navbar() {
       </motion.button>
 
       <motion.ul variants={listVariant}>
-        {icons.map((icon, index) => (
-          <React.Fragment key={index}>
-            <motion.li
-              variants={itemVariant}
-              onClick={(event) => handleSelection(event)}
-            >
-              {icon}
-            </motion.li>
-          </React.Fragment>
+        {listItems.map((item, index) => (
+          <motion.li
+            key={index}
+            data-id={item.id}
+            variants={itemVariant}
+            onClick={(event) => handleSelection(event.currentTarget)}
+            ref={(el) => (listRefs.current[index] = el)}
+          >
+            {item.icon}
+          </motion.li>
         ))}
 
         <motion.div

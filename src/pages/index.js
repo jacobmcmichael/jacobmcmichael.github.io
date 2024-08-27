@@ -1,12 +1,22 @@
 /* Dependencies */
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { inView } from "framer-motion";
 
 /* Layouts */
-import Header from "@/components/Header";
-import Home from "@/layouts/Home";
+import HomeLayout from "@/layouts/HomeLayout";
+
+/* Components */
+import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
+
+/* Sections */
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import About from "@/sections/About";
+import Contact from "@/sections/Contact";
+
+/* Stylesheets */
+import "@/styles/index.css";
 
 export function Head() {
   return (
@@ -32,15 +42,51 @@ export function Head() {
 }
 
 export default function HomePage() {
+  const sections = [
+    { id: "Hero", component: <Hero /> },
+    { id: "Projects", component: <Projects /> },
+    { id: "About", component: <About /> },
+    { id: "Contact", component: <Contact /> },
+  ];
+
+  const sectionsRefs = useRef([]);
+  const [activeSection, setActiveSection] = useState("Hero");
+
+  useEffect(() => {
+    sectionsRefs.current.forEach((section) => {
+      inView(
+        section,
+        ({ target }) => {
+          setActiveSection(target.id); // Use the id of the target section
+          return () => {};
+        },
+        { amount: 0.5 }
+      );
+    });
+  }, []);
+
   return (
     <main>
-      <Header />
+      <section id="Header">
+        <Logo />
+        <Navbar
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
+      </section>
 
-      <Home>
-        <Hero />
-        <Projects />
-        <About />
-      </Home>
+      <HomeLayout>
+        {sections.map((section, index) => (
+          <section
+            key={index}
+            id={section.id}
+            className={section.id === activeSection ? "section--active" : ""}
+            ref={(el) => (sectionsRefs.current[index] = el)}
+          >
+            {section.component}
+          </section>
+        ))}
+      </HomeLayout>
     </main>
   );
 }
