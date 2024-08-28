@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 /* Components */
-import { Menu, Cross, House, Folder, Person, Chat } from "@/components/Icons";
+import { Hamburger, Cross, House, Folder, Person, Mailbox } from "@/components/Icons";
 
 /* Stylesheets */
 import "@/styles/navbar.css";
@@ -11,12 +11,14 @@ import "@/styles/navbar.css";
 export default function Navbar({ activeSection, setActiveSection }) {
   const listVariant = {
     open: {
+      opacity: 1,
       pointerEvents: "auto",
       transition: {
         staggerChildren: 0.1,
       },
     },
     closed: {
+      opacity: 0,
       pointerEvents: "none",
       transition: {
         staggerChildren: 0.1,
@@ -42,7 +44,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
     { icon: <House />, id: "Hero" },
     { icon: <Folder />, id: "Projects" },
     { icon: <Person />, id: "About" },
-    { icon: <Chat />, id: "Contact" },
+    { icon: <Mailbox />, id: "Contact" },
   ];
 
   const listRefs = useRef([]);
@@ -50,7 +52,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const renderMenuIcon = () => {
-    return isOpen ? <Cross /> : <Menu />;
+    return isOpen ? <Cross /> : <Hamburger />;
   };
 
   const handleSelection = (element) => {
@@ -64,11 +66,11 @@ export default function Navbar({ activeSection, setActiveSection }) {
     );
 
     // TODO: Find a way to make this smooth scrolling w/o interfering with inView()
-    if (sectionElement) {
-      sectionElement.scrollIntoView({
-        block: "start", // Align to the start of the section
-      });
-    }
+    // if (sectionElement) {
+    //   sectionElement.scrollIntoView({
+    //     block: "start", // Align to the start of the section
+    //   });
+    // }
 
     // Updates activeSection in parent
     setActiveSection(sectionId);
@@ -76,11 +78,13 @@ export default function Navbar({ activeSection, setActiveSection }) {
 
   useEffect(() => {
     listRefs.current.forEach((ref) => {
+      ref.classList.remove("list-item--active");
+
       if (ref.getAttribute("data-id") === activeSection) {
+        ref.classList.add("list-item--active");
         handleSelection(ref);
       }
     });
-    console.log(activeSection)
   }, [activeSection]);
 
   return (
@@ -98,7 +102,9 @@ export default function Navbar({ activeSection, setActiveSection }) {
         {renderMenuIcon()}
       </motion.button>
 
-      <motion.ul variants={listVariant}>
+      <motion.ul className="glass" variants={listVariant}>
+        <li style={{ visibility: "hidden", pointerEvents: "none" }}><House /></li>
+
         {listItems.map((item, index) => (
           <motion.li
             key={index}

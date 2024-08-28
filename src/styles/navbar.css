@@ -1,29 +1,32 @@
 #Navbar {
-  --menu-gap: 0.25rem;
+  --menu-gap: 0.5rem;
   --icon-padding: 8px;
 
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #Navbar .menu-toggle,
-#Navbar ul,
 #Navbar .highlight {
   border-radius: 100%;
 }
 
 #Navbar .menu-toggle {
+  z-index: 10;
+  position: relative;
+
   padding: var(--icon-padding);
-  
+
   color: var(--color-background);
   border: none;
 }
 
 #Navbar ul {
   position: absolute;
-  top: calc(var(--icon-size) + var(--icon-padding) + (var(--menu-gap) * 2));
-  left: 0;
+  top: 0;
 
   display: flex;
   flex-direction: column;
@@ -32,15 +35,20 @@
   gap: var(--menu-gap);
 
   width: 100%;
-  margin-top: var(--menu-gap);
 
   list-style-type: none;
   padding-inline: 0;
+
+  border-radius: 24px;
 }
 
 #Navbar ul > li,
 #Navbar .highlight {
   padding: var(--icon-padding);
+}
+
+#Navbar li.list-item--active {
+
 }
 
 #Navbar .highlight {
@@ -49,7 +57,6 @@
   z-index: -1;
   position: absolute;
   top: var(--offset-top);
-  left: 0;
 
   display: block;
   width: var(--icon-size);
@@ -57,7 +64,4 @@
 
   box-sizing: content-box;
   background-color: var(--color-text);
-
-  background-color: transparent;
-  outline: 1px solid red;
 }

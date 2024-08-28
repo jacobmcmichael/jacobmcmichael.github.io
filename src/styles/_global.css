@@ -1,6 +1,5 @@
 main > section:not(#Header) {
   min-height: 100vh;
-  border: 1px solid red;
 }
 
 body {
@@ -22,9 +21,20 @@ body {
 
 p,
 .p {
+  color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
+}
+
+a,
+.a {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  
+  text-decoration: none;
 }
 
 h1,
@@ -65,9 +75,66 @@ h6,
   font-size: 0.694rem;
 }
 
+/* Buttons */
+button,
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+
+  width: fit-content;
+  padding: 0.6em 1.2em;
+
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: var(--font-title);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.button--primary {
+  border: 1px solid var(--color-border);
+  border-radius: 32px;
+  background-color: var(--color-foreground);
+}
+
+.button svg {
+  --icon-size: 1.5em;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
 
 /* Media */
 svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
+  min-width: var(--icon-size);
+  min-height: var(--icon-size);
+
+  flex: 0 0 auto;
+}
+
+svg.icon--hamburger {
+  --adjusted-icon-size: calc(var(--icon-size) - 8px);
+
+  width: var(--adjusted-icon-size);
+  height: var(--adjusted-icon-size);
+}
+
+svg.icon--cross {
+  --adjusted-icon-size: calc(var(--icon-size) - 8px);
+
+  width: var(--adjusted-icon-size);
+  height: var(--adjusted-icon-size);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
 }

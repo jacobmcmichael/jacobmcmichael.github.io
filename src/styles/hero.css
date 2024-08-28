@@ -1,0 +1,40 @@
+#Hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#Hero .hero__button {
+  align-self: flex-end;
+}
+
+#Hero .hero__intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+}
+
+#Hero .intro__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+  gap: 1rem;
+}
+
+#Hero .intro__contact a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  font-weight: 500;
+}
+
+#Hero .intro__message {
+  flex: 2;
+}
