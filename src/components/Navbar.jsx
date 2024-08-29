@@ -9,7 +9,7 @@ import { Cross, House, Folder, Person, Mailbox } from "@/components/Icons";
 import "@/styles/navbar.css";
 
 export default function Navbar({ activeSection, setActiveSection }) {
-  const delay = 0.4;
+  const delay = 0.2;
   const hamburgerVariant = {
     open: {
       y: 0,

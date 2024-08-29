@@ -4,30 +4,44 @@
   gap: 1.25rem;
 }
 
-#Hero .hero__button {
+#Hero .top__button {
   align-self: flex-end;
 }
 
-#Hero .hero__intro {
+#Hero .hero__top,
+#Hero .hero__bottom {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
+}
+
+#Hero .hero__top {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#Hero .hero__bottom {
   gap: 3rem;
 }
 
-#Hero .intro__contact {
+#Hero .top__title {
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+#Hero .bottom__contact {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex: 1;
-  gap: 1rem;
+  gap: 0.5rem;
 
   white-space: nowrap;
 }
 
-#Hero .intro__contact a {
+#Hero .bottom__contact a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -37,6 +51,37 @@
   font-weight: 500;
 }
 
-#Hero .intro__message {
+#Hero .bottom__contact a span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#Hero .bottom__message {
   flex: 2;
+  max-width: 400px;
+}
+
+@media only screen and (min-width: 768px) {
+  #Hero {
+    gap: 2rem;
+  }
+
+  #Hero .hero__top {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #Hero {
+    gap: 3.5rem;
+  }
+
+  #Hero .top__button {
+    align-self: center;
+  }
 }

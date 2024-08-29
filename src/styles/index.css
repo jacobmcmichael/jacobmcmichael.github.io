@@ -1,7 +1,17 @@
 main {
-  --section-padding: 16px;
+  --section-padding: 1rem;
 
+  max-width: calc(1200px + var(--section-padding));
+  margin: 0 auto;
   padding: 0 var(--section-padding);
+  
+  overflow-x: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    --section-padding: 2.5rem;
+  }
 }
 
 #Header {
