@@ -1,0 +1,63 @@
+:root {
+  /* Colors */
+  --color-body-text: #F9F9F9;
+  --color-button-text: #F9F9F9;
+  --color-nav-toggle-icon: #121212;
+  --color-nav-toggle-background: #F9F9F9;
+  --color-nav-text: #C4C4C4;
+  --color-nav-highlight-text: #121212;
+  --color-nav-highlight-background: #F9F9F9;
+  --color-background: #121212;
+  --color-foreground: #333333;
+  --color-border: #545454;
+  --color-switch-border-light: #545454;
+  --color-switch-border-dark: #000000;
+
+  /* Typography */
+  --font-size-base: 16px;
+
+  /* Font Families */
+  --font-title: "Unbounded", sans-serif;
+  --font-subtitle: "Syne", sans-serif;
+  --font-body: "Syne", sans-serif;
+  --font-button: "Syne", sans-serif;
+
+  /* Font Sizes */
+  --h1-font-size: 2.986rem;
+  --h2-font-size: 2.488rem;
+  --h3-font-size: 2.074rem;
+  --h4-font-size: 1.728rem;
+  --h5-font-size: 1.44rem;
+  --h6-font-size: 1.2rem;
+
+  /* Icons */
+  --icon-size: 2rem;
+
+  /* Spacing */
+  --layout-padding: 1rem;
+}
+
+[data-theme="light"] {
+  --color-body-text: #121212;
+  --color-button-text: #F9F9F9;
+  --color-nav-toggle-icon: #F9F9F9;
+  --color-nav-toggle-background: #121212;
+  --color-background: #F9F9F9;
+  --color-foreground: #121212;
+  --color-border: #545454;
+  --color-switch-border-light: #C4C4C4;
+  --color-switch-border-dark: #FFFFFF;
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 1.2);
+    --layout-padding: 2.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 2.4);
+  }
+}
