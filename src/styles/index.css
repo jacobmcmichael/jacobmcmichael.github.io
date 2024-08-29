@@ -27,3 +27,18 @@ main {
   width: 100%;
   padding: var(--section-padding) 0;
 }
+
+#Header .header__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  #Header .header__actions {
+    flex-direction: row-reverse;
+    flex: 1;
+  }
+}

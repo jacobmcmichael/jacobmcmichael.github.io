@@ -3,13 +3,20 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 /* Components */
-import { Cross, House, Folder, Person, Mailbox } from "@/components/Icons";
+import { House, Folder, Person, Mailbox } from "@/components/Icons";
 
 /* Stylesheets */
 import "@/styles/navbar.css";
 
 export default function Navbar({ activeSection, setActiveSection }) {
   const delay = 0.2;
+
+  const listRefs = useRef([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isOpen, setIsOpen] = useState(false);
+  const [highlightRef, animate] = useAnimate();
+
+  // Variants
   const hamburgerVariant = {
     open: {
       y: 0,
@@ -33,7 +40,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
     },
   };
 
-  const listVariant = {
+  let listVariant = {
     open: {
       opacity: 1,
       pointerEvents: "auto",
@@ -51,11 +58,11 @@ export default function Navbar({ activeSection, setActiveSection }) {
     },
   };
 
-  const itemVariant = {
+  let itemVariant = {
     open: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
+      transition: { type: "spring", stiffness: 100, damping: 24 },
     },
     closed: {
       opacity: 0,
@@ -64,39 +71,62 @@ export default function Navbar({ activeSection, setActiveSection }) {
     },
   };
 
-  const listItems = [
-    { icon: <House />, id: "Hero" },
-    { icon: <Folder />, id: "Projects" },
-    { icon: <Person />, id: "About" },
-    { icon: <Mailbox />, id: "Contact" },
-  ];
+  // Update variants based on window width
+  if (windowWidth >= 768) {
+    listVariant = {
+      open: { opacity: 1 },
+      closed: { opacity: 1 },
+    };
+    itemVariant = {};
+  }
 
-  const listRefs = useRef([]);
-  const [highlightRef, animate] = useAnimate();
-  const [isOpen, setIsOpen] = useState(false);
-
+  // Handle selection
   const handleSelection = (element) => {
     const sectionId = element.getAttribute("data-id");
     const sectionElement = document.getElementById(sectionId);
 
-    animate(
-      highlightRef.current,
-      { top: element.offsetTop },
-      { type: "spring", bounce: 0.35 }
-    );
+    if (windowWidth >= 768) {
+      animate(
+        highlightRef.current,
+        {
+          top: element.offsetTop,
+          left: element.offsetLeft,
+          width: element.offsetWidth,
+          height: element.offsetHeight,
+        },
+        { type: "spring", bounce: 0.25 }
+      );
+    } else {
+      animate(
+        highlightRef.current,
+        {
+          top: element.offsetTop,
+          left: "unset",
+          width: element.offsetWidth,
+          height: element.offsetHeight,
+        },
+        { type: "spring", bounce: 0.25 }
+      );
+    }
 
-    // TODO: Find a way to make this smooth scrolling w/o interfering with inView()
-    // if (sectionElement) {
-    //   sectionElement.scrollIntoView({
-    //     block: "start", // Align to the start of the section
-    //   });
-    // }
-
-    // Updates activeSection in parent
     setActiveSection(sectionId);
   };
 
+  // Update the state on window resize
   useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Highlight the active section
+  useEffect(() => {
+    if (windowWidth >= 768) {
+      setIsOpen(true);
+    }
+
     listRefs.current.forEach((ref) => {
       ref.classList.remove("list-item--active");
 
@@ -105,7 +135,20 @@ export default function Navbar({ activeSection, setActiveSection }) {
         handleSelection(ref);
       }
     });
-  }, [activeSection]);
+  }, [activeSection, windowWidth, isOpen]);
+
+  useEffect(() => {
+    if (windowWidth < 768) {
+      setIsOpen(false);
+    }
+  }, [windowWidth]);
+
+  const listItems = [
+    { icon: <House />, id: "Home" },
+    { icon: <Folder />, id: "Projects" },
+    { icon: <Person />, id: "About" },
+    { icon: <Mailbox />, id: "Contact" },
+  ];
 
   return (
     <motion.nav
@@ -139,29 +182,35 @@ export default function Navbar({ activeSection, setActiveSection }) {
         />
       </motion.button>
 
-      <motion.ul className="glass" variants={listVariant}>
-        <li style={{ visibility: "hidden", pointerEvents: "none" }}>
+      <motion.ul animate={isOpen ? "open" : "closed"} variants={listVariant}>
+        <li
+          style={{ visibility: "hidden", pointerEvents: "none" }}
+          className="list-item list-item--spacer"
+        >
           <House />
         </li>
 
         {listItems.map((item, index) => (
           <motion.li
             key={index}
+            className="list-item"
             data-id={item.id}
             variants={itemVariant}
             onClick={(event) => handleSelection(event.currentTarget)}
             ref={(el) => (listRefs.current[index] = el)}
           >
             {item.icon}
+            <span className="subtitle h6">{item.id}</span>
           </motion.li>
         ))}
 
-        <motion.div
-          className="highlight"
+        <motion.li
+          className="list-item list-item--highlight"
           ref={highlightRef}
-          initial={{ top: 0, opacity: 0 }}
           variants={itemVariant}
-        ></motion.div>
+        >
+          <House />
+        </motion.li>
       </motion.ul>
     </motion.nav>
   );

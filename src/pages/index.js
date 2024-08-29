@@ -6,6 +6,7 @@ import { inView } from "framer-motion";
 import HomeLayout from "@/layouts/HomeLayout";
 
 /* Components */
+import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 
@@ -69,10 +70,13 @@ export default function HomePage() {
     <main>
       <section id="Header">
         <Logo />
-        <Navbar
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
-        />
+        <div className="header__actions">
+          <ThemeToggle />
+          <Navbar
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
+        </div>
       </section>
 
       <HomeLayout>
