@@ -18,10 +18,56 @@
   z-index: 10;
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: calc(var(--icon-size) + 8px);
+  height: calc(var(--icon-size) + 8px);
   padding: var(--icon-padding);
 
   color: var(--color-background);
   border: none;
+}
+
+#Navbar .menu-toggle > .line {
+  --y: 0;
+  --rotation: 0;
+  --opacity: 1;
+
+  position: absolute;
+
+  display: block;
+  width: 60%;
+  height: 2px;
+
+  background-color: var(--color-background);
+  transform-origin: center;
+}
+
+#Navbar .menu-toggle > .line:nth-child(1) {
+  --y: -5px;
+  --rotation: -45deg;
+  --opacity: 1;
+
+  transform: translateY(var(--y));
+}
+
+#Navbar .menu-toggle > .line:nth-child(2) {
+  --y: 0;
+  --rotation: 0;
+  --opacity: 0;
+
+  transform: translateY(var(--y));
+}
+
+#Navbar .menu-toggle > .line:nth-child(3) {
+  --y: 5px;
+  --rotation: 45deg;
+  --opacity: 1;
+
+  transform: translateY(var(--y));
 }
 
 #Navbar ul {

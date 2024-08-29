@@ -23,6 +23,8 @@
   align-items: flex-start;
   flex: 1;
   gap: 1rem;
+
+  white-space: nowrap;
 }
 
 #Hero .intro__contact a {

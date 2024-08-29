@@ -1,7 +1,3 @@
-main > section:not(#Header) {
-  min-height: 100vh;
-}
-
 body {
   color: var(--color-text);
   font-size: var(--font-size-base);

@@ -3,12 +3,36 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 /* Components */
-import { Hamburger, Cross, House, Folder, Person, Mailbox } from "@/components/Icons";
+import { Cross, House, Folder, Person, Mailbox } from "@/components/Icons";
 
 /* Stylesheets */
 import "@/styles/navbar.css";
 
 export default function Navbar({ activeSection, setActiveSection }) {
+  const delay = 0.4;
+  const hamburgerVariant = {
+    open: {
+      y: 0,
+      rotate: "var(--rotation)",
+      opacity: "var(--opacity)",
+      transition: {
+        y: { duration: delay, ease: "easeInOut" },
+        opacity: { duration: 0, ease: "easeInOut", delay: delay },
+        rotate: { duration: delay, ease: "easeInOut", delay: delay },
+      },
+    },
+    closed: {
+      y: "var(--y)",
+      rotate: 0,
+      opacity: 1,
+      transition: {
+        rotate: { duration: delay, ease: "easeInOut" },
+        opacity: { duration: 0, ease: "easeInOut", delay: delay },
+        y: { duration: delay, ease: "easeInOut", delay: delay },
+      },
+    },
+  };
+
   const listVariant = {
     open: {
       opacity: 1,
@@ -50,10 +74,6 @@ export default function Navbar({ activeSection, setActiveSection }) {
   const listRefs = useRef([]);
   const [highlightRef, animate] = useAnimate();
   const [isOpen, setIsOpen] = useState(false);
-
-  const renderMenuIcon = () => {
-    return isOpen ? <Cross /> : <Hamburger />;
-  };
 
   const handleSelection = (element) => {
     const sectionId = element.getAttribute("data-id");
@@ -99,11 +119,30 @@ export default function Navbar({ activeSection, setActiveSection }) {
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         aria-label="Toggle Menu"
       >
-        {renderMenuIcon()}
+        <motion.div
+          className="line"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={hamburgerVariant}
+        />
+        <motion.div
+          className="line"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={hamburgerVariant}
+        />
+        <motion.div
+          className="line"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={hamburgerVariant}
+        />
       </motion.button>
 
       <motion.ul className="glass" variants={listVariant}>
-        <li style={{ visibility: "hidden", pointerEvents: "none" }}><House /></li>
+        <li style={{ visibility: "hidden", pointerEvents: "none" }}>
+          <House />
+        </li>
 
         {listItems.map((item, index) => (
           <motion.li
