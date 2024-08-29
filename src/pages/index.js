@@ -51,46 +51,56 @@ export default function HomePage() {
   ];
 
   const sectionsRefs = useRef([]);
+  const [activeTheme, setActiveTheme] = useState("dark");
   const [activeSection, setActiveSection] = useState("Hero");
 
   useEffect(() => {
-    sectionsRefs.current.forEach((section) => {
+    document.body.setAttribute("data-theme", activeTheme);
+    
+    const observers = sectionsRefs.current.map((section) =>
       inView(
         section,
         ({ target }) => {
-          setActiveSection(target.id); // Use the id of the target section
-          return () => {};
+          setActiveSection(target.id);
         },
         { amount: 0.5 }
-      );
-    });
-  }, []);
+      )
+    );
+
+    // Cleanup function to remove all observers
+    return () => observers.forEach((observer) => observer && observer());
+  }, [activeTheme]);
 
   return (
-    <main>
-      <section id="Header">
+    <>
+      <header id="Header">
         <Logo />
         <div className="header__actions">
-          <ThemeToggle />
+          <ThemeToggle
+            activeTheme={activeTheme}
+            setActiveTheme={setActiveTheme}
+          />
           <Navbar
             activeSection={activeSection}
             setActiveSection={setActiveSection}
           />
         </div>
-      </section>
+      </header>
 
-      <HomeLayout>
-        {sections.map((section, index) => (
-          <section
-            key={index}
-            id={section.id}
-            className={section.id === activeSection ? "section--active" : ""}
-            ref={(el) => (sectionsRefs.current[index] = el)}
-          >
-            {section.component}
-          </section>
-        ))}
-      </HomeLayout>
-    </main>
+      <main>
+        <HomeLayout>
+          {sections.map((section, index) => (
+            <section
+              key={index}
+              id={section.id}
+              className={section.id === activeSection ? "section--active" : ""}
+              ref={(el) => (sectionsRefs.current[index] = el)}
+            >
+              {section.component}
+            </section>
+          ))}
+        </HomeLayout>
+      </main>
+    </>
   );
 }

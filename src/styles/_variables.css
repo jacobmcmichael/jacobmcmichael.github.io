@@ -1,9 +1,17 @@
 :root {
   /* Colors */
-  --color-text: white;
+  --color-body-text: #F9F9F9;
+  --color-button-text: #F9F9F9;
+  --color-nav-toggle-icon: #121212;
+  --color-nav-toggle-background: #F9F9F9;
+  --color-nav-text: #C4C4C4;
+  --color-nav-highlight-text: #121212;
+  --color-nav-highlight-background: #F9F9F9;
   --color-background: #121212;
   --color-foreground: #333333;
   --color-border: #545454;
+  --color-switch-border-light: #545454;
+  --color-switch-border-dark: #000000;
 
   /* Typography */
   --font-size-base: 16px;
@@ -23,5 +31,33 @@
   --h6-font-size: 1.2rem;
 
   /* Icons */
-  --icon-size: 32px;
+  --icon-size: 2rem;
+
+  /* Spacing */
+  --layout-padding: 1rem;
+}
+
+[data-theme="light"] {
+  --color-body-text: #121212;
+  --color-button-text: #F9F9F9;
+  --color-nav-toggle-icon: #F9F9F9;
+  --color-nav-toggle-background: #121212;
+  --color-background: #F9F9F9;
+  --color-foreground: #121212;
+  --color-border: #545454;
+  --color-switch-border-light: #C4C4C4;
+  --color-switch-border-dark: #FFFFFF;
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 1.2);
+    --layout-padding: 2.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 2.4);
+  }
 }

@@ -24,12 +24,13 @@
   justify-content: center;
   align-items: center;
 
-  width: calc(var(--icon-size) + 8px);
-  height: calc(var(--icon-size) + 8px);
+  width: calc(var(--icon-size) + 0.5rem);
+  height: calc(var(--icon-size) + 0.5rem);
   padding: var(--icon-padding);
 
   color: var(--color-background);
   border: none;
+  background-color: var(--color-nav-toggle-background);
 }
 
 #Navbar .menu-toggle > .line {
@@ -43,7 +44,7 @@
   width: 50%;
   height: 2px;
 
-  background-color: var(--color-background);
+  background-color: var(--color-nav-toggle-icon);
   transform-origin: center;
 }
 
@@ -125,7 +126,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--color-text);
+  background-color: var(--color-body-text);
   border: 1px solid rgba(255, 255, 255, 0.5);
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(2px);
@@ -170,6 +171,8 @@
     align-items: center;
 
     padding: calc(var(--icon-padding) * 2);
+
+    color: var(--color-nav-text);
   }
 
   #Navbar li.list-item span {
@@ -180,7 +183,7 @@
   }
 
   #Navbar li.list-item--active span {
-    color: var(--color-background);
+    color: var(--color-nav-highlight-text);
   }
 
   #Navbar ul > li.list-item--spacer,
@@ -196,6 +199,6 @@
 
     border: none;
     border-radius: 48px;
-    background-color: var(--color-text);
+    background-color: var(--color-nav-highlight-background);
   }
 }

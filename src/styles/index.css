@@ -1,17 +1,13 @@
-main {
-  --section-padding: 1rem;
-
-  max-width: calc(1200px + var(--section-padding));
-  margin: 0 auto;
-  padding: 0 var(--section-padding);
-  
+body {
   overflow-x: hidden;
 }
 
-@media only screen and (min-width: 768px) {
-  main {
-    --section-padding: 2.5rem;
-  }
+main,
+header,
+footer {
+  max-width: calc(1200px + var(--layout-padding));
+  margin: 0 auto;
+  padding: var(--layout-padding);
 }
 
 #Header {
@@ -23,9 +19,6 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  width: 100%;
-  padding: var(--section-padding) 0;
 }
 
 #Header .header__actions {
@@ -41,4 +34,14 @@ main {
     flex-direction: row-reverse;
     flex: 1;
   }
+}
+
+.component--theme-toggle {
+  position: relative;
+
+  border-radius: 100%;
+  background-color: transparent;
+  
+  appearance: none;
+  overflow: hidden;
 }
