@@ -25,7 +25,11 @@ export default function Hero() {
           <h2 className="h5 title">Let's Talk</h2>
           <ul className="contact__links">
             <li>
-              <a href="mailto:jacobmcmichael@gmail.com" target="_blank">
+              <a
+                href="mailto:jacobmcmichael@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 jacobmcmichael<wbr></wbr>
                 <span>
                   @gmail.com
@@ -37,6 +41,7 @@ export default function Hero() {
               <a
                 href="https://www.linkedin.com/in/jacobmcmichael/"
                 target="_blank"
+                rel="noreferrer"
               >
                 linkedin.com/in/<wbr></wbr>
                 <span>
@@ -46,7 +51,11 @@ export default function Hero() {
               </a>
             </li>
             <li>
-              <a href="https://github.com/jacobmcmichael" target="_blank">
+              <a
+                href="https://github.com/jacobmcmichael"
+                target="_blank"
+                rel="noreferrer"
+              >
                 github.com/<wbr></wbr>
                 <span>
                   jacobmcmichael
