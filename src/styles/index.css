@@ -2,21 +2,24 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
 main,
 header,
 footer {
-  max-width: calc(1200px + var(--layout-padding));
+  max-width: calc(1200px + var(--section-margin));
   margin: 0 auto;
-  padding: var(--layout-padding);
+  padding: var(--section-padding);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: var(--section-gap);
 }
 
 #Header {
+  z-index: 100;
   position: sticky;
   top: 0;
   left: 0;
@@ -36,19 +39,28 @@ footer {
   gap: 1rem;
 }
 
+.component--theme-toggle {
+  position: relative;
+
+  border-radius: 100%;
+
+  appearance: none;
+  overflow: hidden;
+}
+
 @media only screen and (min-width: 768px) {
+  main {
+    padding: calc(var(--section-padding) / 2) var(--section-padding);
+  }
+
   #Header .header__actions {
     flex-direction: row-reverse;
     flex: 1;
   }
 }
 
-.component--theme-toggle {
-  position: relative;
-
-  border-radius: 100%;
-  background-color: transparent;
-  
-  appearance: none;
-  overflow: hidden;
+@media only screen and (min-width: 1440px) {
+  main {
+    padding: var(--section-padding);
+  }
 }

@@ -1,12 +1,12 @@
 :root {
   /* Colors */
-  --color-body-text: #F9F9F9;
-  --color-button-text: #F9F9F9;
+  --color-body-text: #f9f9f9;
+  --color-button-text: #f9f9f9;
   --color-nav-toggle-icon: #121212;
-  --color-nav-toggle-background: #F9F9F9;
-  --color-nav-text: #C4C4C4;
+  --color-nav-toggle-background: #f9f9f9;
+  --color-nav-text: #c4c4c4;
   --color-nav-highlight-text: #121212;
-  --color-nav-highlight-background: #F9F9F9;
+  --color-nav-highlight-background: #f9f9f9;
   --color-background: #121212;
   --color-foreground: #333333;
   --color-border: #545454;
@@ -34,7 +34,9 @@
   --icon-size: 2rem;
 
   /* Spacing */
-  --layout-padding: 1rem;
+  --section-margin: 2rem;
+  --section-padding: 1rem;
+  --section-gap: 3rem;
 
   /* Transitions */
   --theme-transition-timing: 0.2s;
@@ -42,25 +44,28 @@
 
 [data-theme="light"] {
   --color-body-text: #121212;
-  --color-button-text: #F9F9F9;
-  --color-nav-toggle-icon: #F9F9F9;
+  --color-button-text: #f9f9f9;
+  --color-nav-toggle-icon: #f9f9f9;
   --color-nav-toggle-background: #121212;
-  --color-background: #F9F9F9;
+  --color-background: #f9f9f9;
   --color-foreground: #121212;
   --color-border: #545454;
-  --color-switch-border-light: #C4C4C4;
-  --color-switch-border-dark: #FFFFFF;
+  --color-switch-border-light: #c4c4c4;
+  --color-switch-border-dark: #ffffff;
 }
 
 @media only screen and (min-width: 768px) {
   :root {
     --h1-font-size: calc(2.986rem * 1.2);
-    --layout-padding: 2.5rem;
+    --section-margin: 2.5rem;
+    --section-padding: 2.5rem;
+    --section-gap: 3.5rem;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   :root {
     --h1-font-size: calc(2.986rem * 2.4);
+    --section-gap: 4rem;
   }
 }

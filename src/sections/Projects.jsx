@@ -40,14 +40,22 @@ export default function Projects() {
 
   return (
     <>
-      <div className="projects__header">
-        <h2 className="header__title h4 title">Projects</h2>
-        <a className="header__link link--with-icon" href="/projects">
-          <span>More</span>
-          <ArrowRight />
-        </a>
+      <div className="projects__top">
+        <div className="projects__header">
+          <h2 className="header__title h5 title">Projects</h2>
+          <a className="header__link link--with-icon" href="/projects">
+            <span>More</span>
+            <ArrowRight />
+          </a>
+        </div>
+
+        <p className="projects__description constrain">
+          As a seasoned creator of contemporary, user-friendly web designs and
+          digital solutions, I aim to assist you in constructing the brand of
+          your fantasies.
+        </p>
       </div>
-      <div className="projects__description"></div>
+
       <div className="projects__layout">
         {projects.map((project, index) => {
           // Find the corresponding image data from the GraphQL query
@@ -55,15 +63,6 @@ export default function Projects() {
 
           return (
             <div key={index} className="project__card">
-              <h3>{project.title}</h3>
-              <h4>{project.genre}</h4>
-
-              <ul>
-                {project.tags.map((tag, index) => (
-                  <li key={index}>{tag}</li>
-                ))}
-              </ul>
-
               {image ? (
                 <GatsbyImage
                   image={image}
@@ -76,6 +75,19 @@ export default function Projects() {
               ) : (
                 <p>Image not found</p>
               )}
+
+              <div className="card__header">
+                <h3 className="subtitle h6 card__title">{project.title}</h3>
+                <h4 className="subtitle h6 card__subtitle">{project.genre}</h4>
+              </div>
+
+              <ul className="card__tags">
+                {project.tags.map((tag, index) => (
+                  <li key={index} className="small">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
           );
         })}

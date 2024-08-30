@@ -1,6 +1,5 @@
 /* Dependencies */
 import React, { useRef, useState, useEffect } from "react";
-import { inView } from "framer-motion";
 
 /* Layouts */
 import HomeLayout from "@/layouts/HomeLayout";
@@ -56,20 +55,40 @@ export default function HomePage() {
 
   useEffect(() => {
     document.body.setAttribute("data-theme", activeTheme);
-    
-    const observers = sectionsRefs.current.map((section) =>
-      inView(
-        section,
-        ({ target }) => {
-          setActiveSection(target.id);
-        },
-        { amount: 0.5 }
-      )
+
+    const observerCallback = (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .map((entry) => ({
+          id: entry.target.id,
+          intersectionRatio: entry.intersectionRatio,
+        }));
+
+      if (visibleSections.length) {
+        const mostVisibleSection = visibleSections.reduce((prev, current) =>
+          prev.intersectionRatio > current.intersectionRatio ? prev : current
+        );
+
+        // Only update if the most visible section has changed
+        if (mostVisibleSection.id !== activeSection) {
+          setActiveSection(mostVisibleSection.id);
+        }
+      }
+    };
+
+    const observerOptions = {
+      threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
     );
+    sectionsRefs.current.forEach((ref) => ref && observer.observe(ref));
 
     // Cleanup function to remove all observers
-    return () => observers.forEach((observer) => observer && observer());
-  }, [activeTheme]);
+    return () => observer.disconnect();
+  }, [activeTheme, activeSection]);
 
   return (
     <>

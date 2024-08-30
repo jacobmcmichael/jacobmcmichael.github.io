@@ -37,7 +37,6 @@ p,
 }
 
 a,
-.a,
 .link {
   color: var(--color-body-text);
   font-family: var(--font-body);
@@ -53,6 +52,17 @@ a,
   justify-content: flex-start;
   align-items: center;
   gap: 0.5em;
+
+  font-size: 1.125rem;
+}
+
+ol,
+ul,
+li {
+  color: var(--color-body-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 p svg,
@@ -169,6 +179,7 @@ button,
   border-left-color: var(--color-switch-border-light);
   border-bottom-color: var(--color-switch-border-dark);
   border-right-color: var(--color-switch-border-dark);
+  background-color: var(--color-background);
 
   transition: border var(--theme-transition-timing) ease-in-out;
 }
@@ -218,11 +229,6 @@ svg.icon--cross {
 }
 
 /* Utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-radius: 10px;
-  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+.constrain {
+  max-width: 400px;
 }

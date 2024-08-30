@@ -1,6 +1,88 @@
+#Projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+#Projects .projects__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+
 #Projects .projects__header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+#Projects .projects__layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+#Projects .project__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+#Projects .project__card img {
+  border-radius: 18px;
+}
+
+#Projects .card__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+#Projects .card__title {
+  font-weight: 700;
+}
+
+#Projects .card__tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  list-style-type: none;
+  margin-top: 0.5rem;
+  padding-inline: 0;
+}
+
+#Projects .card__tags li {
+  padding: 0.2em 0.8em;
+
+  color: var(--color-button-text);
+  font-weight: 500;
+  border-radius: 32px;
+  background-color: var(--color-foreground);
+}
+
+@media only screen and (min-width: 768px) {
+  #Projects .projects__layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 3rem;
+  }
+  
+  #Projects .project__card {
+    flex: 45%;
+  }
 }

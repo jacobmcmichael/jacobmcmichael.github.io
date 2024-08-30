@@ -66,7 +66,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <p className="bottom__message">
+        <p className="bottom__message constrain">
           Nice to meet you! I'm Jake, a Frontend Developer with experience in
           e-commerce, web development, and scalable applications.
         </p>

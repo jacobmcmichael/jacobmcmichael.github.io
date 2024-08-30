@@ -1,7 +1,7 @@
 #Hero {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2.5rem;
 }
 
 #Hero .top__button {
@@ -18,7 +18,7 @@
 
 #Hero .hero__top {
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 #Hero .hero__bottom {
@@ -61,7 +61,6 @@
 
 #Hero .bottom__message {
   flex: 2;
-  max-width: 400px;
 }
 
 #Hero .contact__links {
@@ -77,13 +76,12 @@
 
 @media only screen and (min-width: 768px) {
   #Hero {
-    gap: 2rem;
+    gap: 3rem;
   }
 
   #Hero .hero__top {
     flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
   }
 }
 
