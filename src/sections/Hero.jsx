@@ -1,13 +1,7 @@
 /* Dependencies */
 import React from "react";
 import Button from "@/components/Button";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Google,
-  LinkedIn,
-  GitHub,
-} from "@/components/Icons";
+import { ArrowDown, ArrowUpRight } from "@/components/Icons";
 
 /* Stylesheets */
 import "@/styles/hero.css";
@@ -32,7 +26,6 @@ export default function Hero() {
           <ul className="contact__links">
             <li>
               <a href="mailto:jacobmcmichael@gmail.com" target="_blank">
-                <Google />
                 jacobmcmichael<wbr></wbr>
                 <span>
                   @gmail.com
@@ -45,7 +38,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/jacobmcmichael/"
                 target="_blank"
               >
-                <LinkedIn />
+                linkedin.com/in/<wbr></wbr>
                 <span>
                   jacobmcmichael
                   <ArrowUpRight />
@@ -54,7 +47,7 @@ export default function Hero() {
             </li>
             <li>
               <a href="https://github.com/jacobmcmichael" target="_blank">
-                <GitHub />
+                github.com/<wbr></wbr>
                 <span>
                   jacobmcmichael
                   <ArrowUpRight />

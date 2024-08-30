@@ -37,13 +37,22 @@ p,
 }
 
 a,
-.a {
+.a,
+.link {
   color: var(--color-body-text);
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
 
   text-decoration: none;
+}
+
+.link--with-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
 }
 
 p svg,
