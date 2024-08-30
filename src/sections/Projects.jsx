@@ -53,9 +53,10 @@ export default function Projects() {
         </div>
 
         <p className="projects__description constrain">
-          I'm passionate about crafting digital experiences that captivate users
-          and drive growth, and strive to create compelling visual web
-          applications.
+          As a web developer, I've had the opportunity to contribute to a
+          diverse range of websites, crafting user-friendly interfaces,
+          optimizing performance, and adding dynamic features. Below are some of
+          the websites where I've applied my skills.
         </p>
       </div>
 

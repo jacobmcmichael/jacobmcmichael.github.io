@@ -172,7 +172,9 @@ button,
   width: var(--icon-size);
   height: var(--icon-size);
   padding: 0.5rem;
+}
 
+.button--neumorphic {
   border-width: 1px;
   border-style: solid;
   border-top-color: var(--color-switch-border-light);
@@ -183,13 +185,6 @@ button,
 
   transition: border var(--theme-transition-timing) ease-in-out;
 }
-
-/* .button--switch:active {
-  border-top-color: var(--color-switch-border-dark);
-  border-left-color: var(--color-switch-border-dark);
-  border-bottom-color: var(--color-switch-border-light);
-  border-right-color: var(--color-switch-border-light);
-} */
 
 .button svg {
   --icon-size: 1.5em;

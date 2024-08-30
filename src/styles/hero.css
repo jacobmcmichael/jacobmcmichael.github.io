@@ -35,8 +35,6 @@
 #Hero .title__inner {
   display: inline-block;
   height: fit-content;
-
-  overflow: hidden;
 }
 
 #Hero .title__inner--thin {
