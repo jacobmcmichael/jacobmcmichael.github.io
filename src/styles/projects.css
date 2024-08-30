@@ -82,7 +82,7 @@
     row-gap: 3rem;
   }
   
-  #Projects .project__card {
+  #Projects .projects__layout > div {
     flex: 45%;
   }
 }

@@ -28,6 +28,23 @@
 #Hero .top__title {
   align-self: flex-start;
   white-space: nowrap;
+
+  line-height: 1ch;
+}
+
+#Hero .title__inner {
+  display: inline-block;
+  height: fit-content;
+
+  overflow: hidden;
+}
+
+#Hero .title__inner--thin {
+  font-weight: 200;
+}
+
+#Hero .title__inner--thick {
+  cursor: pointer;
 }
 
 #Hero .bottom__contact {

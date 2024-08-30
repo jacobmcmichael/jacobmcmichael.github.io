@@ -2,6 +2,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+/* Components */
+import EntranceAnimation from "@/components/EntranceAnimation";
 import { ArrowRight } from "@/components/Icons";
 
 /* Data */
@@ -50,9 +53,9 @@ export default function Projects() {
         </div>
 
         <p className="projects__description constrain">
-          As a seasoned creator of contemporary, user-friendly web designs and
-          digital solutions, I aim to assist you in constructing the brand of
-          your fantasies.
+          I'm passionate about crafting digital experiences that captivate users
+          and drive growth, and strive to create compelling visual web
+          applications.
         </p>
       </div>
 
@@ -62,33 +65,37 @@ export default function Projects() {
           const image = images[project.image.replace(/^\//, "")]; // Remove leading slash for matching
 
           return (
-            <div key={index} className="project__card">
-              {image ? (
-                <GatsbyImage
-                  image={image}
-                  alt={project.title}
-                  placeholder="blurred"
-                  layout="constrained"
-                  width={600}
-                  quality={80}
-                />
-              ) : (
-                <p>Image not found</p>
-              )}
+            <EntranceAnimation key={index}>
+              <div className="project__card">
+                {image ? (
+                  <GatsbyImage
+                    image={image}
+                    alt={project.title}
+                    placeholder="blurred"
+                    layout="constrained"
+                    width={600}
+                    quality={80}
+                  />
+                ) : (
+                  <p>Image not found</p>
+                )}
 
-              <div className="card__header">
-                <h3 className="subtitle h6 card__title">{project.title}</h3>
-                <h4 className="subtitle h6 card__subtitle">{project.genre}</h4>
+                <div className="card__header">
+                  <h3 className="subtitle h6 card__title">{project.title}</h3>
+                  <h4 className="subtitle h6 card__subtitle">
+                    {project.genre}
+                  </h4>
+                </div>
+
+                <ul className="card__tags">
+                  {project.tags.map((tag, index) => (
+                    <li key={index} className="small">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <ul className="card__tags">
-                {project.tags.map((tag, index) => (
-                  <li key={index} className="small">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </EntranceAnimation>
           );
         })}
       </div>

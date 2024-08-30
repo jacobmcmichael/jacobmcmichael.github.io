@@ -1,7 +1,14 @@
 /* Dependencies */
 import React from "react";
+import { motion } from "framer-motion";
+
+/* Components */
+import AnimatedHeroTitle from "@/components/AnimatedHeroTitle";
 import Button from "@/components/Button";
 import { ArrowDown, ArrowUpRight } from "@/components/Icons";
+
+/* Data */
+import links from "@/data/hero.json";
 
 /* Stylesheets */
 import "@/styles/hero.css";
@@ -11,7 +18,7 @@ export default function Hero() {
     <>
       <div className="hero__top">
         <h1 className="top__title title">
-          Frontend&<br></br>E-Commerce
+          <AnimatedHeroTitle />
         </h1>
         <Button
           customClass={"top__button"}
@@ -24,45 +31,23 @@ export default function Hero() {
         <div className="bottom__contact">
           <h2 className="h5 title">Let's Talk</h2>
           <ul className="contact__links">
-            <li>
-              <a
-                href="mailto:jacobmcmichael@gmail.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                jacobmcmichael<wbr></wbr>
-                <span>
-                  @gmail.com
-                  <ArrowUpRight />
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/jacobmcmichael/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                linkedin.com/in/<wbr></wbr>
-                <span>
-                  jacobmcmichael
-                  <ArrowUpRight />
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/jacobmcmichael"
-                target="_blank"
-                rel="noreferrer"
-              >
-                github.com/<wbr></wbr>
-                <span>
-                  jacobmcmichael
-                  <ArrowUpRight />
-                </span>
-              </a>
-            </li>
+            {links.map((link, index) => (
+              <li key={index}>
+                <motion.a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {link.displayText}
+                  <wbr></wbr>
+                  <span>
+                    {link.spanText}
+                    <ArrowUpRight />
+                  </span>
+                </motion.a>
+              </li>
+            ))}
           </ul>
         </div>
 
