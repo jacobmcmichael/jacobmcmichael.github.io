@@ -5,9 +5,16 @@ html {
 body {
   color: var(--color-body-text);
   background-color: var(--color-background);
+}
 
-  transition: color 0.2s ease-in, border-color 0.2s ease-in,
-    background-color 0.2s ease-in;
+body,
+p,
+a,
+button,
+.menu-toggle * {
+  transition: color var(--theme-transition-timing) ease-in,
+    border-color var(--theme-transition-timing) ease-in,
+    background-color var(--theme-transition-timing) ease-in;
 }
 
 /* Typography */
@@ -154,15 +161,15 @@ button,
   border-bottom-color: var(--color-switch-border-dark);
   border-right-color: var(--color-switch-border-dark);
 
-  transition: border 0.2s ease-in-out;
+  transition: border var(--theme-transition-timing) ease-in-out;
 }
 
-.button--switch:active {
+/* .button--switch:active {
   border-top-color: var(--color-switch-border-dark);
   border-left-color: var(--color-switch-border-dark);
   border-bottom-color: var(--color-switch-border-light);
   border-right-color: var(--color-switch-border-light);
-}
+} */
 
 .button svg {
   --icon-size: 1.5em;
