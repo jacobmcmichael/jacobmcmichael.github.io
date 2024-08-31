@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 
 /* Layouts */
 import HomeLayout from "@/layouts/HomeLayout";
@@ -49,47 +49,6 @@ export default function HomePage() {
     { id: "Contact", component: <Contact /> },
   ];
 
-  const sectionsRefs = useRef([]);
-  const [activeTheme, setActiveTheme] = useState("dark");
-  const [activeSection, setActiveSection] = useState("Hero");
-
-  useEffect(() => {
-    document.body.setAttribute("data-theme", activeTheme);
-
-    const observerCallback = (entries) => {
-      const visibleSections = entries
-        .filter((entry) => entry.isIntersecting)
-        .map((entry) => ({
-          id: entry.target.id,
-          intersectionRatio: entry.intersectionRatio,
-        }));
-
-      if (visibleSections.length) {
-        const mostVisibleSection = visibleSections.reduce((prev, current) =>
-          prev.intersectionRatio > current.intersectionRatio ? prev : current
-        );
-
-        // Only update if the most visible section has changed
-        if (mostVisibleSection.id !== activeSection) {
-          setActiveSection(mostVisibleSection.id);
-        }
-      }
-    };
-
-    const observerOptions = {
-      threshold: Array.from({ length: 101 }, (_, i) => i / 100),
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-    sectionsRefs.current.forEach((ref) => ref && observer.observe(ref));
-
-    // Cleanup function to remove all observers
-    return () => observer.disconnect();
-  }, [activeTheme, activeSection]);
-
   return (
     <>
       <div id="Hero" className="visually-hidden"></div>
@@ -98,14 +57,8 @@ export default function HomePage() {
         <div className="header__inner">
           <Logo />
           <div className="header__actions">
-            <ThemeToggle
-              activeTheme={activeTheme}
-              setActiveTheme={setActiveTheme}
-            />
-            <Navbar
-              activeSection={activeSection}
-              setActiveSection={setActiveSection}
-            />
+            <ThemeToggle />
+            <Navbar />
           </div>
         </div>
       </header>
@@ -116,8 +69,6 @@ export default function HomePage() {
             <section
               key={index}
               id={section.id}
-              className={section.id === activeSection ? "section--active" : ""}
-              ref={(el) => (sectionsRefs.current[index] = el)}
             >
               {section.component}
             </section>
