@@ -134,6 +134,8 @@ button,
 
   text-transform: uppercase;
   white-space: nowrap;
+
+  cursor: pointer;
 }
 
 .button--primary {
@@ -143,8 +145,6 @@ button,
 }
 
 .button--switch {
-  all: unset;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,6 +152,8 @@ button,
   width: var(--icon-size);
   height: var(--icon-size);
   padding: 0.5rem;
+
+  box-sizing: content-box;
 }
 
 .button--neumorphic {

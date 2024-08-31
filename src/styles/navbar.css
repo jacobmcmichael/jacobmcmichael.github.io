@@ -155,7 +155,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 
     padding: var(--icon-padding);
 
@@ -200,5 +200,11 @@
     border: none;
     border-radius: 48px;
     background-color: rgb(var(--color-nav-highlight-background));
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #Navbar ul {
+    gap: 2rem;
   }
 }

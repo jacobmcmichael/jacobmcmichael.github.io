@@ -9,7 +9,7 @@ main {
 }
 
 main,
-#Header .header__inner,
+header .header__inner,
 footer {
   max-width: calc(1200px + var(--section-margin));
   margin: 0 auto;
@@ -38,8 +38,6 @@ section {
   position: sticky;
   top: 0;
   left: 0;
-
-  backdrop-filter: blur(0.8px);
 }
 
 #Header::before,
@@ -92,16 +90,18 @@ section {
 
 .component--theme-toggle {
   position: relative;
-
   border-radius: 100%;
-
-  appearance: none;
   overflow: hidden;
 }
 
 @media only screen and (min-width: 768px) {
   main {
     padding: calc(var(--section-padding) / 2) var(--section-padding);
+  }
+
+  #Header .header__inner,
+  #Header .header__actions {
+    gap: 2rem;
   }
 
   #Header .header__actions {
