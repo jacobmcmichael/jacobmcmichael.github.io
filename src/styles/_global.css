@@ -1,22 +1,3 @@
-html {
-  font-size: var(--font-size-base);
-}
-
-body {
-  color: var(--color-body-text);
-  background-color: var(--color-background);
-}
-
-body,
-p,
-a,
-button,
-.menu-toggle * {
-  transition: color var(--theme-transition-timing) ease-in,
-    border-color var(--theme-transition-timing) ease-in,
-    background-color var(--theme-transition-timing) ease-in;
-}
-
 /* Typography */
 .title {
   font-family: var(--font-title);
@@ -30,7 +11,7 @@ button,
 
 p,
 .p {
-  color: var(--color-body-text);
+  color: rgb(var(--color-body-text));
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
@@ -38,7 +19,7 @@ p,
 
 a,
 .link {
-  color: var(--color-body-text);
+  color: inherit;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
@@ -59,7 +40,7 @@ a,
 ol,
 ul,
 li {
-  color: var(--color-body-text);
+  color: rgb(var(--color-body-text));
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
@@ -144,10 +125,9 @@ button,
   gap: 0.5em;
 
   width: fit-content;
-  /* padding: 0.6em 1.2em; */
   padding: 1em 2em;
 
-  color: var(--color-button-text);
+  color: rgb(var(--color-button-text));
   font-size: 1rem;
   font-family: var(--font-title);
   font-weight: 300;
@@ -157,9 +137,9 @@ button,
 }
 
 .button--primary {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgb(var(--color-border));
   border-radius: 32px;
-  background-color: var(--color-foreground);
+  background-color: rgb(var(--color-foreground));
 }
 
 .button--switch {
@@ -177,11 +157,11 @@ button,
 .button--neumorphic {
   border-width: 1px;
   border-style: solid;
-  border-top-color: var(--color-switch-border-light);
-  border-left-color: var(--color-switch-border-light);
-  border-bottom-color: var(--color-switch-border-dark);
-  border-right-color: var(--color-switch-border-dark);
-  background-color: var(--color-background);
+  border-top-color: rgb(var(--color-switch-border-light));
+  border-left-color: rgb(var(--color-switch-border-light));
+  border-bottom-color: rgb(var(--color-switch-border-dark));
+  border-right-color: rgb(var(--color-switch-border-dark));
+  background-color: rgb(var(--color-background));
 
   transition: border var(--theme-transition-timing) ease-in-out;
 }
@@ -224,6 +204,35 @@ svg.icon--cross {
 }
 
 /* Utilities */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .constrain {
   max-width: 400px;
+}
+
+/* Transitions */
+body {
+  transition: background-color var(--theme-transition-timing) ease-in;
+}
+
+p {
+  transition: color var(--theme-transition-timing) ease-in;
+}
+
+.themed {
+  transition: color var(--theme-transition-timing) ease-in,
+    background-color var(--theme-transition-timing) ease-in,
+    border-color var(--theme-transition-timing) ease-in,
+    stroke var(--theme-transition-timing) ease-in,
+    fill var(--theme-transition-timing) ease-in;
 }

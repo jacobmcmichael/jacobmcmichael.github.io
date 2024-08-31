@@ -6,13 +6,18 @@ const EntranceAnimation = ({ children }) => {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    inView(
+    const observer = inView(
       scope.current,
       ({ target }) => {
         animate(target, { opacity: [0, 1], y: [-40, 0] }, { duration: 0.8 });
       },
       { amount: "some" }
     );
+
+    // Cleanup the inView listener on unmount
+    return () => {
+      observer();
+    };
   }, [animate]);
 
   return (

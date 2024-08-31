@@ -146,10 +146,10 @@ export default function Navbar({ activeSection, setActiveSection }) {
   }, [windowWidth]);
 
   const listItems = [
-    { icon: <House />, id: "Hero" },
-    { icon: <Folder />, id: "Projects" },
-    { icon: <Person />, id: "About" },
-    { icon: <Mailbox />, id: "Contact" },
+    { icon: <House />, id: "Hero", text: "Home" },
+    { icon: <Folder />, id: "Projects", text: "Projects" },
+    { icon: <Person />, id: "About", text: "About" },
+    { icon: <Mailbox />, id: "Contact", text: "Contact" },
   ];
 
   return (
@@ -184,7 +184,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
         />
       </motion.button>
 
-      <motion.ul animate={isOpen ? "open" : "closed"} variants={listVariant}>
+      <motion.ul className="themed" animate={isOpen ? "open" : "closed"} variants={listVariant}>
         <li
           style={{ visibility: "hidden", pointerEvents: "none" }}
           className="list-item list-item--spacer"
@@ -202,7 +202,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
             ref={(el) => (listRefs.current[index] = el)}
           >
             {item.icon}
-            <span className="subtitle h6">{item.id}</span>
+            <a className="subtitle h6" href={`#${item.id}`}>{item.text}</a>
           </motion.li>
         ))}
 

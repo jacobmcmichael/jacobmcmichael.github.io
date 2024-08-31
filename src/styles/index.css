@@ -1,14 +1,24 @@
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
 body,
 main {
   overflow-x: hidden;
 }
 
 main,
-header,
+#Header .header__inner,
 footer {
   max-width: calc(1200px + var(--section-margin));
   margin: 0 auto;
   padding: var(--section-padding);
+}
+
+body {
+  color: rgb(var(--color-body-text));
+  background-color: rgb(var(--color-background));
 }
 
 main {
@@ -19,11 +29,51 @@ main {
   gap: var(--section-gap);
 }
 
+section {
+  scroll-margin-top: 150px;
+}
+
 #Header {
-  z-index: 100;
+  z-index: 90;
   position: sticky;
   top: 0;
   left: 0;
+
+  backdrop-filter: blur(0.8px);
+}
+
+#Header::before,
+#Header::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transition: opacity var(--theme-transition-timing) ease-in;
+}
+
+#Header::before {
+  background: var(--color-header-gradient-dark);
+}
+
+#Header::after {
+  background: var(--color-header-gradient-light);
+}
+
+[data-theme="dark"] #Header::before,
+[data-theme="light"] #Header::after {
+  opacity: 1;
+}
+
+#Header .header__inner {
+  z-index: 100;
+  position: relative;
 
   display: flex;
   flex-direction: row;

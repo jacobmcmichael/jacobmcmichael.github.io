@@ -42,7 +42,7 @@ const AnimatedHeroTitle = () => {
   };
 
   return (
-    <motion.div initial="initial" animate="animate">
+    <motion.div className="themed" initial="initial" animate="animate">
       {/* Frontend Text Animation */}
       <span className="title__inner title__inner--thin">
         <motion.span variants={frontendAnimation} initial="initial" animate="animate">

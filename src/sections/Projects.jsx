@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 /* Components */
 import EntranceAnimation from "@/components/EntranceAnimation";
+import ScaleOnHover from "@/components/ScaleOnHover";
 import { ArrowRight } from "@/components/Icons";
 
 /* Data */
@@ -43,13 +44,15 @@ export default function Projects() {
 
   return (
     <>
-      <div className="projects__top">
+      <div className="projects__top themed">
         <div className="projects__header">
           <h2 className="header__title h5 title">Projects</h2>
-          <a className="header__link link--with-icon" href="/projects">
-            <span>More</span>
-            <ArrowRight />
-          </a>
+          <ScaleOnHover>
+            <a className="header__link link--with-icon" href="/projects">
+              <span>More</span>
+              <ArrowRight />
+            </a>
+          </ScaleOnHover>
         </div>
 
         <p className="projects__description constrain">
@@ -67,7 +70,7 @@ export default function Projects() {
 
           return (
             <EntranceAnimation key={index}>
-              <div className="project__card">
+              <div className="project__card themed">
                 {image ? (
                   <GatsbyImage
                     image={image}

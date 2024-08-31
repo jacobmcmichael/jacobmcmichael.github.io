@@ -92,17 +92,21 @@ export default function HomePage() {
 
   return (
     <>
-      <header id="Header">
-        <Logo />
-        <div className="header__actions">
-          <ThemeToggle
-            activeTheme={activeTheme}
-            setActiveTheme={setActiveTheme}
-          />
-          <Navbar
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-          />
+      <div id="Hero" className="visually-hidden"></div>
+
+      <header id="Header" className="themed">
+        <div className="header__inner">
+          <Logo />
+          <div className="header__actions">
+            <ThemeToggle
+              activeTheme={activeTheme}
+              setActiveTheme={setActiveTheme}
+            />
+            <Navbar
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+            />
+          </div>
         </div>
       </header>
 

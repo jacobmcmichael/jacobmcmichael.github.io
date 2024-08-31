@@ -69,10 +69,10 @@
 #Projects .card__tags li {
   padding: 0.2em 0.8em;
 
-  color: var(--color-button-text);
+  color: rgb(var(--color-button-text));
   font-weight: 500;
   border-radius: 32px;
-  background-color: var(--color-foreground);
+  background-color: rgb(var(--color-foreground));
 }
 
 @media only screen and (min-width: 768px) {
@@ -84,7 +84,7 @@
     align-items: stretch;
     row-gap: 3rem;
   }
-  
+
   #Projects .projects__layout > div {
     flex: 45%;
     max-width: 50%;

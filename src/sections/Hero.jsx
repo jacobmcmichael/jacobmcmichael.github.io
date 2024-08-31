@@ -1,9 +1,9 @@
 /* Dependencies */
 import React from "react";
-import { motion } from "framer-motion";
 
 /* Components */
 import AnimatedHeroTitle from "@/components/AnimatedHeroTitle";
+import ScaleOnHover from "@/components/ScaleOnHover";
 import Button from "@/components/Button";
 import { ArrowDown, ArrowUpRight } from "@/components/Icons";
 
@@ -20,32 +20,32 @@ export default function Hero() {
         <h1 className="top__title title">
           <AnimatedHeroTitle />
         </h1>
+
         <Button
-          customClass={"top__button"}
-          type={"primary"}
-          text={"See My Work"}
+          customClass="top__button"
+          type="primary"
+          text="See My Work"
+          href="#Projects"
           icon={<ArrowDown />}
         />
       </div>
-      <div className="hero__bottom">
+
+      <div className="hero__bottom themed">
         <div className="bottom__contact">
           <h2 className="h5 title">Let's Talk</h2>
           <ul className="contact__links">
             {links.map((link, index) => (
               <li key={index}>
-                <motion.a
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {link.displayText}
-                  <wbr></wbr>
-                  <span>
-                    {link.spanText}
-                    <ArrowUpRight />
-                  </span>
-                </motion.a>
+                <ScaleOnHover>
+                  <a className="themed" href={link.href} target="_blank" rel="noreferrer">
+                    {link.displayText}
+                    <wbr></wbr>
+                    <span>
+                      {link.spanText}
+                      <ArrowUpRight />
+                    </span>
+                  </a>
+                </ScaleOnHover>
               </li>
             ))}
           </ul>
