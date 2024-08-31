@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Rabble",
+    "genre": "Rustic, Expressive, and Sustainable Wine",
+    "tags": ["Wine", "E-Commerce", "Bundles", "Shopify"],
+    "image": "/rabble--preview.jpg"
+  },
+  {
+    "title": "Geologie",
+    "genre": "Science-Based Skincare",
+    "tags": ["Wine", "E-Commerce", "Subscription", "Shopify"],
+    "image": "/geologie--preview.jpg"
+  },
+  {
+    "title": "FitVine",
+    "genre": "Zero-Sugar Wines for the Health Conscious",
+    "tags": ["Skincare", "E-Commerce", "Subscription", "Shopify"],
+    "image": "/fitvine--preview.jpg"
+  },
+  {
+    "title": "Winc",
+    "genre": "Affordable, At-Home Wine Delivery",
+    "tags": ["Wines", "E-Commerce", "Subscription", "Shopify"],
+    "image": "/winc--preview.jpg"
+  }
+]

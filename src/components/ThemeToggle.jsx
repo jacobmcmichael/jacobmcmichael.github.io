@@ -53,7 +53,7 @@ const ThemeToggle = ({ activeTheme, setActiveTheme }) => {
   return (
     <AnimatePresence>
       <button
-        className="button--switch component--theme-toggle"
+        className="button--switch button--neumorphic component--theme-toggle"
         onClick={handleChangeTheme}
       >
         <motion.div

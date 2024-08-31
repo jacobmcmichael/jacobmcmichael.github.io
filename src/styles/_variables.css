@@ -1,17 +1,46 @@
 :root {
   /* Colors */
-  --color-body-text: #F9F9F9;
-  --color-button-text: #F9F9F9;
-  --color-nav-toggle-icon: #121212;
-  --color-nav-toggle-background: #F9F9F9;
-  --color-nav-text: #C4C4C4;
-  --color-nav-highlight-text: #121212;
-  --color-nav-highlight-background: #F9F9F9;
-  --color-background: #121212;
-  --color-foreground: #333333;
-  --color-border: #545454;
-  --color-switch-border-light: #545454;
-  --color-switch-border-dark: #000000;
+  --color-body-text: 249, 249, 249;
+  --color-button-text: 249, 249, 249;
+  --color-nav-toggle-icon: 18, 18, 18;
+  --color-nav-toggle-background: 249, 249, 249;
+  --color-nav-text: 196, 196, 196;
+  --color-nav-highlight-text: 18, 18, 18;
+  --color-nav-highlight-background: 249, 249, 249;
+  --color-background: 18, 18, 18;
+  --color-foreground: 51, 51, 51;
+  --color-border: 84, 84, 84;
+  --color-switch-border-light: 84, 84, 84;
+  --color-switch-border-dark: 0, 0, 0;
+
+  --color-header-gradient-dark: linear-gradient(
+    180deg,
+    hsl(0deg 0% 13% / 0.8) 0%,
+    hsl(0deg 0% 13% / 0.72) 10%,
+    hsl(0deg 0% 13% / 0.64) 20%,
+    hsl(0deg 0% 13% / 0.56) 30%,
+    hsl(0deg 0% 13% / 0.48) 40%,
+    hsl(0deg 0% 13% / 0.4) 50%,
+    hsl(0deg 0% 13% / 0.32) 60%,
+    hsl(0deg 0% 13% / 0.24) 70%,
+    hsl(0deg 0% 13% / 0.16) 80%,
+    hsl(0deg 0% 13% / 0.08) 90%,
+    hsl(0deg 0% 13% / 0) 100%
+  );
+  --color-header-gradient-light: linear-gradient(
+    180deg,
+    hsl(0deg 0% 98% / 0.8) 0%,
+    hsl(0deg 0% 98% / 0.72) 10%,
+    hsl(0deg 0% 98% / 0.64) 20%,
+    hsl(0deg 0% 98% / 0.56) 30%,
+    hsl(0deg 0% 98% / 0.48) 40%,
+    hsl(0deg 0% 98% / 0.4) 50%,
+    hsl(0deg 0% 98% / 0.32) 60%,
+    hsl(0deg 0% 98% / 0.24) 70%,
+    hsl(0deg 0% 98% / 0.16) 80%,
+    hsl(0deg 0% 98% / 0.08) 90%,
+    hsl(0deg 0% 98% / 0) 100%
+  );
 
   /* Typography */
   --font-size-base: 16px;
@@ -34,30 +63,38 @@
   --icon-size: 2rem;
 
   /* Spacing */
-  --layout-padding: 1rem;
+  --section-margin: 2rem;
+  --section-padding: 1rem;
+  --section-gap: 3rem;
+
+  /* Transitions */
+  --theme-transition-timing: 0.2s;
 }
 
 [data-theme="light"] {
-  --color-body-text: #121212;
-  --color-button-text: #F9F9F9;
-  --color-nav-toggle-icon: #F9F9F9;
-  --color-nav-toggle-background: #121212;
-  --color-background: #F9F9F9;
-  --color-foreground: #121212;
-  --color-border: #545454;
-  --color-switch-border-light: #C4C4C4;
-  --color-switch-border-dark: #FFFFFF;
+  --color-body-text: 18, 18, 18;
+  --color-button-text: 249, 249, 249;
+  --color-nav-toggle-icon: 249, 249, 249;
+  --color-nav-toggle-background: 18, 18, 18;
+  --color-background: 249, 249, 249;
+  --color-foreground: 18, 18, 18;
+  --color-border: 84, 84, 84;
+  --color-switch-border-light: 196, 196, 196;
+  --color-switch-border-dark: 255, 255, 255;
 }
 
 @media only screen and (min-width: 768px) {
   :root {
     --h1-font-size: calc(2.986rem * 1.2);
-    --layout-padding: 2.5rem;
+    --section-margin: 2.5rem;
+    --section-padding: 2.5rem;
+    --section-gap: 3.5rem;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   :root {
     --h1-font-size: calc(2.986rem * 2.4);
+    --section-gap: 4rem;
   }
 }

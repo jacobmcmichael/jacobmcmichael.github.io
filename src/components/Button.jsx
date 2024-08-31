@@ -5,6 +5,7 @@ const Button = ({
   customClass,
   type = "primary",
   text = "Lorem Ipsum",
+  href = null,
   icon = null,
 }) => {
   let buttonType = type;
@@ -18,8 +19,13 @@ const Button = ({
       break;
   }
 
-  return (
-    <button className={`${customClass} button ${buttonType}`}>
+  return href !== null ? (
+    <a className={`${customClass} button ${buttonType} themed`} href={href}>
+      <span>{text}</span>
+      {icon !== null ? icon : null}
+    </a>
+  ) : (
+    <button className={`${customClass} button ${buttonType} themed`}>
       <span>{text}</span>
       {icon !== null ? icon : null}
     </button>

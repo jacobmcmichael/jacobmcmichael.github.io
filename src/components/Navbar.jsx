@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 
 /* Components */
@@ -81,36 +81,38 @@ export default function Navbar({ activeSection, setActiveSection }) {
   }
 
   // Handle selection
-  const handleSelection = (element) => {
-    const sectionId = element.getAttribute("data-id");
-    const sectionElement = document.getElementById(sectionId);
+  const handleSelection = useCallback(
+    (element) => {
+      const sectionId = element.getAttribute("data-id");
 
-    if (windowWidth >= 768) {
-      animate(
-        highlightRef.current,
-        {
-          top: element.offsetTop,
-          left: element.offsetLeft,
-          width: element.offsetWidth,
-          height: element.offsetHeight,
-        },
-        { type: "spring", bounce: 0.25 }
-      );
-    } else {
-      animate(
-        highlightRef.current,
-        {
-          top: element.offsetTop,
-          left: "unset",
-          width: element.offsetWidth,
-          height: element.offsetHeight,
-        },
-        { type: "spring", bounce: 0.25 }
-      );
-    }
+      if (windowWidth >= 768) {
+        animate(
+          highlightRef.current,
+          {
+            top: element.offsetTop,
+            left: element.offsetLeft,
+            width: element.offsetWidth,
+            height: element.offsetHeight,
+          },
+          { type: "spring", bounce: 0.25 }
+        );
+      } else {
+        animate(
+          highlightRef.current,
+          {
+            top: element.offsetTop,
+            left: "unset",
+            width: element.offsetWidth,
+            height: element.offsetHeight,
+          },
+          { type: "spring", bounce: 0.25 }
+        );
+      }
 
-    setActiveSection(sectionId);
-  };
+      setActiveSection(sectionId);
+    },
+    [windowWidth, animate, setActiveSection, highlightRef]
+  );
 
   // Update the state on window resize
   useEffect(() => {
@@ -132,10 +134,10 @@ export default function Navbar({ activeSection, setActiveSection }) {
 
       if (ref.getAttribute("data-id") === activeSection) {
         ref.classList.add("list-item--active");
-        handleSelection(ref);
+        handleSelection(ref); // Using memoized function
       }
     });
-  }, [activeSection, windowWidth, isOpen]);
+  }, [activeSection, windowWidth, isOpen, handleSelection]); // Added handleSelection here
 
   useEffect(() => {
     if (windowWidth < 768) {
@@ -144,10 +146,10 @@ export default function Navbar({ activeSection, setActiveSection }) {
   }, [windowWidth]);
 
   const listItems = [
-    { icon: <House />, id: "Home" },
-    { icon: <Folder />, id: "Projects" },
-    { icon: <Person />, id: "About" },
-    { icon: <Mailbox />, id: "Contact" },
+    { icon: <House />, id: "Hero", text: "Home" },
+    { icon: <Folder />, id: "Projects", text: "Projects" },
+    { icon: <Person />, id: "About", text: "About" },
+    { icon: <Mailbox />, id: "Contact", text: "Contact" },
   ];
 
   return (
@@ -182,7 +184,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
         />
       </motion.button>
 
-      <motion.ul animate={isOpen ? "open" : "closed"} variants={listVariant}>
+      <motion.ul className="themed" animate={isOpen ? "open" : "closed"} variants={listVariant}>
         <li
           style={{ visibility: "hidden", pointerEvents: "none" }}
           className="list-item list-item--spacer"
@@ -200,7 +202,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
             ref={(el) => (listRefs.current[index] = el)}
           >
             {item.icon}
-            <span className="subtitle h6">{item.id}</span>
+            <a className="subtitle h6" href={`#${item.id}`}>{item.text}</a>
           </motion.li>
         ))}
 
