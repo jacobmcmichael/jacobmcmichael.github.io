@@ -43,10 +43,10 @@ export function Head() {
 
 export default function HomePage() {
   const sections = [
-    { id: "Hero", component: <Hero /> },
-    { id: "Projects", component: <Projects /> },
-    { id: "About", component: <About /> },
-    { id: "Contact", component: <Contact /> },
+    { id: "Hero", title: "Home", component: <Hero /> },
+    { id: "Projects", title: "Projects", component: <Projects /> },
+    { id: "About", title: "About", component: <About /> },
+    { id: "Contact", title: "Contact", component: <Contact /> },
   ];
 
   return (
@@ -65,10 +65,7 @@ export default function HomePage() {
       <main>
         <HomeLayout>
           {sections.map((section, index) => (
-            <section
-              key={index}
-              id={section.id}
-            >
+            <section key={index} id={section.id} data-title={section.title}>
               {section.component}
             </section>
           ))}

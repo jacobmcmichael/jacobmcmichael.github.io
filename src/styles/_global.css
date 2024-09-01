@@ -156,6 +156,11 @@ button,
   box-sizing: content-box;
 }
 
+.button--plain {
+  border: unset;
+  background-color: unset;
+}
+
 .button--neumorphic {
   border-width: 1px;
   border-style: solid;

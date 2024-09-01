@@ -1,0 +1,24 @@
+#Navbar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-self: stretch;
+  flex: 1;
+}
+
+#Navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-radius: 32px;
+  background-color: rgb(var(--color-nav-background));
+
+  list-style-type: none;
+  padding-inline: 0;
+}
+
+#Navbar li {
+  color: rgb(var(--color-nav-text));
+}
