@@ -51,11 +51,10 @@ export default function HomePage() {
 
   return (
     <>
-      <div id="Hero" className="visually-hidden"></div>
-
       <header id="Header" className="themed">
         <div className="header__inner">
           <Logo />
+
           <div className="header__actions">
             <ThemeToggle />
             <Navbar />

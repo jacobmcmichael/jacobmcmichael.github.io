@@ -6,6 +6,7 @@ const Button = ({
   type = "primary",
   text = "Lorem Ipsum",
   href = null,
+  scrollTo = null,
   icon = null,
 }) => {
   let buttonType = type;
@@ -19,17 +20,42 @@ const Button = ({
       break;
   }
 
-  return href !== null ? (
-    <a className={`${customClass} button ${buttonType} themed`} href={href}>
-      <span>{text}</span>
-      {icon !== null ? icon : null}
-    </a>
-  ) : (
-    <button className={`${customClass} button ${buttonType} themed`}>
-      <span>{text}</span>
-      {icon !== null ? icon : null}
-    </button>
-  );
+  const handleScrollTo = (scrollTo) => {
+    document.querySelector(scrollTo).scrollIntoView({ behavior: "smooth" });
+  };
+
+  if (href !== null) {
+    // Regular link
+    return (
+      <a
+        className={`${customClass} button ${buttonType} themed`}
+        onClick={() => handleScrollTo(scrollTo)}
+        href={href}
+      >
+        <span>{text}</span>
+        {icon !== null ? icon : null}
+      </a>
+    );
+  } else if (scrollTo !== null) {
+    // Pseudo anchor link
+    return (
+      <button
+        className={`${customClass} button ${buttonType} themed`}
+        onClick={() => handleScrollTo(scrollTo)}
+      >
+        <span>{text}</span>
+        {icon !== null ? icon : null}
+      </button>
+    );
+  } else {
+    // Regular button
+    return (
+      <button className={`${customClass} button ${buttonType} themed`}>
+        <span>{text}</span>
+        {icon !== null ? icon : null}
+      </button>
+    );
+  }
 };
 
 export default Button;

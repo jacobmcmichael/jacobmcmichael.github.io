@@ -60,7 +60,7 @@ const ThemeToggle = () => {
     document.body.setAttribute("data-theme", currentTheme.current);
 
     // Trigger the animations manually
-    if (currentTheme.current === "light") {
+    if (currentTheme.current === "dark") {
       sunControls.start("show");
       moonControls.start("hide");
     } else {
@@ -76,11 +76,11 @@ const ThemeToggle = () => {
 
     // Set initial animation states based on the theme
     if (currentTheme.current === "dark") {
-      sunControls.start("hide");
-      moonControls.start("show");
-    } else {
       sunControls.start("show");
       moonControls.start("hide");
+    } else {
+      sunControls.start("hide");
+      moonControls.start("show");
     }
   }, []);
 
