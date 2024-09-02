@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useCallback } from "react";
 const ActiveSectionContext = createContext();
 
 export const ActiveSectionProvider = ({ children }) => {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("Hero");
 
   const updateActiveSection = useCallback((section) => {
     setActiveSection(section);

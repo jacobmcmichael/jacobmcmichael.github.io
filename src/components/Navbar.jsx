@@ -82,6 +82,15 @@ const Navbar = React.memo(() => {
         sectionsRef.current.push(section)
       );
 
+    // Update the indicator styles based on the "Hero" button's position on initial mount
+    if (linksRef.current[0]) {
+      const width = linksRef.current[0].offsetWidth;
+      const height = linksRef.current[0].offsetHeight;
+      const left = linksRef.current[0].offsetLeft;
+
+      setIndicatorStyles({ width, height, left, y: 0 });
+    }
+
     // Handle window resize to update the indicator position
     const handleResize = () => {
       const activeIndex = linksRef.current.findIndex((link) =>
@@ -118,19 +127,23 @@ const Navbar = React.memo(() => {
         <ul className="themed">
           {sections.map((section, index) => (
             <li key={index}>
-              <motion.button
+              <button
                 ref={(el) => (linksRef.current[index] = el)}
                 className={`button button--plain ${
                   index === activeIndex ? "link--active" : ""
                 }`}
                 onClick={() => handleLinkClick(index, section.id)}
-                initial={{ scale: index === activeIndex ? 1.15 : 1 }}
-                animate={{ scale: index === activeIndex ? 1.15 : 1 }}
-                transition={{ type: "spring", stiffness: 200, damping: 24 }}
               >
-                <span>{section.title}</span>
-                {section.icon}
-              </motion.button>
+                <span className="title h6">{section.title}</span>
+                <motion.div
+                  className="link__icon"
+                  initial={{ scale: index === activeIndex ? 1.15 : 1 }}
+                  animate={{ scale: index === activeIndex ? 1.15 : 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 24 }}
+                >
+                  {section.icon}
+                </motion.div>
+              </button>
             </li>
           ))}
 
