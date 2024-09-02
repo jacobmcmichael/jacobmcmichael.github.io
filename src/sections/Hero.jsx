@@ -25,7 +25,7 @@ export default function Hero() {
           customClass="top__button"
           type="primary"
           text="See My Work"
-          href="#Projects"
+          scrollTo="#Projects"
           icon={<ArrowDown />}
         />
       </div>

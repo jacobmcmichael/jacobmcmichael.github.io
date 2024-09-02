@@ -125,7 +125,7 @@ button,
   gap: 0.5em;
 
   width: fit-content;
-  padding: 1em 2em;
+  padding: var(--button-padding-y) var(--button-padding-x);
 
   color: rgb(var(--color-button-text));
   font-size: 1rem;
@@ -154,6 +154,13 @@ button,
   padding: 0.5rem;
 
   box-sizing: content-box;
+}
+
+.button--plain {
+  padding: 0;
+
+  border: unset;
+  background-color: unset;
 }
 
 .button--neumorphic {
@@ -203,6 +210,20 @@ svg.icon--cross {
 
   width: var(--adjusted-icon-size);
   height: var(--adjusted-icon-size);
+}
+
+svg.icon--house {
+  position: relative;
+
+  right: 0.1em;
+  bottom: 0.1em;
+}
+
+svg.icon--folder {
+  position: relative;
+
+  left: 0.1em;
+  bottom: 0.1em;
 }
 
 /* Utilities */

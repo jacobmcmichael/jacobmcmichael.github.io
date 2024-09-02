@@ -1,267 +1,178 @@
 /* Dependencies */
 import React from "react";
 
-export function Hamburger() {
+export function ArrowDown() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      className="icon--arrow-down"
+    >
+      <path
+        fill="currentColor"
+        d="M11 4.5v11.586l-4.5-4.5L5.086 13L12 19.914L18.914 13L17.5 11.586l-4.5 4.5V4.5z"
+      ></path>
+    </svg>
+  );
+}
+
+export function ArrowRight() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="M4.5 11h11.586l-4.5-4.5L13 5.086L19.914 12L13 18.914L11.586 17.5l4.5-4.5H4.5z"
+      ></path>
+    </svg>
+  );
+}
+
+export function ArrowUpRight() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      className="icon--up-right"
+    >
+      <path
+        fill="currentColor"
+        d="m5.99 16.596l8.192-8.192H7.818v-2h9.778v9.778h-2V9.818L7.403 18.01z"
+      ></path>
+    </svg>
+  );
+}
+
+export function AnimatedSun() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
       viewBox="0 0 512 512"
-      className="icon--hamburger"
+      className="icon--animated-sun"
     >
       <defs>
         <linearGradient
-          id="meteoconsMistFill0"
-          x1={220}
-          x2={292}
-          y1={137.7}
-          y2={262.4}
+          id="meteoconsHorizonFill0"
+          x1={150}
+          x2={234}
+          y1={119.2}
+          y2={264.8}
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset={0} stopColor="#d4d7dd"></stop>
-          <stop offset={0.5} stopColor="#d4d7dd"></stop>
-          <stop offset={1} stopColor="#bec1c6"></stop>
+          <stop offset={0} stopColor="#fbbf24"></stop>
+          <stop offset={0.5} stopColor="#fbbf24"></stop>
+          <stop offset={1} stopColor="#f59e0b"></stop>
         </linearGradient>
-        <linearGradient
-          id="meteoconsMistFill1"
-          y1={193.7}
-          y2={318.4}
-          href="#meteoconsMistFill0"
-        ></linearGradient>
-        <linearGradient
-          id="meteoconsMistFill2"
-          y1={249.7}
-          y2={374.4}
-          href="#meteoconsMistFill0"
-        ></linearGradient>
+        <clipPath id="meteoconsHorizonFill1">
+          <path fill="none" d="M0 0h512v306H0z"></path>
+        </clipPath>
+        <symbol id="meteoconsHorizonFill2" viewBox="0 0 384 384">
+          <circle
+            cx={192}
+            cy={192}
+            r={84}
+            fill="url(#meteoconsHorizonFill0)"
+            stroke="#f8af18"
+            strokeMiterlimit={10}
+            strokeWidth={6}
+          ></circle>
+          <path
+            fill="none"
+            stroke="#fbbf24"
+            strokeLinecap="round"
+            strokeMiterlimit={10}
+            strokeWidth={24}
+            d="M192 61.7V12m0 360v-49.7m92.2-222.5l35-35M64.8 319.2l35.1-35.1m0-184.4l-35-35m254.5 254.5l-35.1-35.1M61.7 192H12m360 0h-49.7"
+          >
+            <animateTransform
+              additive="sum"
+              attributeName="transform"
+              dur="6s"
+              repeatCount="indefinite"
+              type="rotate"
+              values="0 192 192; 45 192 192"
+            ></animateTransform>
+          </path>
+        </symbol>
       </defs>
+      <g clipPath="url(#meteoconsHorizonFill1)">
+        <use
+          width={384}
+          height={384}
+          href="#meteoconsHorizonFill2"
+          transform="translate(64 100)"
+        ></use>
+      </g>
       <path
         fill="none"
-        stroke="url(#meteoconsMistFill0)"
+        stroke="#374151"
         strokeLinecap="round"
-        strokeMiterlimit={10}
-        strokeWidth={24}
-        d="M136 200h240"
-      >
-        <animateTransform
-          additive="sum"
-          attributeName="transform"
-          dur="6s"
-          repeatCount="indefinite"
-          type="translate"
-          values="-48 0; 48 0; -48 0"
-        ></animateTransform>
-      </path>
-      <path
-        fill="none"
-        stroke="url(#meteoconsMistFill1)"
-        strokeLinecap="round"
-        strokeMiterlimit={10}
-        strokeWidth={24}
-        d="M136 256h240"
-      >
-        <animateTransform
-          additive="sum"
-          attributeName="transform"
-          begin="-1.5s"
-          dur="6s"
-          repeatCount="indefinite"
-          type="translate"
-          values="-48 0; 48 0; -48 0"
-        ></animateTransform>
-      </path>
-      <path
-        fill="none"
-        stroke="url(#meteoconsMistFill2)"
-        strokeLinecap="round"
-        strokeMiterlimit={10}
-        strokeWidth={24}
-        d="M136 312h240"
-      >
-        <animateTransform
-          additive="sum"
-          attributeName="transform"
-          dur="6s"
-          repeatCount="indefinite"
-          type="translate"
-          values="48 0; -48 0; 48 0"
-        ></animateTransform>
-      </path>
+        strokeLinejoin="round"
+        strokeWidth={18}
+        d="M128 332h256"
+      ></path>
     </svg>
   );
 }
 
-export function Cross() {
+export function AnimatedMoon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 32 32"
-      className="icon--cross"
+      viewBox="0 0 512 512"
+      className="icon--animated-moon"
     >
-      <g fill="none">
-        <g filter="url(#f339id4)">
+      <defs>
+        <linearGradient
+          id="meteoconsClearNightFill0"
+          x1={54.3}
+          x2={187.2}
+          y1={29}
+          y2={259.1}
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset={0} stopColor="#86c3db"></stop>
+          <stop offset={0.5} stopColor="#86c3db"></stop>
+          <stop offset={1} stopColor="#5eafcf"></stop>
+        </linearGradient>
+        <symbol id="meteoconsClearNightFill1" viewBox="0 0 270 270">
           <path
-            fill="url(#f339id0)"
-            d="M4.435 2.809A1.55 1.55 0 0 0 2.243 5L13.41 16.169a.25.25 0 0 1 0 .354L2.243 27.692a1.55 1.55 0 1 0 2.192 2.192l11.168-11.169a.25.25 0 0 1 .354 0l11.168 11.169a1.55 1.55 0 0 0 2.193-2.192l-11.17-11.17a.25.25 0 0 1 0-.353l11.17-11.168a1.55 1.55 0 0 0-2.192-2.192l-11.17 11.168a.25.25 0 0 1-.353 0z"
-          ></path>
-          <path
-            fill="url(#f339id1)"
-            d="M4.435 2.809A1.55 1.55 0 0 0 2.243 5L13.41 16.169a.25.25 0 0 1 0 .354L2.243 27.692a1.55 1.55 0 1 0 2.192 2.192l11.168-11.169a.25.25 0 0 1 .354 0l11.168 11.169a1.55 1.55 0 0 0 2.193-2.192l-11.17-11.17a.25.25 0 0 1 0-.353l11.17-11.168a1.55 1.55 0 0 0-2.192-2.192l-11.17 11.168a.25.25 0 0 1-.353 0z"
-          ></path>
-        </g>
-        <path
-          fill="url(#f339id7)"
-          d="M4.435 2.809A1.55 1.55 0 0 0 2.243 5L13.41 16.169a.25.25 0 0 1 0 .354L2.243 27.692a1.55 1.55 0 1 0 2.192 2.192l11.168-11.169a.25.25 0 0 1 .354 0l11.168 11.169a1.55 1.55 0 0 0 2.193-2.192l-11.17-11.17a.25.25 0 0 1 0-.353l11.17-11.168a1.55 1.55 0 0 0-2.192-2.192l-11.17 11.168a.25.25 0 0 1-.353 0z"
-        ></path>
-        <g filter="url(#f339id5)">
-          <path
-            stroke="url(#f339id2)"
+            fill="url(#meteoconsClearNightFill0)"
+            stroke="#72b9d5"
             strokeLinecap="round"
-            d="M3.685 3.558L15.2 15.074m13.367 13.368L17.68 17.555"
-          ></path>
-        </g>
-        <g filter="url(#f339id6)">
-          <path
-            stroke="url(#f339id3)"
-            strokeLinecap="round"
-            d="m27.832 4.289l-10.78 10.785M3.685 28.442L14.57 17.555"
-          ></path>
-        </g>
-        <defs>
-          <linearGradient
-            id="f339id0"
-            x1={15.78}
-            x2={15.78}
-            y1={2.355}
-            y2={30.338}
-            gradientUnits="userSpaceOnUse"
+            strokeLinejoin="round"
+            strokeWidth={6}
+            d="M252.3 168.6A133.4 133.4 0 0 1 118 36.2A130.5 130.5 0 0 1 122.5 3A133 133 0 0 0 3 134.6C3 207.7 63 267 137.2 267c62.5 0 114.8-42.2 129.8-99.2a135.6 135.6 0 0 1-14.8.8Z"
           >
-            <stop stopColor="#e02c6b"></stop>
-            <stop offset={1} stopColor="#ff354e"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f339id1"
-            x1={6.29}
-            x2={14.721}
-            y1={6.699}
-            y2={15.172}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#ee3d81"></stop>
-            <stop offset={1} stopColor="#ee3d81" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f339id2"
-            x1={3.314}
-            x2={28.986}
-            y1={3.885}
-            y2={29.499}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#ff679b"></stop>
-            <stop offset={1} stopColor="#ff7171"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f339id3"
-            x1={28.939}
-            x2={6.319}
-            y1={3.885}
-            y2={26.505}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#ef4b8b"></stop>
-            <stop offset={1} stopColor="#fe4753"></stop>
-          </linearGradient>
-          <filter
-            id="f339id4"
-            width={28.483}
-            height={27.983}
-            x={1.789}
-            y={2.355}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feColorMatrix
-              in="SourceAlpha"
-              result="hardAlpha"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            ></feColorMatrix>
-            <feOffset dx={0.5}></feOffset>
-            <feGaussianBlur stdDeviation={0.5}></feGaussianBlur>
-            <feComposite
-              in2="hardAlpha"
-              k2={-1}
-              k3={1}
-              operator="arithmetic"
-            ></feComposite>
-            <feColorMatrix values="0 0 0 0 0.776471 0 0 0 0 0.219608 0 0 0 0 0.411765 0 0 0 1 0"></feColorMatrix>
-            <feBlend
-              in2="shape"
-              result="effect1_innerShadow_18590_2030"
-            ></feBlend>
-          </filter>
-          <filter
-            id="f339id5"
-            width={27.383}
-            height={27.383}
-            x={2.435}
-            y={2.308}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feGaussianBlur
-              result="effect1_foregroundBlur_18590_2030"
-              stdDeviation={0.375}
-            ></feGaussianBlur>
-          </filter>
-          <filter
-            id="f339id6"
-            width={26.647}
-            height={26.652}
-            x={2.435}
-            y={3.039}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feGaussianBlur
-              result="effect1_foregroundBlur_18590_2030"
-              stdDeviation={0.375}
-            ></feGaussianBlur>
-          </filter>
-          <radialGradient
-            id="f339id7"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="rotate(134.145 13.617 7.88)scale(1.36671)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#ff75a7"></stop>
-            <stop offset={1} stopColor="#ff75a7" stopOpacity={0}></stop>
-          </radialGradient>
-        </defs>
-      </g>
+            <animateTransform
+              additive="sum"
+              attributeName="transform"
+              dur="6s"
+              repeatCount="indefinite"
+              type="rotate"
+              values="-15 135 135; 9 135 135; -15 135 135"
+            ></animateTransform>
+          </path>
+        </symbol>
+      </defs>
+      <use
+        width={270}
+        height={270}
+        href="#meteoconsClearNightFill1"
+        transform="translate(121 121)"
+      ></use>
     </svg>
   );
 }
@@ -2688,334 +2599,116 @@ export function Person() {
   );
 }
 
-export function Mailbox() {
+export function Chat() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
       viewBox="0 0 32 32"
-      className="icon--mailbox"
+      className="icon--chat"
     >
       <g fill="none">
-        <g clipPath="url(#f1521idv)">
+        <g filter="url(#f2265id5)">
           <path
-            fill="url(#f1521id0)"
-            d="M13.186 24.923h4.65v4.956h-4.65z"
+            fill="url(#f2265id0)"
+            d="M2.675 13.65C4.61 9.86 9.057 5.378 16.172 5.378c7.134 0 11.531 4.247 13.457 8.311a2.61 2.61 0 0 1 .04 2.731c-2.504 4.324-6.383 8.272-13.497 8.272c-.947 0-1.878-.041-2.73-.162c-.46-.065-.934-.007-1.342.214c-1.155.623-2.315 1.3-3.795 2.135a.657.657 0 0 1-.98-.613l.217-3.409a1.6 1.6 0 0 0-.584-1.315c-1.73-1.456-3.085-3.288-4.243-5.171c-.525-.851-.544-1.86-.04-2.721"
           ></path>
           <path
-            fill="url(#f1521id1)"
-            d="M13.186 24.923h4.65v4.956h-4.65z"
+            fill="url(#f2265id1)"
+            d="M2.675 13.65C4.61 9.86 9.057 5.378 16.172 5.378c7.134 0 11.531 4.247 13.457 8.311a2.61 2.61 0 0 1 .04 2.731c-2.504 4.324-6.383 8.272-13.497 8.272c-.947 0-1.878-.041-2.73-.162c-.46-.065-.934-.007-1.342.214c-1.155.623-2.315 1.3-3.795 2.135a.657.657 0 0 1-.98-.613l.217-3.409a1.6 1.6 0 0 0-.584-1.315c-1.73-1.456-3.085-3.288-4.243-5.171c-.525-.851-.544-1.86-.04-2.721"
           ></path>
           <path
-            fill="url(#f1521ido)"
-            d="M13.186 24.923h4.65v4.956h-4.65z"
-          ></path>
-          <g filter="url(#f1521idg)">
-            <path
-              fill="url(#f1521id2)"
-              d="M4.044 14.54a5.5 5.5 0 0 1 5.5-5.5h12.912a5.5 5.5 0 0 1 5.5 5.5v9.383a1 1 0 0 1-1 1H5.044a1 1 0 0 1-1-1z"
-            ></path>
-            <path
-              fill="url(#f1521idp)"
-              d="M4.044 14.54a5.5 5.5 0 0 1 5.5-5.5h12.912a5.5 5.5 0 0 1 5.5 5.5v9.383a1 1 0 0 1-1 1H5.044a1 1 0 0 1-1-1z"
-            ></path>
-          </g>
-          <g filter="url(#f1521idh)">
-            <path
-              fill="#4473c1"
-              d="M5.49 24.43h9.198c.61 0 1.105-.42 1.105-.938V14.69c0-2.743-2.428-5.15-5.704-5.15c-3.093-.163-5.705 1.92-5.705 5.15v8.802c0 .518.495.938 1.105.938"
-            ></path>
-            <path
-              stroke="url(#f1521id3)"
-              strokeWidth={0.25}
-              d="M5.49 24.555h9.198c.66 0 1.23-.458 1.23-1.063V14.69c0-2.82-2.49-5.273-5.826-5.275C6.94 9.25 4.259 11.38 4.259 14.69v8.802c0 .605.57 1.063 1.23 1.063Z"
-            ></path>
-          </g>
-          <g filter="url(#f1521idi)">
-            <ellipse
-              cx={17.771}
-              cy={14.018}
-              fill="#264fc5"
-              rx={1.572}
-              ry={2.406}
-            ></ellipse>
-          </g>
-          <g filter="url(#f1521idj)">
-            <path
-              fill="url(#f1521id4)"
-              d="M4.78 15.238a4.758 4.758 0 1 1 9.516 0v7.993a.25.25 0 0 1-.25.25H5.03a.25.25 0 0 1-.25-.25z"
-            ></path>
-          </g>
-          <path
-            fill="url(#f1521id5)"
-            d="M5.169 15.242a4.758 4.758 0 1 1 9.515 0v7.992a.25.25 0 0 1-.25.25H5.42a.25.25 0 0 1-.25-.25z"
-          ></path>
-          <g filter="url(#f1521idk)">
-            <path
-              fill="url(#f1521id6)"
-              d="M19.57 2.97h5.38c.442 0 .8.311.8.694v2.703c0 .383-.358.694-.8.694h-5.38z"
-            ></path>
-          </g>
-          <path
-            fill="url(#f1521id7)"
-            d="M20.36 3.038a1.149 1.149 0 0 0-2.298 0v9.617h2.297z"
+            fill="url(#f2265id2)"
+            d="M2.675 13.65C4.61 9.86 9.057 5.378 16.172 5.378c7.134 0 11.531 4.247 13.457 8.311a2.61 2.61 0 0 1 .04 2.731c-2.504 4.324-6.383 8.272-13.497 8.272c-.947 0-1.878-.041-2.73-.162c-.46-.065-.934-.007-1.342.214c-1.155.623-2.315 1.3-3.795 2.135a.657.657 0 0 1-.98-.613l.217-3.409a1.6 1.6 0 0 0-.584-1.315c-1.73-1.456-3.085-3.288-4.243-5.171c-.525-.851-.544-1.86-.04-2.721"
           ></path>
           <path
-            fill="url(#f1521id8)"
-            d="M20.36 3.038a1.149 1.149 0 0 0-2.298 0v9.617h2.297z"
+            fill="url(#f2265id3)"
+            d="M2.675 13.65C4.61 9.86 9.057 5.378 16.172 5.378c7.134 0 11.531 4.247 13.457 8.311a2.61 2.61 0 0 1 .04 2.731c-2.504 4.324-6.383 8.272-13.497 8.272c-.947 0-1.878-.041-2.73-.162c-.46-.065-.934-.007-1.342.214c-1.155.623-2.315 1.3-3.795 2.135a.657.657 0 0 1-.98-.613l.217-3.409a1.6 1.6 0 0 0-.584-1.315c-1.73-1.456-3.085-3.288-4.243-5.171c-.525-.851-.544-1.86-.04-2.721"
           ></path>
           <path
-            fill="url(#f1521idq)"
-            d="M20.36 3.038a1.149 1.149 0 0 0-2.298 0v9.617h2.297z"
+            fill="url(#f2265id4)"
+            d="M2.675 13.65C4.61 9.86 9.057 5.378 16.172 5.378c7.134 0 11.531 4.247 13.457 8.311a2.61 2.61 0 0 1 .04 2.731c-2.504 4.324-6.383 8.272-13.497 8.272c-.947 0-1.878-.041-2.73-.162c-.46-.065-.934-.007-1.342.214c-1.155.623-2.315 1.3-3.795 2.135a.657.657 0 0 1-.98-.613l.217-3.409a1.6 1.6 0 0 0-.584-1.315c-1.73-1.456-3.085-3.288-4.243-5.171c-.525-.851-.544-1.86-.04-2.721"
           ></path>
-          <g filter="url(#f1521idl)">
-            <rect
-              width={8.516}
-              height={0.319}
-              x={18.973}
-              y={11.908}
-              fill="#aea4bf"
-              rx={0.159}
-              transform="rotate(-90 18.973 11.908)"
-            ></rect>
-          </g>
-          <circle
-            r={2.406}
-            fill="url(#f1521idr)"
-            transform="matrix(0 -1 -1 0 19.21 13.586)"
-          ></circle>
-          <circle
-            r={2.406}
-            fill="url(#f1521ids)"
-            transform="matrix(0 -1 -1 0 19.21 13.586)"
-          ></circle>
-          <circle
-            r={2.406}
-            fill="url(#f1521idt)"
-            transform="matrix(0 -1 -1 0 19.21 13.586)"
-          ></circle>
+        </g>
+        <g filter="url(#f2265id6)">
           <path
-            fill="url(#f1521id9)"
-            d="M7.26 23.484h7.174a.25.25 0 0 0 .25-.25v-7.992c0-.943-.274-1.822-.747-2.56H7.26a1 1 0 0 0-1 1v8.802a1 1 0 0 0 1 1"
+            fill="url(#f2265id8)"
+            d="m8.738 21.117l-.584 4.505a.25.25 0 0 0 .373.249l3.922-2.28l-1.268-2.258z"
           ></path>
-          <path
-            fill="url(#f1521ida)"
-            d="M7.26 23.484h7.174a.25.25 0 0 0 .25-.25v-7.992c0-.943-.274-1.822-.747-2.56H7.26a1 1 0 0 0-1 1v8.802a1 1 0 0 0 1 1"
-          ></path>
-          <path
-            fill="url(#f1521idb)"
-            d="M7.26 23.484h7.174a.25.25 0 0 0 .25-.25v-7.992c0-.943-.274-1.822-.747-2.56H7.26a1 1 0 0 0-1 1v8.802a1 1 0 0 0 1 1"
-          ></path>
-          <g filter="url(#f1521idm)">
-            <path
-              fill="url(#f1521idc)"
-              d="M7.209 23.484h7.225a.25.25 0 0 0 .25-.25V18.16l-.777-.488a.22.22 0 0 0-.23 0l-7.223 4.514a.41.41 0 0 0-.193.35c0 .524.424.948.948.948"
-            ></path>
-          </g>
-          <path
-            fill="url(#f1521idd)"
-            d="M7.209 23.484h7.225a.25.25 0 0 0 .25-.25v-5.457l-.777-.105a.22.22 0 0 0-.23 0l-7.223 4.514a.41.41 0 0 0-.193.35c0 .524.424.948.948.948"
-          ></path>
-          <path
-            fill="url(#f1521ide)"
-            d="M7.209 23.484h7.225a.25.25 0 0 0 .25-.25v-5.457l-.777-.105a.22.22 0 0 0-.23 0l-7.223 4.514a.41.41 0 0 0-.193.35c0 .524.424.948.948.948"
-          ></path>
-          <g filter="url(#f1521idn)">
-            <path
-              fill="url(#f1521idf)"
-              d="M13.937 12.681c.473.74.747 1.618.747 2.561v2.764l-.777.487a.22.22 0 0 1-.23 0L6.454 13.98a.41.41 0 0 1-.193-.35c0-.523.424-.948.948-.948z"
-            ></path>
-            <path
-              fill="url(#f1521idu)"
-              d="M13.937 12.681c.473.74.747 1.618.747 2.561v2.764l-.777.487a.22.22 0 0 1-.23 0L6.454 13.98a.41.41 0 0 1-.193-.35c0-.523.424-.948.948-.948z"
-            ></path>
-          </g>
+        </g>
+        <g filter="url(#f2265id7)">
+          <ellipse
+            cx={16.172}
+            cy={16.172}
+            fill="#dbd1f0"
+            fillOpacity={0.5}
+            rx={8.72}
+            ry={5.69}
+          ></ellipse>
         </g>
         <defs>
-          <linearGradient
-            id="f1521id0"
-            x1={16.822}
-            x2={13.186}
-            y1={29.879}
-            y2={29.879}
+          <radialGradient
+            id="f2265id0"
+            cx={0}
+            cy={0}
+            r={1}
+            gradientTransform="rotate(108.693 9.138 11.635)scale(17.3662 42.1894)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#8f616c"></stop>
-            <stop offset={0.42} stopColor="#7d4261"></stop>
-            <stop offset={0.774} stopColor="#5e3a43"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id1"
-            x1={18.103}
-            x2={17.353}
-            y1={29.879}
-            y2={29.879}
+            <stop stopColor="#fff"></stop>
+            <stop offset={1} stopColor="#d7c6de"></stop>
+          </radialGradient>
+          <radialGradient
+            id="f2265id1"
+            cx={0}
+            cy={0}
+            r={1}
+            gradientTransform="matrix(-9.27646 -17.1923 24.86346 -13.4156 11.585 22.57)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#855a5d"></stop>
-            <stop offset={1} stopColor="#855a5d" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id2"
-            x1={20.525}
-            x2={20.525}
-            y1={24.923}
-            y2={11.242}
+            <stop offset={0.619} stopColor="#cecece" stopOpacity={0}></stop>
+            <stop offset={1} stopColor="#cecece"></stop>
+          </radialGradient>
+          <radialGradient
+            id="f2265id2"
+            cx={0}
+            cy={0}
+            r={1}
+            gradientTransform="matrix(-28.94244 -4.57627 6.61819 -41.8565 27.664 23.436)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset={0.743} stopColor="#5097da"></stop>
-            <stop offset={1} stopColor="#5d98da"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id3"
-            x1={17.262}
-            x2={9.296}
-            y1={19.63}
-            y2={19.63}
+            <stop offset={0.781} stopColor="#cecece" stopOpacity={0}></stop>
+            <stop offset={1} stopColor="#cecece"></stop>
+          </radialGradient>
+          <radialGradient
+            id="f2265id3"
+            cx={0}
+            cy={0}
+            r={1}
+            gradientTransform="matrix(22.01604 -17.56335 25.40005 31.8395 12.08 24.673)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset={0.222} stopColor="#3b7bde"></stop>
-            <stop offset={1} stopColor="#3c84d5" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id4"
-            x1={9.538}
-            x2={9.538}
-            y1={10.48}
-            y2={23.48}
+            <stop offset={0.645} stopColor="#cecece" stopOpacity={0}></stop>
+            <stop offset={1} stopColor="#cecece"></stop>
+          </radialGradient>
+          <radialGradient
+            id="f2265id4"
+            cx={0}
+            cy={0}
+            r={1}
+            gradientTransform="matrix(3.95805 25.4792 -28.34266 4.40287 15.42 8.347)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset={0.191} stopColor="#3255bf"></stop>
-            <stop offset={1} stopColor="#3255bf" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id5"
-            x1={9.926}
-            x2={9.926}
-            y1={10.484}
-            y2={22.438}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#4b1776"></stop>
-            <stop offset={1} stopColor="#240b46"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id6"
-            x1={22.66}
-            x2={22.66}
-            y1={2.971}
-            y2={4.658}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#ff8e4e"></stop>
-            <stop offset={1} stopColor="#f96941"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id7"
-            x1={18.062}
-            x2={19.659}
-            y1={6.221}
-            y2={6.221}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#948aa4"></stop>
-            <stop offset={1} stopColor="#a6a4af"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id8"
-            x1={19.211}
-            x2={19.211}
-            y1={1.889}
-            y2={3.033}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#bab9bf"></stop>
-            <stop offset={1} stopColor="#bab9bf" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521id9"
-            x1={7.344}
-            x2={13.449}
-            y1={18.709}
-            y2={18.709}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#d0cbd7"></stop>
-            <stop offset={0.606} stopColor="#e7def2"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521ida"
-            x1={10.472}
-            x2={9.512}
-            y1={15.656}
-            y2={17.313}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.261} stopColor="#bfb8c7"></stop>
-            <stop offset={1} stopColor="#ccc4d7" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521idb"
-            x1={10.355}
-            x2={9.73}
-            y1={20.313}
-            y2={19.406}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#b7b1bf"></stop>
-            <stop offset={1} stopColor="#e2daeb" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521idc"
-            x1={14.386}
-            x2={11.043}
-            y1={24.313}
-            y2={19.594}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#cdbfde"></stop>
-            <stop offset={1} stopColor="#e9e0f5"></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521idd"
-            x1={8.784}
-            x2={8.992}
-            y1={20.562}
-            y2={20.875}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.212} stopColor="#d9d2e1"></stop>
-            <stop offset={1} stopColor="#d9d2e1" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521ide"
-            x1={15.329}
-            x2={12.106}
-            y1={23.484}
-            y2={23.11}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.214} stopColor="#625c6a"></stop>
-            <stop offset={1} stopColor="#9f98a9" stopOpacity={0}></stop>
-          </linearGradient>
-          <linearGradient
-            id="f1521idf"
-            x1={10.074}
-            x2={14.684}
-            y1={16.344}
-            y2={10.219}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#e3dfea"></stop>
-            <stop offset={1} stopColor="#a5a0ad"></stop>
-          </linearGradient>
+            <stop offset={0.464} stopColor="#b6a8f2" stopOpacity={0}></stop>
+            <stop offset={1} stopColor="#b6a8f2"></stop>
+          </radialGradient>
           <filter
-            id="f1521idg"
-            width={24.113}
-            height={16.283}
-            x={4.044}
-            y={8.64}
+            id="f2265id5"
+            width={27.726}
+            height={21.598}
+            x={2.309}
+            y={5.378}
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
@@ -3030,26 +2723,26 @@ export function Mailbox() {
               result="hardAlpha"
               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             ></feColorMatrix>
-            <feOffset dx={0.2} dy={-0.4}></feOffset>
-            <feGaussianBlur stdDeviation={0.375}></feGaussianBlur>
+            <feOffset dy={0.01}></feOffset>
+            <feGaussianBlur stdDeviation={0.25}></feGaussianBlur>
             <feComposite
               in2="hardAlpha"
               k2={-1}
               k3={1}
               operator="arithmetic"
             ></feComposite>
-            <feColorMatrix values="0 0 0 0 0.262745 0 0 0 0 0.356863 0 0 0 0 1 0 0 0 1 0"></feColorMatrix>
+            <feColorMatrix values="0 0 0 0 0.758333 0 0 0 0 0.758333 0 0 0 0 0.758333 0 0 0 1 0"></feColorMatrix>
             <feBlend
               in2="shape"
-              result="effect1_innerShadow_18_22052"
+              result="effect1_innerShadow_7154_6147"
             ></feBlend>
           </filter>
           <filter
-            id="f1521idh"
-            width={12.909}
-            height={16.398}
-            x={3.634}
-            y={8.781}
+            id="f2265id6"
+            width={6.297}
+            height={6.789}
+            x={7.152}
+            y={20.117}
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
@@ -3060,16 +2753,16 @@ export function Mailbox() {
               result="shape"
             ></feBlend>
             <feGaussianBlur
-              result="effect1_foregroundBlur_18_22052"
-              stdDeviation={0.25}
+              result="effect1_foregroundBlur_7154_6147"
+              stdDeviation={0.5}
             ></feGaussianBlur>
           </filter>
           <filter
-            id="f1521idi"
-            width={5.645}
-            height={7.313}
-            x={14.949}
-            y={10.361}
+            id="f2265id7"
+            width={27.44}
+            height={21.379}
+            x={2.452}
+            y={5.482}
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
@@ -3080,410 +2773,23 @@ export function Mailbox() {
               result="shape"
             ></feBlend>
             <feGaussianBlur
-              result="effect1_foregroundBlur_18_22052"
-              stdDeviation={0.625}
+              result="effect1_foregroundBlur_7154_6147"
+              stdDeviation={2.5}
             ></feGaussianBlur>
           </filter>
-          <filter
-            id="f1521idj"
-            width={10.016}
-            height={13.5}
-            x={4.53}
-            y={10.23}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feGaussianBlur
-              result="effect1_foregroundBlur_18_22052"
-              stdDeviation={0.125}
-            ></feGaussianBlur>
-          </filter>
-          <filter
-            id="f1521idk"
-            width={6.58}
-            height={4.34}
-            x={19.57}
-            y={2.721}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feColorMatrix
-              in="SourceAlpha"
-              result="hardAlpha"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            ></feColorMatrix>
-            <feOffset dx={0.4} dy={-0.25}></feOffset>
-            <feGaussianBlur stdDeviation={0.5}></feGaussianBlur>
-            <feComposite
-              in2="hardAlpha"
-              k2={-1}
-              k3={1}
-              operator="arithmetic"
-            ></feComposite>
-            <feColorMatrix values="0 0 0 0 0.858824 0 0 0 0 0.203922 0 0 0 0 0.2 0 0 0 1 0"></feColorMatrix>
-            <feBlend
-              in2="shape"
-              result="effect1_innerShadow_18_22052"
-            ></feBlend>
-          </filter>
-          <filter
-            id="f1521idl"
-            width={1.319}
-            height={9.516}
-            x={18.473}
-            y={2.893}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feGaussianBlur
-              result="effect1_foregroundBlur_18_22052"
-              stdDeviation={0.25}
-            ></feGaussianBlur>
-          </filter>
-          <filter
-            id="f1521idm"
-            width={8.674}
-            height={6.595}
-            x={6.011}
-            y={16.889}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feColorMatrix
-              in="SourceAlpha"
-              result="hardAlpha"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            ></feColorMatrix>
-            <feOffset dx={-0.25} dy={-0.75}></feOffset>
-            <feGaussianBlur stdDeviation={0.75}></feGaussianBlur>
-            <feComposite
-              in2="hardAlpha"
-              k2={-1}
-              k3={1}
-              operator="arithmetic"
-            ></feComposite>
-            <feColorMatrix values="0 0 0 0 0.643137 0 0 0 0 0.584314 0 0 0 0 0.705882 0 0 0 1 0"></feColorMatrix>
-            <feBlend
-              in2="shape"
-              result="effect1_innerShadow_18_22052"
-            ></feBlend>
-          </filter>
-          <filter
-            id="f1521idn"
-            width={8.424}
-            height={6.095}
-            x={6.261}
-            y={12.431}
-            colorInterpolationFilters="sRGB"
-            filterUnits="userSpaceOnUse"
-          >
-            <feFlood floodOpacity={0} result="BackgroundImageFix"></feFlood>
-            <feBlend
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            ></feBlend>
-            <feColorMatrix
-              in="SourceAlpha"
-              result="hardAlpha"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            ></feColorMatrix>
-            <feOffset dy={-0.25}></feOffset>
-            <feGaussianBlur stdDeviation={0.3}></feGaussianBlur>
-            <feComposite
-              in2="hardAlpha"
-              k2={-1}
-              k3={1}
-              operator="arithmetic"
-            ></feComposite>
-            <feColorMatrix values="0 0 0 0 0.67451 0 0 0 0 0.639216 0 0 0 0 0.721569 0 0 0 1 0"></feColorMatrix>
-            <feBlend
-              in2="shape"
-              result="effect1_innerShadow_18_22052"
-            ></feBlend>
-          </filter>
-          <radialGradient
-            id="f1521ido"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(0 -4.95639 5.62268 0 15.511 29.88)"
+          <linearGradient
+            id="f2265id8"
+            x1={10.268}
+            x2={13.191}
+            y1={26.404}
+            y2={20.931}
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset={0.772} stopColor="#632f53" stopOpacity={0}></stop>
-            <stop offset={1} stopColor="#5a3a46"></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521idp"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(-3.43747 -3.75003 1.58491 -1.45282 18.137 11.813)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#4065b4"></stop>
-            <stop offset={1} stopColor="#4784c4" stopOpacity={0}></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521idq"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(0 -.9375 .50781 0 19.565 2.033)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="#cfcbd8"></stop>
-            <stop offset={1} stopColor="#cfcbd8" stopOpacity={0}></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521idr"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(2.69549 -1.96875 2.37524 3.25202 -.29 3.136)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.104} stopColor="#9571c7"></stop>
-            <stop offset={1} stopColor="#b0b0b7"></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521ids"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(0 5.39471 -4.66751 0 2.406 -.582)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.643} stopColor="#948da4" stopOpacity={0}></stop>
-            <stop offset={1} stopColor="#636697"></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521idt"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(.9375 -1.75 1.31778 .70595 3.304 .98)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.247} stopColor="#d0ccda"></stop>
-            <stop offset={1} stopColor="#b6b6bd" stopOpacity={0}></stop>
-          </radialGradient>
-          <radialGradient
-            id="f1521idu"
-            cx={0}
-            cy={0}
-            r={1}
-            gradientTransform="matrix(7 -1.875 4.70551 17.56721 8.23 16.094)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset={0.63} stopColor="#aca5b5" stopOpacity={0}></stop>
-            <stop offset={0.912} stopColor="#88858e"></stop>
-          </radialGradient>
-          <clipPath id="f1521idv">
-            <path fill="#fff" d="M0 0h32v32H0z"></path>
-          </clipPath>
+            <stop stopColor="#dcd0f4"></stop>
+            <stop offset={1} stopColor="#ded0f9" stopOpacity={0}></stop>
+          </linearGradient>
         </defs>
       </g>
-    </svg>
-  );
-}
-
-export function ArrowDown() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      className="icon--arrow-down"
-    >
-      <path
-        fill="currentColor"
-        d="M11 4.5v11.586l-4.5-4.5L5.086 13L12 19.914L18.914 13L17.5 11.586l-4.5 4.5V4.5z"
-      ></path>
-    </svg>
-  );
-}
-
-export function ArrowRight() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-    >
-      <path
-        fill="currentColor"
-        d="M4.5 11h11.586l-4.5-4.5L13 5.086L19.914 12L13 18.914L11.586 17.5l4.5-4.5H4.5z"
-      ></path>
-    </svg>
-  );
-}
-
-export function ArrowUpRight() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      className="icon--up-right"
-    >
-      <path
-        fill="currentColor"
-        d="m5.99 16.596l8.192-8.192H7.818v-2h9.778v9.778h-2V9.818L7.403 18.01z"
-      ></path>
-    </svg>
-  );
-}
-
-export function AnimatedSun() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 512 512"
-      className="icon--animated-sun"
-    >
-      <defs>
-        <linearGradient
-          id="meteoconsHorizonFill0"
-          x1={150}
-          x2={234}
-          y1={119.2}
-          y2={264.8}
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset={0} stopColor="#fbbf24"></stop>
-          <stop offset={0.5} stopColor="#fbbf24"></stop>
-          <stop offset={1} stopColor="#f59e0b"></stop>
-        </linearGradient>
-        <clipPath id="meteoconsHorizonFill1">
-          <path fill="none" d="M0 0h512v306H0z"></path>
-        </clipPath>
-        <symbol id="meteoconsHorizonFill2" viewBox="0 0 384 384">
-          <circle
-            cx={192}
-            cy={192}
-            r={84}
-            fill="url(#meteoconsHorizonFill0)"
-            stroke="#f8af18"
-            strokeMiterlimit={10}
-            strokeWidth={6}
-          ></circle>
-          <path
-            fill="none"
-            stroke="#fbbf24"
-            strokeLinecap="round"
-            strokeMiterlimit={10}
-            strokeWidth={24}
-            d="M192 61.7V12m0 360v-49.7m92.2-222.5l35-35M64.8 319.2l35.1-35.1m0-184.4l-35-35m254.5 254.5l-35.1-35.1M61.7 192H12m360 0h-49.7"
-          >
-            <animateTransform
-              additive="sum"
-              attributeName="transform"
-              dur="6s"
-              repeatCount="indefinite"
-              type="rotate"
-              values="0 192 192; 45 192 192"
-            ></animateTransform>
-          </path>
-        </symbol>
-      </defs>
-      <g clipPath="url(#meteoconsHorizonFill1)">
-        <use
-          width={384}
-          height={384}
-          href="#meteoconsHorizonFill2"
-          transform="translate(64 100)"
-        ></use>
-      </g>
-      <path
-        fill="none"
-        stroke="#374151"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={18}
-        d="M128 332h256"
-      ></path>
-    </svg>
-  );
-}
-
-export function AnimatedMoon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 512 512"
-      className="icon--animated-moon"
-    >
-      <defs>
-        <linearGradient
-          id="meteoconsClearNightFill0"
-          x1={54.3}
-          x2={187.2}
-          y1={29}
-          y2={259.1}
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset={0} stopColor="#86c3db"></stop>
-          <stop offset={0.5} stopColor="#86c3db"></stop>
-          <stop offset={1} stopColor="#5eafcf"></stop>
-        </linearGradient>
-        <symbol id="meteoconsClearNightFill1" viewBox="0 0 270 270">
-          <path
-            fill="url(#meteoconsClearNightFill0)"
-            stroke="#72b9d5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={6}
-            d="M252.3 168.6A133.4 133.4 0 0 1 118 36.2A130.5 130.5 0 0 1 122.5 3A133 133 0 0 0 3 134.6C3 207.7 63 267 137.2 267c62.5 0 114.8-42.2 129.8-99.2a135.6 135.6 0 0 1-14.8.8Z"
-          >
-            <animateTransform
-              additive="sum"
-              attributeName="transform"
-              dur="6s"
-              repeatCount="indefinite"
-              type="rotate"
-              values="-15 135 135; 9 135 135; -15 135 135"
-            ></animateTransform>
-          </path>
-        </symbol>
-      </defs>
-      <use
-        width={270}
-        height={270}
-        href="#meteoconsClearNightFill1"
-        transform="translate(121 121)"
-      ></use>
     </svg>
   );
 }
