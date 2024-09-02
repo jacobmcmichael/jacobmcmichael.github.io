@@ -72,20 +72,28 @@ export default function Projects() {
             <EntranceAnimation key={index}>
               <div className="project__card themed">
                 {image ? (
-                  <GatsbyImage
-                    image={image}
-                    alt={project.title}
-                    placeholder="blurred"
-                    layout="constrained"
-                    width={600}
-                    quality={80}
-                  />
+                  <a href={project.href} target="_blank">
+                    <GatsbyImage
+                      image={image}
+                      alt={project.title}
+                      placeholder="blurred"
+                      layout="constrained"
+                      width={600}
+                      quality={80}
+                    />
+                  </a>
                 ) : (
                   <p>Image not found</p>
                 )}
 
                 <div className="card__header">
-                  <h3 className="subtitle h6 card__title">{project.title}</h3>
+                  <a
+                    className="subtitle h6 card__title"
+                    href={project.href}
+                    target="_blank"
+                  >
+                    {project.title}
+                  </a>
                   <h4 className="subtitle h6 card__subtitle">
                     {project.genre}
                   </h4>
