@@ -2,6 +2,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+/* Contexts */
+import { useActiveSection } from "@/contexts/ActiveSectionContext";
+
 /* Components */
 import { House, Folder, Person, Chat } from "@/components/Icons";
 
@@ -9,8 +12,6 @@ import { House, Folder, Person, Chat } from "@/components/Icons";
 import "@/styles/navbar.css";
 
 const Navbar = () => {
-  const linksRef = useRef([]);
-
   // Define the sections statically
   const sections = [
     { id: "Hero", title: "Home", icon: <House /> },
@@ -18,6 +19,9 @@ const Navbar = () => {
     { id: "About", title: "About", icon: <Person /> },
     { id: "Contact", title: "Contact", icon: <Chat /> },
   ];
+
+  // Context to get and set the active section
+  const { activeSection, updateActiveSection } = useActiveSection();
 
   // State to control indicator position, width, height, and y translate
   const [indicatorStyles, setIndicatorStyles] = useState({
@@ -27,17 +31,20 @@ const Navbar = () => {
     y: 0,
   });
 
+  const sectionsRef = useRef([]);
+  const linksRef = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isManualScroll, setIsManualScroll] = useState(false); // New state to manage manual scroll
 
   // Function to handle link click
   const handleLinkClick = (index, id) => {
     if (!linksRef.current[index]) return;
 
-    // Remove active class from all links
-    linksRef.current.forEach((link) => link.classList.remove("link--active"));
+    // Disable observer updates during manual scroll
+    setIsManualScroll(true);
 
-    // Add active class to the clicked link
-    linksRef.current[index].classList.add("link--active");
+    // Update the active section in context
+    updateActiveSection(id);
 
     // Update the indicator position, width, height, and y-translate
     const width = linksRef.current[index].offsetWidth;
@@ -51,17 +58,27 @@ const Navbar = () => {
     // Set the active index
     setActiveIndex(index);
 
+    // Scroll to the section
     if (id) {
       let section = document.getElementById(id);
       if (section) {
         document.querySelectorAll("main > section")[0] === section
           ? window.scrollTo({ top: 0 })
-          : section.scrollIntoView();
+          : section.scrollIntoView({ behavior: "smooth" });
       }
     }
+
+    // Re-enable observer updates after a delay (when the scroll is complete)
+    setTimeout(() => setIsManualScroll(false), 500); // Adjust the delay based on scroll duration
   };
 
   useEffect(() => {
+    let sectionElements = document.querySelectorAll("main > section");
+    if (sectionElements)
+      Array.from(sectionElements).forEach((section) =>
+        sectionsRef.current.push(section)
+      );
+
     // Handle window resize to update the indicator position
     const handleResize = () => {
       const activeIndex = linksRef.current.findIndex((link) =>
@@ -72,11 +89,20 @@ const Navbar = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Set the first link as active on mount
-    handleLinkClick(0);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Effect to update navbar when activeSection changes
+  useEffect(() => {
+    if (isManualScroll) return; // Skip observer updates during manual scroll
+
+    const newIndex = sections.findIndex(
+      (section) => section.id === activeSection
+    );
+    if (newIndex !== -1 && newIndex !== activeIndex) {
+      handleLinkClick(newIndex, sections[newIndex].id);
+    }
+  }, [activeSection, isManualScroll]);
 
   return (
     <div className="navbar__wrapper">

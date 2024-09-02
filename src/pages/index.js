@@ -1,76 +1,19 @@
 /* Dependencies */
 import React from "react";
+import { ActiveSectionProvider } from "@/contexts/ActiveSectionContext";
 
-/* Layouts */
-import HomeLayout from "@/layouts/HomeLayout";
-
-/* Components */
-import ThemeToggle from "@/components/ThemeToggle";
-import Logo from "@/components/Logo";
-import Navbar from "@/components/Navbar";
-
-/* Sections */
-import Hero from "@/sections/Hero";
-import Projects from "@/sections/Projects";
-import About from "@/sections/About";
-import Contact from "@/sections/Contact";
+/* Pages */
+import HomePage from "@/pages/HomePage";
 
 /* Stylesheets */
-import "@/styles/index.css";
+import "@/styles/_reset.css";
+import "@/styles/_variables.css";
+import "@/styles/_global.css";
 
-export function Head() {
+export default function App() {
   return (
-    <>
-      <title>Jacob McMichael</title>
-      {`TODO: Update Meta info`}
-      <meta
-        name="description"
-        content="Welcome to the home page of My Awesome SPA"
-      />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="anonymous"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Unbounded:wght@200..900&display=swap"
-        rel="stylesheet"
-      />
-    </>
-  );
-}
-
-export default function HomePage() {
-  const sections = [
-    { id: "Hero", title: "Home", component: <Hero /> },
-    { id: "Projects", title: "Projects", component: <Projects /> },
-    { id: "About", title: "About", component: <About /> },
-    { id: "Contact", title: "Contact", component: <Contact /> },
-  ];
-
-  return (
-    <>
-      <header id="Header" className="themed">
-        <div className="header__inner">
-          <Logo />
-
-          <div className="header__actions">
-            <ThemeToggle />
-            <Navbar />
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <HomeLayout>
-          {sections.map((section, index) => (
-            <section key={index} id={section.id} data-title={section.title}>
-              {section.component}
-            </section>
-          ))}
-        </HomeLayout>
-      </main>
-    </>
+    <ActiveSectionProvider>
+      <HomePage />
+    </ActiveSectionProvider>
   );
 }
