@@ -2,6 +2,7 @@
   /* Colors */
   --color-body-text: 249, 249, 249;
   --color-button-text: 249, 249, 249;
+  --color-nav-border: 249, 249, 249;
   --color-nav-background: 51, 51, 51;
   --color-nav-toggle-icon: 18, 18, 18;
   --color-nav-toggle-background: 249, 249, 249;
@@ -78,6 +79,7 @@
 [data-theme="light"] {
   --color-body-text: 18, 18, 18;
   --color-button-text: 249, 249, 249;
+  --color-nav-border: 51, 51, 51;
   --color-nav-toggle-icon: 249, 249, 249;
   --color-nav-toggle-background: 18, 18, 18;
   --color-background: 249, 249, 249;

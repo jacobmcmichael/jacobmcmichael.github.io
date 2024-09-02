@@ -81,7 +81,7 @@ const Navbar = () => {
   return (
     <div className="navbar__wrapper">
       <nav id="Navbar">
-        <ul>
+        <ul className="themed">
           {sections.map((section, index) => (
             <li key={index}>
               <motion.button
@@ -101,7 +101,7 @@ const Navbar = () => {
           ))}
 
           <motion.div
-            className="indicator"
+            className="indicator themed"
             initial={{ width: "var(--size)", height: "var(--size)" }}
             animate={{
               width: indicatorStyles.width,

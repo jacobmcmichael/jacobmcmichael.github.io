@@ -30,7 +30,7 @@
   margin: 0 auto;
 
   border-radius: 32px;
-  border: 1px solid rgb(var(--color-border));
+  border: 1px solid rgba(var(--color-nav-border), 0.2);
   background-color: rgb(var(--color-nav-highlight-background), 0.1);
   backdrop-filter: blur(2px);
 
@@ -71,7 +71,7 @@
   /* margin-left: calc(var(--section-margin) / 2); */
 
   border-radius: 100%;
-  border: var(--border-size) solid rgba(var(--color-nav-highlight-background), 0.2);
+  border: var(--border-size) solid rgba(var(--color-nav-border), 0.2);
   background-color: rgba(var(--color-nav-highlight-background), 0.3);
 }
 

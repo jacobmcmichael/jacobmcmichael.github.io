@@ -86,7 +86,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="button--switch button--neumorphic component--theme-toggle"
+      className="button--switch button--neumorphic component--theme-toggle themed"
       onClick={handleChangeTheme}
     >
       <motion.div initial={false} animate={sunControls} variants={sunVariant}>
