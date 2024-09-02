@@ -34,10 +34,7 @@ section {
 }
 
 #Header {
-  z-index: 90;
-  position: sticky;
-  top: 0;
-  left: 0;
+  position: relative;
 }
 
 #Header::before,
@@ -82,7 +79,7 @@ section {
 
 #Header .header__actions {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -99,13 +96,19 @@ section {
     padding: calc(var(--section-padding) / 2) var(--section-padding);
   }
 
+  #Header {
+    z-index: 90;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+
   #Header .header__inner,
   #Header .header__actions {
     gap: 2rem;
   }
 
   #Header .header__actions {
-    flex-direction: row-reverse;
     flex: 1;
   }
 }

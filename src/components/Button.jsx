@@ -1,3 +1,4 @@
+/* TODO: Remove Button component and instances (becoming too complicated) */
 /* Dependencies */
 import React from "react";
 
@@ -7,6 +8,7 @@ const Button = ({
   text = "Lorem Ipsum",
   href = null,
   scrollTo = null,
+  onClick = null,
   icon = null,
 }) => {
   let buttonType = type;
@@ -63,7 +65,7 @@ const Button = ({
   } else {
     // Regular button
     return (
-      <button className={classes}>
+      <button className={classes} onClick={onClick !== null ? onClick : null}>
         <span>{text}</span>
         {icon !== null ? icon : null}
       </button>
