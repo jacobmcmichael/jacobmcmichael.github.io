@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
 /* Contexts */
@@ -11,7 +11,7 @@ import { House, Folder, Person, Chat } from "@/components/Icons";
 /* Stylesheets */
 import "@/styles/navbar.css";
 
-const Navbar = () => {
+const Navbar = React.memo(() => {
   // Define the sections statically
   const sections = [
     { id: "Hero", title: "Home", icon: <House /> },
@@ -20,7 +20,7 @@ const Navbar = () => {
     { id: "Contact", title: "Contact", icon: <Chat /> },
   ];
 
-  // Context to get and set the active section
+  // Context to get the active section and update function
   const { activeSection, updateActiveSection } = useActiveSection();
 
   // State to control indicator position, width, height, and y translate
@@ -34,43 +34,46 @@ const Navbar = () => {
   const sectionsRef = useRef([]);
   const linksRef = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isManualScroll, setIsManualScroll] = useState(false); // New state to manage manual scroll
+  const [isManualScroll, setIsManualScroll] = useState(false); // State to manage manual scroll
 
   // Function to handle link click
-  const handleLinkClick = (index, id) => {
-    if (!linksRef.current[index]) return;
+  const handleLinkClick = useCallback(
+    (index, id) => {
+      if (!linksRef.current[index]) return;
 
-    // Disable observer updates during manual scroll
-    setIsManualScroll(true);
+      // Disable observer updates during manual scroll
+      setIsManualScroll(true);
 
-    // Update the active section in context
-    updateActiveSection(id);
+      // Update the active section in context
+      updateActiveSection(id);
 
-    // Update the indicator position, width, height, and y-translate
-    const width = linksRef.current[index].offsetWidth;
-    const height = linksRef.current[index].offsetHeight;
-    const left = linksRef.current[index].offsetLeft;
-    const y = 0; // Default Y translation for non-active
+      // Update the indicator position, width, height, and y-translate
+      const width = linksRef.current[index].offsetWidth;
+      const height = linksRef.current[index].offsetHeight;
+      const left = linksRef.current[index].offsetLeft;
+      const y = 0; // Default Y translation for non-active
 
-    // Update the indicator styles using state
-    setIndicatorStyles({ width, height, left, y });
+      // Update the indicator styles using state
+      setIndicatorStyles({ width, height, left, y });
 
-    // Set the active index
-    setActiveIndex(index);
+      // Set the active index
+      setActiveIndex(index);
 
-    // Scroll to the section
-    if (id) {
-      let section = document.getElementById(id);
-      if (section) {
-        document.querySelectorAll("main > section")[0] === section
-          ? window.scrollTo({ top: 0 })
-          : section.scrollIntoView({ behavior: "smooth" });
+      // Scroll to the section
+      if (id) {
+        let section = document.getElementById(id);
+        if (section) {
+          document.querySelectorAll("main > section")[0] === section
+            ? window.scrollTo({ top: 0 })
+            : section.scrollIntoView({ behavior: "smooth" });
+        }
       }
-    }
 
-    // Re-enable observer updates after a delay (when the scroll is complete)
-    setTimeout(() => setIsManualScroll(false), 500); // Adjust the delay based on scroll duration
-  };
+      // Re-enable observer updates after a delay (when the scroll is complete)
+      setTimeout(() => setIsManualScroll(false), 500); // Adjust the delay based on scroll duration
+    },
+    [updateActiveSection] // Dependency on updateActiveSection
+  );
 
   useEffect(() => {
     let sectionElements = document.querySelectorAll("main > section");
@@ -90,7 +93,7 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [handleLinkClick]);
 
   // Effect to update navbar when activeSection changes
   useEffect(() => {
@@ -100,9 +103,14 @@ const Navbar = () => {
       (section) => section.id === activeSection
     );
     if (newIndex !== -1 && newIndex !== activeIndex) {
-      handleLinkClick(newIndex, sections[newIndex].id);
+      // Update the active index and indicator position
+      const width = linksRef.current[newIndex].offsetWidth;
+      const height = linksRef.current[newIndex].offsetHeight;
+      const left = linksRef.current[newIndex].offsetLeft;
+      setIndicatorStyles({ width, height, left, y: 0 });
+      setActiveIndex(newIndex);
     }
-  }, [activeSection, isManualScroll]);
+  }, [activeSection, isManualScroll, handleLinkClick]); // Depend on activeSection and isManualScroll
 
   return (
     <div className="navbar__wrapper">
@@ -146,6 +154,6 @@ const Navbar = () => {
       </nav>
     </div>
   );
-};
+});
 
 export default Navbar;
