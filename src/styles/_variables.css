@@ -74,6 +74,8 @@
 
   /* Transitions */
   --theme-transition-timing: 0.2s;
+
+  /* TODO: Create a variable for border-radius */
 }
 
 [data-theme="light"] {

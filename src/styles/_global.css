@@ -135,6 +135,7 @@ button,
   text-transform: uppercase;
   white-space: nowrap;
 
+  pointer-events: auto;
   cursor: pointer;
 }
 
@@ -151,20 +152,22 @@ button,
 
   width: var(--icon-size);
   height: var(--icon-size);
-  padding: 0.5rem;
+  min-width: var(--icon-size);
+  min-height: var(--icon-size);
+  padding: calc(var(--button-padding-y) / 2);
 
   box-sizing: content-box;
 }
 
 .button--plain {
-  padding: 0;
+  padding: calc(var(--button-padding-y) / 2);
 
   border: unset;
   background-color: unset;
 }
 
 .button--neumorphic {
-  border-width: 1px;
+  border-width: 1.5px;
   border-style: solid;
   border-top-color: rgb(var(--color-switch-border-light));
   border-left-color: rgb(var(--color-switch-border-light));
@@ -172,7 +175,7 @@ button,
   border-right-color: rgb(var(--color-switch-border-dark));
   background-color: rgb(var(--color-background));
 
-  transition: border var(--theme-transition-timing) ease-in-out;
+  transition: border-color var(--theme-transition-timing) ease-in-out;
 }
 
 .button svg {
@@ -180,6 +183,13 @@ button,
 
   width: var(--icon-size);
   height: var(--icon-size);
+}
+
+@media only screen and (min-width: 320px) {
+  .button--switch,
+  .button--plain {
+    padding: var(--button-padding-y);
+  }
 }
 
 @media only screen and (min-width: 768px) {

@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 /* Components */
 import { AnimatedSun, AnimatedMoon } from "@/components/Icons";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ customClass }) => {
   const moonVariant = {
     show: {
       position: "absolute",
@@ -86,7 +86,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="button--switch button--neumorphic component--theme-toggle themed"
+      className={`button--switch button--neumorphic component--theme-toggle themed`}
       onClick={handleChangeTheme}
     >
       <motion.div initial={false} animate={sunControls} variants={sunVariant}>

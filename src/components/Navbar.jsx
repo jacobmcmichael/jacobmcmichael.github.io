@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useActiveSection } from "@/contexts/ActiveSectionContext";
 
 /* Components */
+import ThemeToggle from "@/components/ThemeToggle";
 import { House, Folder, Person, Chat } from "@/components/Icons";
 
 /* Stylesheets */

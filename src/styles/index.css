@@ -45,7 +45,7 @@ section {
   top: 0;
   left: 0;
 
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
 
@@ -101,6 +101,11 @@ section {
     position: sticky;
     top: 0;
     left: 0;
+  }
+
+  #Header::before,
+  #Header::after {
+    display: block;
   }
 
   #Header .header__inner,
