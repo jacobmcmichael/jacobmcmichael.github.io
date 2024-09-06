@@ -1,0 +1,38 @@
+[
+  {
+    "date": "Jan 2023 — Jun 2024",
+    "position": "Shopify Developer",
+    "company_name": "@DRINKS",
+    "company_url": "https://drinks.com/",
+    "description": [
+      "Developed and customized Shopify themes using HTML, CSS, JavaScript, and Shopify Liquid for B2B, consumer-facing, subscription services, and one-time purchase businesses.",
+      "Enhanced site functionality and client satisfaction by integrating third-party services such as ReCharge, Rebuy, Klaviyo, Yotpo, and Okendo.",
+      "Conducted thorough UI/UX/ADA testing using manual methods and tools like Lambda and PopeTech, ensuring accessibility and usability standards were met."
+    ],
+    "tags": ["JavaScript", "Shopify", "ReCharge", "GraphQL", "Figma"]
+  },
+  {
+    "date": "Oct 2020 — Apr 2021",
+    "position": "Wordpress Developer",
+    "company_name": "@Novohit",
+    "company_url": "https://novohit.com/",
+    "description": [
+      "Led the web redesign for an enterprise-level ERP software development company, increasing page impressions by over 2,000 per month and implementing translation services for thousands of monthly visitors.",
+      "Designed modern accessibility features for 3,500 monthly users across desktop, mobile, and tablet platforms, ensuring seamless user experiences through responsive layouts and custom WordPress components using HTML5, CSS3, and JavaScript.",
+      "Utilized Figma to create a scalable design system, enhancing visual coherence and user engagement by meticulously managing composition, color, illustration, and typography."
+    ],
+    "tags": ["JavaScript", "Wordpress", "Elementor", "Figma"]
+  },
+  {
+    "date": "Aug 2019 — May 2020",
+    "position": "Python Data Analyst",
+    "company_name": "@Arizona State University",
+    "company_url": "https://www.asu.edu/",
+    "description": [
+      "Developed a comprehensive web application tool for Arizona State University to measure social network behaviors and quantify collaborative research efforts, delivering detailed insights into multi-million dollar revenue streams.",
+      "Partnered with various departments to demonstrate advanced methods for manipulating, processing, cleaning, and aggregating large-scale datasets using HTML5, CSS3, JavaScript, Python, and Pandas.",
+      "Led post-implementation reviews with users and faculty to evaluate project success, document feedback, and implement improvements, enhancing visual transparency and user accessibility."
+    ],
+    "tags": ["JavaScript", "Python", "Pandas", "Gephi"]
+  }
+]

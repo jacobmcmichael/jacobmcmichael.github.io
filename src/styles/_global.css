@@ -38,12 +38,35 @@ a,
 }
 
 ol,
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+ol,
 ul,
 li {
   color: rgb(var(--color-body-text));
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
+}
+
+ol.list--traditional,
+ul.list--traditional {
+  list-style-type: disc;
+  margin-left: 0.5rem;
+}
+
+ol.list--traditional li::marker,
+ul.list--traditional li::marker {
+  content: "▸ ";
+  font-size: 0.875rem;
+}
+
+ol.list--traditional li,
+ul.list--traditional li {
+  padding-left: var(--list-item-padding-left);
 }
 
 p svg,
@@ -198,6 +221,31 @@ button,
   }
 }
 
+/* Tags */
+.tags__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  list-style-type: none;
+  padding-inline: 0;
+}
+
+.tag {
+  padding: 0.2em 0.8em;
+
+  font-weight: 500;
+  border-radius: 32px;
+}
+
+.tag--primary {
+  color: rgb(var(--color-button-text));
+  background-color: rgb(var(--color-foreground));
+}
+
 /* Media */
 svg {
   min-width: var(--icon-size);
@@ -206,6 +254,10 @@ svg {
   max-height: var(--icon-size);
 
   flex: 0 0 auto;
+}
+
+svg path {
+  fill: rgb(var(--color-body-text));
 }
 
 svg.icon--hamburger {
@@ -251,6 +303,10 @@ svg.icon--folder {
 
 .constrain {
   max-width: 400px;
+}
+
+.format--date {
+  font-variant-numeric: lining-nums;
 }
 
 /* Transitions */

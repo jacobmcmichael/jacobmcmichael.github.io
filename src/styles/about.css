@@ -7,6 +7,7 @@
 #About .about__inner {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 #About .inner__top,
@@ -26,6 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  gap: 1rem;
 }
 
 #About .inner__bottom .gatsby-image-wrapper {
@@ -33,50 +35,64 @@
   height: auto;
 }
 
-#About .block--experience {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
+#About .block {
+  padding-top: 1rem;
+  border-top: 1px solid rgb(var(--color-border));
 }
 
-#About .block--experience .block__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1rem;
+#About .block--hero {
+  /* padding: 0; */
 }
 
-#About .block--experience .block__item {
+#About .block__links {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: calc(var(--button-padding-y) * -1) 0;
+}
+
+#About .block__links li {
+  padding: var(--button-padding-y);
+}
+
+/* #About .block__links li:first-child {
+  margin-left: calc(var(--button-padding-y) * -1);
+} */
+
+#About .block__links svg {
+  --icon-size: 1.5em;
+}
+
+#About .block--experience,
+#About .experiences {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   gap: 1rem;
-
-  padding: 0.5rem 1rem;
 }
 
-#About .block--experience .block__item .item__image {
-  align-self: center;
+#About .experiences {
+  gap: 2rem;
 }
 
-#About .block--experience .block__item .item__position {
+#About .experience__item,
+#About .experience__item--inner,
+#About .experience__item--main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.25em;
-  
-  flex: 1;
+  gap: 1rem;
 }
 
-#About .block--experience .block__item .item__position .title {
-  font-weight: 600;
+#About .experience__item--inner,
+#About .experience__item--main {
+  gap: 0.5rem;
 }
 
-#About .block--experience .block__item .item__date {
-  font-variant-numeric: lining-nums;
+#About .company__position {
+  font-weight: 700;
 }

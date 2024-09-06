@@ -88,20 +88,20 @@ export default function Projects() {
 
                 <div className="card__header">
                   <a
-                    className="subtitle h6 card__title"
+                    className="card__title"
                     href={project.href}
                     target="_blank"
                   >
-                    {project.title}
+                    <h3 className="subtitle h6">{project.title}</h3>
                   </a>
-                  <h4 className="subtitle h6 card__subtitle">
+                  <h4 className="subtitle p card__subtitle">
                     {project.genre}
                   </h4>
                 </div>
 
-                <ul className="card__tags">
+                <ul className="card__tags tags__list">
                   {project.tags.map((tag, index) => (
-                    <li key={index} className="small">
+                    <li key={index} className="small tag tag--primary">
                       {tag}
                     </li>
                   ))}

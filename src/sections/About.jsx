@@ -3,6 +3,12 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+/* Components */
+import { Google, LinkedIn, Github } from "@/components/Icons";
+
+/* Data */
+import experience from "@/data/experience.json";
+
 /* Stylesheets */
 import "@/styles/about.css";
 
@@ -59,69 +65,78 @@ export default function About() {
         </div>
 
         <div className="inner__bottom">
-          <div className="bottom__block block--hero">
-            <p>Hero Ipsum</p>
-            <div className="block__actions">Links here maybe</div>
+          <div className="bottom__block block block--hero">
+            <ul className="block__links">
+              <li>
+                <a href="mailto:jacobmcmichael@gmail.com" target="_blank">
+                  <Google />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/jacobmcmichael/"
+                  target="_blank"
+                >
+                  <LinkedIn />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jacobmcmichael" target="_blank">
+                  <Github />
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <div className="bottom__block block--experience">
+          <div className="bottom__block block block--experience">
             <h4 className="title h6">Experience</h4>
-            <div className="block__list">
-              <div className="block__item button--primary">
-                <div className="item__image">
-                  <GatsbyImage
-                    image={images["drinks-logo.png"]}
-                    alt="drinks.com"
-                    placeholder="blurred"
-                    layout="constrained"
-                    width={100}
-                    quality={80}
-                  />
+
+            <div className="experiences">
+              {experience.map((item, index) => (
+                <div key={index} className="experience__item">
+                  <div className="experience__item--inner">
+                    <span className="experience_date subtitle small format--date">
+                      {item.date}
+                    </span>
+
+                    <div className="experience__item--main">
+                      <h5 className="experience__company">
+                        <p className="company__position subtitle h6">
+                          {item.position}
+                        </p>
+                        <a
+                          className="subtitle company__name"
+                          href={item.company_url}
+                          target="_blank"
+                        >
+                          {item.company_name}
+                        </a>
+                      </h5>
+
+                      <ul className="experience__description list--traditional">
+                        {item.description.map((desc) => (
+                          <li className="description__item">{desc}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <ul className="experience__tags tags__list">
+                    {item.tags.map((tag, index) => (
+                      <li
+                        key={index}
+                        className="experience__tag small tag tag--primary"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="item__position">
-                  <h5 className="title p">Shopify Developer</h5>
-                  <h6 className="title small">@DRINKS</h6>
-                </div>
-                <span className="p item__date">Feb 2020 - Present</span>
-              </div>
-              <div className="block__item button--primary">
-                <div className="item__image">
-                  <GatsbyImage
-                    image={images["drinks-logo.png"]}
-                    alt="drinks.com"
-                    placeholder="blurred"
-                    layout="constrained"
-                    width={100}
-                    quality={80}
-                  />
-                </div>
-                <div className="item__position">
-                  <h5 className="title p">Shopify Developer</h5>
-                  <h6 className="title small">@DRINKS</h6>
-                </div>
-                <span className="p item__date">Feb 2020 - Present</span>
-              </div>
-              <div className="block__item button--primary">
-                <div className="item__image">
-                  <GatsbyImage
-                    image={images["drinks-logo.png"]}
-                    alt="drinks.com"
-                    placeholder="blurred"
-                    layout="constrained"
-                    width={100}
-                    quality={80}
-                  />
-                </div>
-                <div className="item__position">
-                  <h5 className="title p">Shopify Developer</h5>
-                  <h6 className="title small">@DRINKS</h6>
-                </div>
-                <span className="p item__date">Feb 2020 - Present</span>
-              </div>
+              ))}
             </div>
           </div>
 
-          <div className="bottom__block block--skills">
+          <div className="bottom__block block block--skills">
             <h4>Skills</h4>
             <div className="block__skills">
               <div className="block__item">Skill 1</div>

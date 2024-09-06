@@ -72,6 +72,8 @@
   --button-padding-x: 2em;
   --button-padding-y: 1em;
 
+  --list-item-padding-left: 0.5rem;
+
   /* Transitions */
   --theme-transition-timing: 0.2s;
 
