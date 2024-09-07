@@ -4,7 +4,14 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 /* Components */
-import { Google, LinkedIn, Github } from "@/components/Icons";
+import EntranceAnimation from "@/components/EntranceAnimation";
+import {
+  ArrowUpRight,
+  Download,
+  Google,
+  LinkedIn,
+  Github,
+} from "@/components/Icons";
 
 /* Data */
 import experience from "@/data/experience.json";
@@ -85,6 +92,16 @@ export default function About() {
                   <Github />
                 </a>
               </li>
+              <li className="resume">
+                <a
+                  href="resume.pdf"
+                  download="2024 - Jacob McMichael - Resume"
+                  className="button button--primary"
+                >
+                  <span>Resume</span>
+                  <Download />
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -93,45 +110,48 @@ export default function About() {
 
             <div className="experiences">
               {experience.map((item, index) => (
-                <div key={index} className="experience__item">
-                  <div className="experience__item--inner">
-                    <span className="experience_date subtitle small format--date">
-                      {item.date}
-                    </span>
+                <EntranceAnimation>
+                  <div key={index} className="experience__item">
+                    <div className="experience__item--inner">
+                      <span className="experience__date subtitle small format--date">
+                        {item.date}
+                      </span>
 
-                    <div className="experience__item--main">
-                      <h5 className="experience__company">
-                        <p className="company__position subtitle h6">
-                          {item.position}
-                        </p>
-                        <a
-                          className="subtitle company__name"
-                          href={item.company_url}
-                          target="_blank"
-                        >
-                          {item.company_name}
-                        </a>
-                      </h5>
+                      <div className="experience__item--main">
+                        <h5 className="experience__company">
+                          <p className="company__position subtitle h6">
+                            {item.position}
+                          </p>
+                          <a
+                            className="subtitle company__name"
+                            href={item.company_url}
+                            target="_blank"
+                          >
+                            {item.company_name}
+                            <ArrowUpRight />
+                          </a>
+                        </h5>
 
-                      <ul className="experience__description list--traditional">
-                        {item.description.map((desc) => (
-                          <li className="description__item">{desc}</li>
-                        ))}
-                      </ul>
+                        <div className="experience__description">
+                          <p className="description__item">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <ul className="experience__tags tags__list">
-                    {item.tags.map((tag, index) => (
-                      <li
-                        key={index}
-                        className="experience__tag small tag tag--primary"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <ul className="experience__tags tags__list">
+                      {item.tags.map((tag, index) => (
+                        <li
+                          key={index}
+                          className="experience__tag small tag tag--primary"
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </EntranceAnimation>
               ))}
             </div>
           </div>

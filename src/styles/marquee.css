@@ -43,11 +43,11 @@
   white-space: nowrap;
 }
 
-.component--marquee h2,
+/* .component--marquee h2,
 .component--marquee span,
 .component--marquee a {
   font-style: italic;
-}
+} */
 
 .component--marquee a:hover {
   text-decoration: underline;

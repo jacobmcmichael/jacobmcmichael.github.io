@@ -17,9 +17,11 @@
 }
 
 #About .inner__top .gatsby-image-wrapper {
-  max-width: 200px;
+  max-width: 96px;
   height: auto;
-  border-radius: 24px;
+
+  border-radius: 100%;
+  background-color: rgb(var(--color-body-text));
 }
 
 #About .inner__bottom {
@@ -35,13 +37,25 @@
   height: auto;
 }
 
+#About .top__portrait {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+#About .portrait__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
 #About .block {
   padding-top: 1rem;
   border-top: 1px solid rgb(var(--color-border));
-}
-
-#About .block--hero {
-  /* padding: 0; */
 }
 
 #About .block__links {
@@ -57,12 +71,20 @@
   padding: var(--button-padding-y);
 }
 
-/* #About .block__links li:first-child {
-  margin-left: calc(var(--button-padding-y) * -1);
-} */
-
 #About .block__links svg {
   --icon-size: 1.5em;
+}
+
+#About .block__links svg path {
+  fill: rgb(var(--color-body-text));
+}
+
+#About .block__links .resume {
+  flex: 1;
+}
+
+#About .block__links .resume .button {
+  width: 100%;
 }
 
 #About .block--experience,
@@ -93,6 +115,28 @@
   gap: 0.5rem;
 }
 
+#About .experience__company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
 #About .company__position {
   font-weight: 700;
+}
+
+#About .company__name {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.25em;
+
+  line-height: normal;
+}
+
+#About .experience__description > * {
+  color: rgb(var(--color-body-text-lighter));
 }

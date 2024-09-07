@@ -85,6 +85,10 @@ section {
   gap: 1rem;
 }
 
+.component--logo span {
+  line-height: normal;
+}
+
 .component--theme-toggle {
   position: relative;
   border-radius: 100%;

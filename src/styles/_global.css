@@ -6,7 +6,7 @@
 
 .subtitle {
   font-family: var(--font-subtitle);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 p,
@@ -15,6 +15,7 @@ p,
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
+  font-variant-numeric: lining-nums;
 }
 
 a,
@@ -153,7 +154,7 @@ button,
   color: rgb(var(--color-button-text));
   font-size: 1rem;
   font-family: var(--font-title);
-  font-weight: 300;
+  font-weight: 400;
 
   text-transform: uppercase;
   white-space: nowrap;
@@ -254,10 +255,6 @@ svg {
   max-height: var(--icon-size);
 
   flex: 0 0 auto;
-}
-
-svg path {
-  fill: rgb(var(--color-body-text));
 }
 
 svg.icon--hamburger {

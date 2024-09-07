@@ -21,7 +21,7 @@
 
 #Hero .hero__top {
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 #Hero .hero__bottom {
