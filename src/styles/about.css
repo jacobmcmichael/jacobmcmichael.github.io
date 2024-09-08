@@ -14,11 +14,14 @@
 #About .inner__bottom {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  gap: 1rem;
 }
 
 #About .inner__top .gatsby-image-wrapper {
   max-width: 96px;
   height: auto;
+  flex-shrink: 0;
 
   border-radius: 100%;
   background-color: rgb(var(--color-body-text));
@@ -29,7 +32,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  flex: 1.5;
   gap: 1rem;
+
+  min-width: 350px;
 }
 
 #About .inner__bottom .gatsby-image-wrapper {
@@ -139,4 +145,60 @@
 
 #About .experience__description > * {
   color: rgb(var(--color-body-text-lighter));
+}
+
+@media only screen and (min-width: 425px) {
+  #About .block__links .resume .button {
+    width: fit-content;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #About .inner__top {
+    position: sticky;
+    top: 0;
+  }
+
+  #About .about__inner {
+    position: relative;
+    flex-direction: row;
+    gap: 2rem;
+
+    padding-top: 1rem;
+    border-top: 1px solid rgb(var(--color-border));
+  }
+
+  #About .about__inner .top__portrait,
+  #About .about__inner .block__links {
+    flex-wrap: wrap;
+  }
+
+  #About .about__inner .top__portrait {
+    align-items: center;
+    text-align: center;
+  }
+
+  #About .block__links {
+    justify-content: center;
+    row-gap: 0.5rem;
+  }
+
+  #About .block__links li {
+    margin-top: 0.5rem;
+  }
+
+  #About .block__links .resume {
+    flex: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #About .block__links .resume .button {
+    width: 100%;
+  }
+
+  #About .block--experience {
+    padding-top: 0;    
+    border-top: none;
+  }
 }

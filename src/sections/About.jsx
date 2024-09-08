@@ -69,9 +69,7 @@ export default function About() {
               <p>A Frontend Web Developer based in California</p>
             </div>
           </div>
-        </div>
 
-        <div className="inner__bottom">
           <div className="bottom__block block block--hero">
             <ul className="block__links">
               <li>
@@ -104,7 +102,9 @@ export default function About() {
               </li>
             </ul>
           </div>
+        </div>
 
+        <div className="inner__bottom">
           <div className="bottom__block block block--experience">
             <h4 className="title h6">Experience</h4>
 
