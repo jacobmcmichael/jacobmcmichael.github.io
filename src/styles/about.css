@@ -32,7 +32,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  flex: 1.5;
   gap: 1rem;
 
   min-width: 350px;
@@ -154,18 +153,20 @@
 }
 
 @media only screen and (min-width: 768px) {
-  #About .inner__top {
-    position: sticky;
-    top: 0;
-  }
-
   #About .about__inner {
-    position: relative;
     flex-direction: row;
     gap: 2rem;
 
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgb(var(--color-border));
+  }
+
+  #About .about__inner .inner__top {
+    position: sticky;
+    top: var(--header-height);
+
+    height: fit-content;
+    max-width: 300px;
   }
 
   #About .about__inner .top__portrait,
@@ -174,8 +175,14 @@
   }
 
   #About .about__inner .top__portrait {
+    justify-content: center;
     align-items: center;
+    
     text-align: center;
+  }
+
+  #About .about__inner .top__portrait .info__title {
+    margin: 0 auto;
   }
 
   #About .block__links {
@@ -200,5 +207,9 @@
   #About .block--experience {
     padding-top: 0;    
     border-top: none;
+  }
+
+  #About .experience__description {
+    max-width: 600px;
   }
 }

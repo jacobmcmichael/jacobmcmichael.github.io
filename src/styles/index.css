@@ -5,7 +5,7 @@ html {
 
 body,
 main {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 main,
@@ -85,6 +85,12 @@ section {
   gap: 1rem;
 }
 
+#Projects,
+#About {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .component--logo span {
   line-height: normal;
 }
@@ -118,7 +124,15 @@ section {
   }
 
   #Header .header__actions {
+    justify-content: space-between;
+    gap: 1rem;
     flex: 1;
+  }
+
+  #Projects,
+  #About {
+    max-width: unset;
+    margin: unset;
   }
 }
 

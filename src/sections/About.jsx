@@ -110,8 +110,8 @@ export default function About() {
 
             <div className="experiences">
               {experience.map((item, index) => (
-                <EntranceAnimation>
-                  <div key={index} className="experience__item">
+                <EntranceAnimation key={index}>
+                  <div className="experience__item">
                     <div className="experience__item--inner">
                       <span className="experience__date subtitle small format--date">
                         {item.date}
