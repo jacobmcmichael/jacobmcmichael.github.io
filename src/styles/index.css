@@ -34,40 +34,28 @@ section {
 }
 
 #Header {
+  z-index: 100;
   position: relative;
-}
 
-#Header::before,
-#Header::after {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  display: none;
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-  transition: opacity var(--theme-transition-timing) ease-in;
+  border-bottom: 1px solid rgb(var(--color-border));
+  background-color: rgba(var(--color-background), 0.8);
 }
 
 #Header::before {
-  background: var(--color-header-gradient-dark);
-}
+  content: "";
 
-#Header::after {
-  background: var(--color-header-gradient-light);
-}
+  z-index: 99;
+  position: absolute;
 
-[data-theme="dark"] #Header::before,
-[data-theme="light"] #Header::after {
-  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(1.5px);
 }
 
 #Header .header__inner {
-  z-index: 100;
+  z-index: 101;
   position: relative;
 
   display: flex;
@@ -103,11 +91,10 @@ section {
 
 @media only screen and (min-width: 768px) {
   main {
-    padding: calc(var(--section-padding) / 2) var(--section-padding);
+    padding: var(--section-padding) var(--section-padding);
   }
 
   #Header {
-    z-index: 90;
     position: sticky;
     top: 0;
     left: 0;
@@ -120,7 +107,7 @@ section {
 
   #Header .header__inner,
   #Header .header__actions {
-    gap: 2rem;
+    gap: 1rem;
   }
 
   #Header .header__actions {
@@ -133,11 +120,5 @@ section {
   #About {
     max-width: unset;
     margin: unset;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  main {
-    padding: var(--section-padding);
   }
 }

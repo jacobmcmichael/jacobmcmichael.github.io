@@ -59,8 +59,9 @@ export default function HomePage() {
     // Function to update header height
     const updateHeaderHeight = () => {
       if (headerRef.current) {
-        document.body.style.setProperty("--header-height", `${currentHeight}px`);
+        const currentHeight = headerRef.current.offsetHeight;
         setHeaderHeight(currentHeight);
+        document.body.style.setProperty("--header-height", `${currentHeight}px`);
       }
     };
 

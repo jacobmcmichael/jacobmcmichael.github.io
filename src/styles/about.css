@@ -163,7 +163,7 @@
 
   #About .about__inner .inner__top {
     position: sticky;
-    top: var(--header-height);
+    top: calc(var(--header-height) + 2rem);
 
     height: fit-content;
     max-width: 300px;
@@ -183,6 +183,10 @@
 
   #About .about__inner .top__portrait .info__title {
     margin: 0 auto;
+  }
+
+  #About .inner__top .gatsby-image-wrapper {
+    max-width: 128px;
   }
 
   #About .block__links {
