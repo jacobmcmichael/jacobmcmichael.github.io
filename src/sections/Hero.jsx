@@ -31,7 +31,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="hero__bottom themed">
+      <div className="hero__bottom">
         <div className="bottom__contact">
           <h2 className="h5 title">Let's Talk</h2>
           <ul className="contact__links">

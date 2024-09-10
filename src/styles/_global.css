@@ -257,6 +257,16 @@ svg {
   flex: 0 0 auto;
 }
 
+[data-theme="light"] svg.icon--dark,
+[data-theme="dark"] svg.icon--light {
+  display: none;
+}
+
+[data-theme="dark"] svg.icon--dark,
+[data-theme="light"] svg.icon--light {
+  display: block;
+}
+
 svg.icon--hamburger {
   --adjusted-icon-size: calc(var(--icon-size) - 8px);
 
@@ -315,7 +325,12 @@ p {
   transition: color var(--theme-transition-timing) ease-in;
 }
 
-.themed {
+.themed,
+.themed path,
+.button,
+.tag,
+.title,
+.subtitle {
   transition: color var(--theme-transition-timing) ease-in,
     background-color var(--theme-transition-timing) ease-in,
     border-color var(--theme-transition-timing) ease-in,

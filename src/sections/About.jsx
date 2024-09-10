@@ -11,6 +11,20 @@ import {
   Google,
   LinkedIn,
   Github,
+  HTML,
+  CSS,
+  JavaScript,
+  TypeScript,
+  Vue,
+  ReactIcon,
+  Next,
+  Node,
+  Vite,
+  SASS,
+  Tailwind,
+  Shopify,
+  GraphQL,
+  Figma,
 } from "@/components/Icons";
 
 /* Data */
@@ -48,6 +62,23 @@ export default function About() {
     return acc;
   }, {});
 
+  const skills = [
+    { name: "HTML", icon: <HTML /> },
+    { name: "CSS", icon: <CSS /> },
+    { name: "JavaScript", icon: <JavaScript /> },
+    { name: "TypeScript", icon: <TypeScript /> },
+    { name: "Vue", icon: <Vue /> },
+    { name: "React", icon: <ReactIcon /> },
+    { name: "Next", icon: <Next /> },
+    { name: "Node", icon: <Node /> },
+    { name: "Vite", icon: <Vite /> },
+    { name: "SASS", icon: <SASS /> },
+    { name: "Tailwind", icon: <Tailwind /> },
+    { name: "Shopify", icon: <Shopify /> },
+    { name: "GraphQL", icon: <GraphQL /> },
+    { name: "Figma", icon: <Figma /> },
+  ];
+
   return (
     <>
       <h2 className="h5 title">About</h2>
@@ -56,6 +87,7 @@ export default function About() {
         <div className="inner__top">
           <div className="top__portrait">
             <GatsbyImage
+              className="themed"
               image={images["portrait.png"]}
               alt="Jacob McMichael"
               placeholder="blurred"
@@ -157,12 +189,14 @@ export default function About() {
           </div>
 
           <div className="bottom__block block block--skills">
-            <h4>Skills</h4>
-            <div className="block__skills">
-              <div className="block__item">Skill 1</div>
-              <div className="block__item">Skill 1</div>
-              <div className="block__item">Skill 1</div>
-            </div>
+            <h4 className="title h6">Skills</h4>
+            <ul className="skills__list">
+              {skills.map((skill, index) => (
+                <li key={index} className="block__item">
+                  {skill.icon}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

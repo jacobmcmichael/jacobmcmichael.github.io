@@ -50,7 +50,7 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="component--marquee themed">
+    <div className="component--marquee">
       <span className="title h2 visually-hidden">Hello there :)</span>
 
       <div className="marquee__text-wrapper">
