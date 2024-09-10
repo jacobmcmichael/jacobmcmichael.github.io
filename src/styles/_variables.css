@@ -1,0 +1,112 @@
+:root {
+  /* Colors */
+  --color-body-text: 249, 249, 249;
+  --color-body-text-lighter: 191, 191, 191;
+  --color-button-text: 249, 249, 249;
+  --color-nav-border: 249, 249, 249;
+  --color-nav-background: 51, 51, 51;
+  --color-nav-toggle-icon: 18, 18, 18;
+  --color-nav-toggle-background: 249, 249, 249;
+  --color-nav-text: 196, 196, 196;
+  --color-nav-highlight-text: 18, 18, 18;
+  --color-nav-highlight-background: 249, 249, 249;
+  --color-background: 18, 18, 18;
+  --color-foreground: 51, 51, 51;
+  --color-border: 84, 84, 84;
+  --color-switch-border-light: 84, 84, 84;
+  --color-switch-border-dark: 0, 0, 0;
+
+  --color-header-gradient-dark: linear-gradient(
+    180deg,
+    hsl(0deg 0% 13% / 0.8) 0%,
+    hsl(0deg 0% 13% / 0.72) 10%,
+    hsl(0deg 0% 13% / 0.64) 20%,
+    hsl(0deg 0% 13% / 0.56) 30%,
+    hsl(0deg 0% 13% / 0.48) 40%,
+    hsl(0deg 0% 13% / 0.4) 50%,
+    hsl(0deg 0% 13% / 0.32) 60%,
+    hsl(0deg 0% 13% / 0.24) 70%,
+    hsl(0deg 0% 13% / 0.16) 80%,
+    hsl(0deg 0% 13% / 0.08) 90%,
+    hsl(0deg 0% 13% / 0) 100%
+  );
+  --color-header-gradient-light: linear-gradient(
+    180deg,
+    hsl(0deg 0% 98% / 0.8) 0%,
+    hsl(0deg 0% 98% / 0.72) 10%,
+    hsl(0deg 0% 98% / 0.64) 20%,
+    hsl(0deg 0% 98% / 0.56) 30%,
+    hsl(0deg 0% 98% / 0.48) 40%,
+    hsl(0deg 0% 98% / 0.4) 50%,
+    hsl(0deg 0% 98% / 0.32) 60%,
+    hsl(0deg 0% 98% / 0.24) 70%,
+    hsl(0deg 0% 98% / 0.16) 80%,
+    hsl(0deg 0% 98% / 0.08) 90%,
+    hsl(0deg 0% 98% / 0) 100%
+  );
+
+  /* Typography */
+  --font-size-base: 16px;
+
+  /* Font Families */
+  --font-title: "Unbounded", sans-serif;
+  --font-subtitle: "Syne", sans-serif;
+  --font-body: "Syne", sans-serif;
+  --font-button: "Syne", sans-serif;
+
+  /* Font Sizes */
+  --h1-font-size: 2.986rem;
+  --h2-font-size: 2.488rem;
+  --h3-font-size: 2.074rem;
+  --h4-font-size: 1.728rem;
+  --h5-font-size: 1.44rem;
+  --h6-font-size: 1.2rem;
+
+  /* Icons */
+  --icon-size: 2rem;
+
+  /* Spacing */
+  --section-margin: 2rem;
+  --section-padding: 1rem;
+  --section-gap: 3rem;
+
+  --button-padding-x: 2em;
+  --button-padding-y: 1em;
+
+  --list-item-padding-left: 0.5rem;
+
+  /* Transitions */
+  --theme-transition-timing: 0.2s;
+
+  /* TODO: Create a variable for border-radius */
+}
+
+[data-theme="light"] {
+  --color-body-text: 18, 18, 18;
+  --color-body-text-lighter: 64, 64, 64;
+  --color-button-text: 249, 249, 249;
+  --color-nav-border: 51, 51, 51;
+  --color-nav-toggle-icon: 249, 249, 249;
+  --color-nav-toggle-background: 18, 18, 18;
+  --color-background: 249, 249, 249;
+  --color-foreground: 18, 18, 18;
+  --color-border: 84, 84, 84;
+  --color-switch-border-light: 196, 196, 196;
+  --color-switch-border-dark: 255, 255, 255;
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 1.2);
+    --section-margin: 2.5rem;
+    --section-padding: 2.5rem;
+    --section-gap: 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  :root {
+    --h1-font-size: calc(2.986rem * 2.4);
+    --section-gap: 4rem;
+  }
+}

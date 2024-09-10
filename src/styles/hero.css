@@ -1,0 +1,115 @@
+#Hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+#Hero .top__button {
+  position: relative;
+  z-index: 1;
+  
+  align-self: flex-end;
+}
+
+#Hero .hero__top,
+#Hero .hero__bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#Hero .hero__top {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#Hero .hero__bottom {
+  gap: 3rem;
+}
+
+#Hero .top__title {
+  align-self: flex-start;
+  white-space: nowrap;
+
+  line-height: 1em;
+}
+
+#Hero .title__inner {
+  display: inline-block;
+  height: fit-content;
+}
+
+#Hero .title__inner--thin {
+  font-weight: 200;
+}
+
+#Hero .title__inner--thick {
+  cursor: pointer;
+}
+
+#Hero .bottom__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+  gap: 1rem;
+
+  white-space: nowrap;
+}
+
+#Hero .bottom__contact a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-weight: 500;
+}
+
+#Hero .bottom__contact a span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#Hero .bottom__message {
+  flex: 2;
+}
+
+#Hero .contact__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  list-style-type: none;
+  padding-inline: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #Hero {
+    gap: 3rem;
+  }
+
+  #Hero .hero__top {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #Hero {
+    gap: 3.5rem;
+  }
+
+  #Hero .top__button {
+    align-self: center;
+  }
+}

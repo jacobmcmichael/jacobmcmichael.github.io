@@ -1,0 +1,20 @@
+[
+  {
+    "href": "mailto:jacobmcmichael@gmail.com",
+    "text": "jacobmcmichael@gmail.com",
+    "displayText": "jacobmcmichael",
+    "spanText": "@gmail.com"
+  },
+  {
+    "href": "https://www.linkedin.com/in/jacobmcmichael/",
+    "text": "linkedin.com/in/jacobmcmichael",
+    "displayText": "linkedin.com/in/",
+    "spanText": "jacobmcmichael"
+  },
+  {
+    "href": "https://github.com/jacobmcmichael",
+    "text": "github.com/jacobmcmichael",
+    "displayText": "github.com/",
+    "spanText": "jacobmcmichael"
+  }
+]
