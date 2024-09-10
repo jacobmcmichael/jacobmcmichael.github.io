@@ -5,7 +5,7 @@ html {
 
 body,
 main {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 main,
@@ -34,40 +34,28 @@ section {
 }
 
 #Header {
+  z-index: 100;
   position: relative;
+
+  border-bottom: 1px solid rgb(var(--color-border));
+  background-color: rgba(var(--color-background), 0.8);
 }
 
-#Header::before,
-#Header::after {
+#Header::before {
   content: "";
 
+  z-index: 99;
   position: absolute;
-  top: 0;
-  left: 0;
 
   display: block;
   width: 100%;
   height: 100%;
 
-  opacity: 0;
-  transition: opacity var(--theme-transition-timing) ease-in;
-}
-
-#Header::before {
-  background: var(--color-header-gradient-dark);
-}
-
-#Header::after {
-  background: var(--color-header-gradient-light);
-}
-
-[data-theme="dark"] #Header::before,
-[data-theme="light"] #Header::after {
-  opacity: 1;
+  backdrop-filter: blur(1.5px);
 }
 
 #Header .header__inner {
-  z-index: 100;
+  z-index: 101;
   position: relative;
 
   display: flex;
@@ -85,6 +73,16 @@ section {
   gap: 1rem;
 }
 
+#Projects,
+#About {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.component--logo span {
+  line-height: normal;
+}
+
 .component--theme-toggle {
   position: relative;
   border-radius: 100%;
@@ -93,28 +91,34 @@ section {
 
 @media only screen and (min-width: 768px) {
   main {
-    padding: calc(var(--section-padding) / 2) var(--section-padding);
+    padding: var(--section-padding) var(--section-padding);
   }
 
   #Header {
-    z-index: 90;
     position: sticky;
     top: 0;
     left: 0;
   }
 
+  #Header::before,
+  #Header::after {
+    display: block;
+  }
+
   #Header .header__inner,
   #Header .header__actions {
-    gap: 2rem;
+    gap: 1rem;
   }
 
   #Header .header__actions {
+    justify-content: space-between;
+    gap: 1rem;
     flex: 1;
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  main {
-    padding: var(--section-padding);
+  #Projects,
+  #About {
+    max-width: unset;
+    margin: unset;
   }
 }

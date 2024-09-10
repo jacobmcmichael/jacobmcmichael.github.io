@@ -1,0 +1,26 @@
+[
+  {
+    "date": "Jan 2023 — Jun 2024",
+    "position": "Shopify Developer",
+    "company_name": "@DRINKS",
+    "company_url": "https://drinks.com/",
+    "description": "Developed and customized Shopify themes for B2B, consumer brands, and subscription services using third-party apps, JavaScript libraries, and Shopify's APIs. Integrated tools like ReCharge, Rebuy, Klaviyo, Yotpo, and Okendo while ensuring top-notch accessibility and usability through comprehensive UI/UX/ADA testing with Lambda, PopeTech, and manual methods.",
+    "tags": ["JavaScript", "Shopify", "ReCharge", "GraphQL", "Figma"]
+  },
+  {
+    "date": "Oct 2020 — Apr 2021",
+    "position": "Wordpress Developer",
+    "company_name": "@Novohit",
+    "company_url": "https://novohit.com/",
+    "description": "Led a web redesign for an enterprise ERP software company that increased page impressions by 2,000+ per month and added translation services for thousands of visitors. Built accessibility features for 3,500 users with responsive layouts and custom WordPress components and developed a scalable design system in Figma for consistent, engaging user experiences.",
+    "tags": ["JavaScript", "Wordpress", "Elementor", "Figma"]
+  },
+  {
+    "date": "Aug 2019 — May 2020",
+    "position": "Python Data Analyst",
+    "company_name": "@Arizona State University",
+    "company_url": "https://www.asu.edu/",
+    "description": "Created a web app to measure social network behaviors and research efforts, uncovering insights into multi-million dollar revenue streams. Partnered with departments to refine data manipulation and processing techniques using HTML5, CSS3, JavaScript, Python, and Pandas, and led post-implementation reviews to enhance transparency and accessibility.",
+    "tags": ["JavaScript", "Python", "Pandas", "Gephi"]
+  }
+]

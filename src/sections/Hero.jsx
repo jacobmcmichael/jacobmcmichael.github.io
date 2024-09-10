@@ -4,6 +4,7 @@ import React from "react";
 /* Components */
 import AnimatedHeroTitle from "@/components/AnimatedHeroTitle";
 import ScaleOnHover from "@/components/ScaleOnHover";
+import Marquee from "@/components/Marquee";
 import Button from "@/components/Button";
 import { ArrowDown, ArrowUpRight } from "@/components/Icons";
 
@@ -30,7 +31,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="hero__bottom themed">
+      <div className="hero__bottom">
         <div className="bottom__contact">
           <h2 className="h5 title">Let's Talk</h2>
           <ul className="contact__links">
@@ -56,6 +57,8 @@ export default function Hero() {
           e-commerce, web development, and scalable applications.
         </p>
       </div>
+
+      <Marquee />
     </>
   );
 }

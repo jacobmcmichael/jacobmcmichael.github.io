@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --color-body-text: 249, 249, 249;
+  --color-body-text-lighter: 191, 191, 191;
   --color-button-text: 249, 249, 249;
   --color-nav-border: 249, 249, 249;
   --color-nav-background: 51, 51, 51;
@@ -72,12 +73,17 @@
   --button-padding-x: 2em;
   --button-padding-y: 1em;
 
+  --list-item-padding-left: 0.5rem;
+
   /* Transitions */
   --theme-transition-timing: 0.2s;
+
+  /* TODO: Create a variable for border-radius */
 }
 
 [data-theme="light"] {
   --color-body-text: 18, 18, 18;
+  --color-body-text-lighter: 64, 64, 64;
   --color-button-text: 249, 249, 249;
   --color-nav-border: 51, 51, 51;
   --color-nav-toggle-icon: 249, 249, 249;

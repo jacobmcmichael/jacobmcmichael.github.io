@@ -49,30 +49,8 @@
   gap: 0.5rem;
 }
 
-#Projects .card__title {
+#Projects .card__title h3 {
   font-weight: 700;
-}
-
-#Projects .card__tags {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  list-style-type: none;
-  margin-top: 0.5rem;
-  padding-inline: 0;
-}
-
-#Projects .card__tags li {
-  padding: 0.2em 0.8em;
-
-  color: rgb(var(--color-button-text));
-  font-weight: 500;
-  border-radius: 32px;
-  background-color: rgb(var(--color-foreground));
 }
 
 @media only screen and (min-width: 768px) {

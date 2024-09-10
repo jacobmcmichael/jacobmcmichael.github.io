@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 /* Contexts || Hooks */
 import { useActiveSection } from "@/contexts/ActiveSectionContext";
@@ -42,6 +42,9 @@ export function Head() {
 }
 
 export default function HomePage() {
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
   const { activeSection, updateActiveSection } = useActiveSection();
   const sectionRefs = useRef({
     Hero: null,
@@ -49,6 +52,30 @@ export default function HomePage() {
     About: null,
     Contact: null,
   });
+
+  useEffect(() => {
+    let currentHeight = headerRef.current.offsetHeight;
+
+    // Function to update header height
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const currentHeight = headerRef.current.offsetHeight;
+        setHeaderHeight(currentHeight);
+        document.body.style.setProperty("--header-height", `${currentHeight}px`);
+      }
+    };
+
+    // Initial header height calculation
+    updateHeaderHeight();
+
+    // Add event listener on window resize
+    window.addEventListener('resize', updateHeaderHeight);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight);
+    };
+  }, []);
 
   useEffect(() => {
     const visibilityMap = new Map(); // To store the visibility ratio of each section
@@ -99,7 +126,7 @@ export default function HomePage() {
 
   return (
     <>
-      <header id="Header" className="themed">
+      <header id="Header" className="themed" ref={headerRef}>
         <div className="header__inner">
           <Logo />
           <div className="header__actions">

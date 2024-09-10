@@ -5,6 +5,9 @@
 }
 
 #Hero .top__button {
+  position: relative;
+  z-index: 1;
+  
   align-self: flex-end;
 }
 
@@ -18,7 +21,7 @@
 
 #Hero .hero__top {
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 #Hero .hero__bottom {
@@ -29,7 +32,7 @@
   align-self: flex-start;
   white-space: nowrap;
 
-  line-height: 1ch;
+  line-height: 1em;
 }
 
 #Hero .title__inner {
@@ -97,6 +100,7 @@
   #Hero .hero__top {
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 

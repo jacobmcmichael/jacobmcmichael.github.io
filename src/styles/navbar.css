@@ -12,9 +12,18 @@
   bottom: 0;
   left: 0;
 
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
   width: 100%;
   height: fit-content;
   padding: var(--section-padding);
+  padding-bottom: calc(var(--section-padding) * 2);
+
+  pointer-events: none;
 }
 
 #Navbar ul {
@@ -22,12 +31,14 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
-  width: fit-content;
-  margin: 0 auto;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0;
+  margin-left: 0;
 
   border-radius: 32px;
   border: 1px solid rgba(var(--color-nav-border), 0.2);
@@ -36,6 +47,8 @@
 
   list-style-type: none;
   padding-inline: 0;
+
+  pointer-events: auto;
 }
 
 #Navbar li {
@@ -46,10 +59,6 @@
   justify-content: center;
   align-items: center;
   align-self: stretch;
-}
-
-#Navbar li button {
-  padding: var(--button-padding-y);
 }
 
 #Navbar li button svg {
@@ -77,6 +86,16 @@
   display: none;
 }
 
+@media only screen and (min-width: 320px) {
+  #Navbar ul {
+    gap: 1rem;
+  }
+
+  #Navbar li button {
+    padding: var(--button-padding-y);
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .navbar__wrapper,
   #Navbar {
@@ -89,13 +108,18 @@
 
   #Navbar {
     display: flex;
+    flex-direction: row;
 
     height: 100%;
     padding: 0;
   }
 
   #Navbar ul {
+    max-width: fit-content;
+    margin: 0 auto;
     padding: 0.5rem;
+    gap: unset;
+
     border-radius: 54px;
     border: none;
     background-color: rgb(var(--color-nav-background));
@@ -113,10 +137,6 @@
     transition: font-weight var(--theme-transition-timing) ease-in;
   }
 
-  #Navbar li button.link--active span {
-    /* color: rgb(var(--color-nav-highlight-text)); */
-  }
-
   #Navbar li button .link__icon {
     display: none;
   }
@@ -126,5 +146,11 @@
     border-radius: 54px;
     border: none;
     background-color: rgb(var(--color-nav-highlight-background));
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #Navbar ul {
+    gap: 1rem;
   }
 }
