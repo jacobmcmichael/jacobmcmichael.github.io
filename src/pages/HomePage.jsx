@@ -149,9 +149,10 @@ export default function HomePage() {
         <section id="About" ref={(el) => (sectionRefs.current.About = el)}>
           <About />
         </section>
-        <section id="Contact" ref={(el) => (sectionRefs.current.Contact = el)}>
+        {/* TODO: Add testimonials and contact sections */}
+        {/* <section id="Contact" ref={(el) => (sectionRefs.current.Contact = el)}>
           <Contact />
-        </section>
+        </section> */}
       </main>
     </>
   );

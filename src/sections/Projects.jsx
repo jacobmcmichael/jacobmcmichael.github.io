@@ -48,7 +48,16 @@ export default function Projects() {
         <div className="projects__header">
           <h2 className="header__title h5 title">Projects</h2>
           <ScaleOnHover>
-            <a className="header__link link--with-icon" href="/projects">
+            <a
+              className="header__link link--with-icon"
+              href="/projects"
+              onClick={(event) => {
+                event.preventDefault();
+                alert(
+                  "Case studies are being worked on, but more details will be coming soon!"
+                );
+              }}
+            >
               <span>More</span>
               <ArrowRight />
             </a>
@@ -94,9 +103,7 @@ export default function Projects() {
                   >
                     <h3 className="subtitle h6">{project.title}</h3>
                   </a>
-                  <h4 className="subtitle p card__subtitle">
-                    {project.genre}
-                  </h4>
+                  <h4 className="subtitle p card__subtitle">{project.genre}</h4>
                 </div>
 
                 <ul className="card__tags tags__list">
