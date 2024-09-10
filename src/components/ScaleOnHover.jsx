@@ -24,7 +24,7 @@ const ScaleOnHover = ({ children }) => {
       element.removeEventListener("mouseenter", handleMouseEnter);
       element.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [animate]);
+  }, [scope, animate]);
 
   return <div ref={scope}>{children}</div>;
 };

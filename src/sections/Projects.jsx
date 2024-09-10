@@ -81,7 +81,7 @@ export default function Projects() {
             <EntranceAnimation key={index}>
               <div className="project__card themed">
                 {image ? (
-                  <a href={project.href} target="_blank">
+                  <a href={project.href} target="_blank" rel="noreferrer">
                     <GatsbyImage
                       image={image}
                       alt={project.title}
@@ -100,6 +100,7 @@ export default function Projects() {
                     className="card__title"
                     href={project.href}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <h3 className="subtitle h6">{project.title}</h3>
                   </a>

@@ -1,10 +1,11 @@
+/* Dependencies */
 import React, { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 /* Components */
 import { AnimatedSun, AnimatedMoon } from "@/components/Icons";
 
-const ThemeToggle = ({ customClass }) => {
+const ThemeToggle = () => {
   const moonVariant = {
     show: {
       position: "absolute",
@@ -82,7 +83,7 @@ const ThemeToggle = ({ customClass }) => {
       sunControls.start("hide");
       moonControls.start("show");
     }
-  }, []);
+  }, [sunControls, moonControls]);
 
   return (
     <button

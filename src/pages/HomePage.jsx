@@ -1,5 +1,5 @@
 /* Dependencies */
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 /* Contexts || Hooks */
 import { useActiveSection } from "@/contexts/ActiveSectionContext";
@@ -13,7 +13,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import About from "@/sections/About";
-import Contact from "@/sections/Contact";
+// import Contact from "@/sections/Contact";
 
 /* Stylesheets */
 import "@/styles/index.css";
@@ -43,7 +43,6 @@ export function Head() {
 
 export default function HomePage() {
   const headerRef = useRef(null);
-  const [headerHeight, setHeaderHeight] = useState(0);
 
   const { activeSection, updateActiveSection } = useActiveSection();
   const sectionRefs = useRef({
@@ -54,14 +53,14 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    let currentHeight = headerRef.current.offsetHeight;
-
     // Function to update header height
     const updateHeaderHeight = () => {
       if (headerRef.current) {
         const currentHeight = headerRef.current.offsetHeight;
-        setHeaderHeight(currentHeight);
-        document.body.style.setProperty("--header-height", `${currentHeight}px`);
+        document.body.style.setProperty(
+          "--header-height",
+          `${currentHeight}px`
+        );
       }
     };
 
@@ -69,11 +68,11 @@ export default function HomePage() {
     updateHeaderHeight();
 
     // Add event listener on window resize
-    window.addEventListener('resize', updateHeaderHeight);
+    window.addEventListener("resize", updateHeaderHeight);
 
     // Clean up event listener on component unmount
     return () => {
-      window.removeEventListener('resize', updateHeaderHeight);
+      window.removeEventListener("resize", updateHeaderHeight);
     };
   }, []);
 
@@ -89,7 +88,7 @@ export default function HomePage() {
           visibilityMap.set(target, intersectionRatio);
 
           // Find the section with the maximum visible ratio
-          const [mostVisibleSection, maxRatio] = Array.from(
+          const [mostVisibleSection] = Array.from(
             visibilityMap.entries()
           ).reduce(
             (acc, [section, ratio]) => {
@@ -111,14 +110,17 @@ export default function HomePage() {
       }
     );
 
+    // Capture current reference to avoid potential stale values in cleanup function
+    const currentSectionRefs = { ...sectionRefs.current }; // Create a shallow copy of the current sectionRefs
+
     // Observe each section
-    Object.values(sectionRefs.current).forEach((section) => {
+    Object.values(currentSectionRefs).forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
       // Clean up the observer on component unmount
-      Object.values(sectionRefs.current).forEach((section) => {
+      Object.values(currentSectionRefs).forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };

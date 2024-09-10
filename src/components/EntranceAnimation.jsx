@@ -18,7 +18,7 @@ const EntranceAnimation = ({ children }) => {
     return () => {
       observer();
     };
-  }, [animate]);
+  }, [scope, animate]);
 
   return (
     <motion.div ref={scope} initial={{ opacity: 0 }}>

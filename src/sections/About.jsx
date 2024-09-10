@@ -11,8 +11,8 @@ import {
   Google,
   LinkedIn,
   Github,
-  HTML,
-  CSS,
+  Html,
+  Css,
   JavaScript,
   TypeScript,
   Vue,
@@ -20,10 +20,10 @@ import {
   Next,
   Node,
   Vite,
-  SASS,
+  Sass,
   Tailwind,
   Shopify,
-  GraphQL,
+  GraphQl,
   Figma,
 } from "@/components/Icons";
 
@@ -63,8 +63,8 @@ export default function About() {
   }, {});
 
   const skills = [
-    { name: "HTML", icon: <HTML /> },
-    { name: "CSS", icon: <CSS /> },
+    { name: "Html", icon: <Html /> },
+    { name: "Css", icon: <Css /> },
     { name: "JavaScript", icon: <JavaScript /> },
     { name: "TypeScript", icon: <TypeScript /> },
     { name: "Vue", icon: <Vue /> },
@@ -72,10 +72,10 @@ export default function About() {
     { name: "Next", icon: <Next /> },
     { name: "Node", icon: <Node /> },
     { name: "Vite", icon: <Vite /> },
-    { name: "SASS", icon: <SASS /> },
+    { name: "Sass", icon: <Sass /> },
     { name: "Tailwind", icon: <Tailwind /> },
     { name: "Shopify", icon: <Shopify /> },
-    { name: "GraphQL", icon: <GraphQL /> },
+    { name: "GraphQl", icon: <GraphQl /> },
     { name: "Figma", icon: <Figma /> },
   ];
 
@@ -105,7 +105,11 @@ export default function About() {
           <div className="bottom__block block block--hero">
             <ul className="block__links">
               <li>
-                <a href="mailto:jacobmcmichael@gmail.com" target="_blank">
+                <a
+                  href="mailto:jacobmcmichael@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Google />
                 </a>
               </li>
@@ -113,12 +117,17 @@ export default function About() {
                 <a
                   href="https://www.linkedin.com/in/jacobmcmichael/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <LinkedIn />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/jacobmcmichael" target="_blank">
+                <a
+                  href="https://github.com/jacobmcmichael"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Github />
                 </a>
               </li>
@@ -158,6 +167,7 @@ export default function About() {
                             className="subtitle company__name"
                             href={item.company_url}
                             target="_blank"
+                            rel="noreferrer"
                           >
                             {item.company_name}
                             <ArrowUpRight />
@@ -190,13 +200,15 @@ export default function About() {
 
           <div className="bottom__block block block--skills">
             <h4 className="title h6">Skills</h4>
-            <ul className="skills__list">
-              {skills.map((skill, index) => (
-                <li key={index} className="block__item">
-                  {skill.icon}
-                </li>
-              ))}
-            </ul>
+            <EntranceAnimation>
+              <ul className="skills__list">
+                {skills.map((skill, index) => (
+                  <li key={index} className="block__item">
+                    {skill.icon}
+                  </li>
+                ))}
+              </ul>
+            </EntranceAnimation>
           </div>
         </div>
       </div>

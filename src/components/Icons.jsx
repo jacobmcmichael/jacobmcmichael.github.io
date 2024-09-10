@@ -2919,7 +2919,7 @@ export function Github() {
 
 /* Skills */
 /* Reference: MIT Skill Icons */
-export function HTML() {
+export function Html() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -2943,7 +2943,7 @@ export function HTML() {
   );
 }
 
-export function CSS() {
+export function Css() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3315,7 +3315,7 @@ export function Vite() {
   );
 }
 
-export function SASS() {
+export function Sass() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -3410,7 +3410,7 @@ export function Tailwind() {
   );
 }
 
-export function GraphQL() {
+export function GraphQl() {
   return (
     <>
       <svg

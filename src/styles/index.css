@@ -30,7 +30,7 @@ main {
 }
 
 section {
-  scroll-margin-top: 150px;
+  scroll-margin-top: 2rem;
 }
 
 #Header {
@@ -92,6 +92,10 @@ section {
 @media only screen and (min-width: 768px) {
   main {
     padding: var(--section-padding) var(--section-padding);
+  }
+
+  section {
+    scroll-margin-top: calc(var(--header-height) + 2rem);
   }
 
   #Header {

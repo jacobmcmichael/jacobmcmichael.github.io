@@ -1,25 +1,32 @@
 /* Dependencies */
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
 import { motion } from "framer-motion";
 
 /* Contexts */
 import { useActiveSection } from "@/contexts/ActiveSectionContext";
 
 /* Components */
-import ThemeToggle from "@/components/ThemeToggle";
 import { House, Folder, Person, Chat } from "@/components/Icons";
 
 /* Stylesheets */
 import "@/styles/navbar.css";
 
 const Navbar = React.memo(() => {
-  // Define the sections statically
-  const sections = [
-    { id: "Hero", title: "Home", icon: <House /> },
-    { id: "Projects", title: "Projects", icon: <Folder /> },
-    { id: "About", title: "About", icon: <Person /> },
-    { id: "Contact", title: "Contact", icon: <Chat /> },
-  ];
+  const sections = useMemo(
+    () => [
+      { id: "Hero", title: "Home", icon: <House /> },
+      { id: "Projects", title: "Projects", icon: <Folder /> },
+      { id: "About", title: "About", icon: <Person /> },
+      { id: "Contact", title: "Contact", icon: <Chat /> },
+    ],
+    []
+  );
 
   // Context to get the active section and update function
   const { activeSection, updateActiveSection } = useActiveSection();
@@ -120,7 +127,7 @@ const Navbar = React.memo(() => {
       setIndicatorStyles({ width, height, left, y: 0 });
       setActiveIndex(newIndex);
     }
-  }, [activeSection, isManualScroll, handleLinkClick]); // Depend on activeSection and isManualScroll
+  }, [activeSection, isManualScroll, handleLinkClick, activeIndex, sections]);
 
   return (
     <div className="navbar__wrapper">
