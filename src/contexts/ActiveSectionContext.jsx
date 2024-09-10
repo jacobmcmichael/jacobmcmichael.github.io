@@ -19,8 +19,15 @@ export const ActiveSectionProvider = ({ children }) => {
 
 export const useActiveSection = () => {
   const context = useContext(ActiveSectionContext);
+
+  // If context is not available, provide a default fallback
   if (!context) {
-    throw new Error("useActiveSection must be used within an ActiveSectionProvider");
+    console.warn("useActiveSection is being used outside of an ActiveSectionProvider.");
+    return {
+      activeSection: "Hero", // Default fallback value
+      updateActiveSection: () => {}, // No-op function
+    };
   }
+  
   return context;
 };
