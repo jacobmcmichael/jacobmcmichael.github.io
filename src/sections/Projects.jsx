@@ -75,7 +75,7 @@ export default function Projects() {
       <div className="projects__layout">
         {projects.map((project, index) => {
           // Find the corresponding image data from the GraphQL query
-          const image = images[project.image.replace(/^\//, "")]; // Remove leading slash for matching
+          const image = images[project.image];
 
           return (
             <EntranceAnimation key={index}>
