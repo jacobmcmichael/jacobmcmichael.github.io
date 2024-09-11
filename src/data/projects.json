@@ -4,41 +4,41 @@
     "genre": "Rustic, Expressive, and Sustainable Wine",
     "tags": ["Wine", "E-Commerce", "Bundles", "Shopify"],
     "href": "https://rabblewine.com/",
-    "image": "/rabble--preview.jpg"
+    "image": "rabble--preview.jpg"
   },
   {
     "title": "Geologie",
     "genre": "Science-Based Skincare",
     "tags": ["Wine", "E-Commerce", "Subscription", "Shopify"],
     "href": "https://geologie.com/",
-    "image": "/geologie--preview.jpg"
+    "image": "geologie--preview.jpg"
   },
   {
     "title": "FitVine",
     "genre": "Zero-Sugar Wines for the Health Conscious",
     "tags": ["Skincare", "E-Commerce", "Subscription", "Shopify"],
     "href": "https://www.fitvinewine.com/",
-    "image": "/fitvine--preview.jpg"
+    "image": "fitvine--preview.jpg"
   },
   {
     "title": "Winc",
     "genre": "Affordable, At-Home Wine Delivery",
     "tags": ["Wines", "E-Commerce", "Subscription", "Shopify"],
     "href": "https://www.winc.com/",
-    "image": "/winc--preview.jpg"
+    "image": "winc--preview.jpg"
   },
   {
     "title": "Hoss Tools",
     "genre": "Quality Tools for Growing Great Food",
     "tags": ["Agriculture", "E-Commerce", "Wishlist", "Shopify"],
     "href": "https://growhoss.com/",
-    "image": "/growhoss--preview.jpg"
+    "image": "growhoss--preview.jpg"
   },
   {
     "title": "YesYouCan!",
     "genre": "Discover Your Best Self",
     "tags": ["Health & Wellness", "E-Commerce", "Subscription", "Shopify"],
     "href": "https://yesyoucan.com/",
-    "image": "/yesyoucan--preview.jpg"
+    "image": "yesyoucan--preview.jpg"
   }
 ]

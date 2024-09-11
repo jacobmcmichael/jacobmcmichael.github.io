@@ -13,22 +13,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Projects";
 import About from "@/sections/About";
-// import Contact from "@/sections/Contact";
+import Contact from "@/sections/Contact";
 
 /* Stylesheets */
 import "@/styles/index.css";
-
-export function Head() {
-  return (
-    <>
-      <title>Jacob McMichael</title>
-      <meta
-        name="description"
-        content="I'm a web developer passionate about crafting digital experiences that captivate users and drive growth. With expertise in e-commerce, web design, data analysis, and marketing strategy, I blend creativity and technical skills to drive client success and customer engagement."
-      />
-    </>
-  );
-}
 
 export default function HomePage() {
   const headerRef = useRef(null);
@@ -67,9 +55,12 @@ export default function HomePage() {
 
   useEffect(() => {
     const visibilityMap = new Map(); // To store the visibility ratio of each section
+    let isAtBottom = false; // Track if the user is at the bottom
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (isAtBottom) return; // Do not update from observer if at bottom
+
         entries.forEach((entry) => {
           const { target, intersectionRatio } = entry;
 
@@ -107,11 +98,37 @@ export default function HomePage() {
       if (section) observer.observe(section);
     });
 
+    // Function to check if the user has scrolled to the bottom
+    const handleScroll = () => {
+      const contactSection = document.getElementById("Contact");
+      const isBottom =
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - contactSection.offsetHeight;
+
+      console.log(isBottom, activeSection);
+
+      if (isBottom) {
+        isAtBottom = true;
+        if (activeSection !== "Contact") {
+          updateActiveSection("Contact");
+        }
+      } else {
+        // If scrolling away from the bottom, reset the isAtBottom flag
+        if (isAtBottom) {
+          isAtBottom = false; // Reset the flag
+          visibilityMap.clear(); // Clear visibility map to force a fresh observer calculation
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      // Clean up the observer on component unmount
+      // Clean up the observer and scroll event listener on component unmount
       Object.values(currentSectionRefs).forEach((section) => {
         if (section) observer.unobserve(section);
       });
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [activeSection, updateActiveSection]);
 
@@ -140,10 +157,9 @@ export default function HomePage() {
         <section id="About" ref={(el) => (sectionRefs.current.About = el)}>
           <About />
         </section>
-        {/* TODO: Add testimonials and contact sections */}
-        {/* <section id="Contact" ref={(el) => (sectionRefs.current.Contact = el)}>
+        <section id="Contact" ref={(el) => (sectionRefs.current.Contact = el)}>
           <Contact />
-        </section> */}
+        </section>
       </main>
     </>
   );

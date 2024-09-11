@@ -1,0 +1,23 @@
+#Contact {
+  min-height: 20vh;
+  margin-bottom: 10vh;
+}
+
+#Contact,
+#Contact .contact__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  #Contact {
+    margin-bottom: var(--section-padding);
+  }
+
+  #Contact .contact__inner {
+    gap: 2rem;
+  }
+}

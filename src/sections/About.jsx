@@ -29,6 +29,7 @@ import {
 
 /* Data */
 import experience from "@/data/experience.json";
+import testimonials from "@/data/testimonials.json";
 
 /* Stylesheets */
 import "@/styles/about.css";
@@ -160,11 +161,11 @@ export default function About() {
 
                       <div className="experience__item--main">
                         <h5 className="experience__company">
-                          <p className="company__position subtitle h6">
+                          <span className="company__position subtitle h6">
                             {item.position}
-                          </p>
+                          </span>
                           <a
-                            className="subtitle company__name"
+                            className="company__name"
                             href={item.company_url}
                             target="_blank"
                             rel="noreferrer"
@@ -209,6 +210,29 @@ export default function About() {
                 ))}
               </ul>
             </EntranceAnimation>
+          </div>
+
+          <div className="bottom__block block block--testimonials">
+            <h4 className="title h6">Testimonials</h4>
+            <ul className="testimonials__list">
+              {testimonials.map((testimonial, index) => (
+                <EntranceAnimation key={index}>
+                  <li className="block__item">
+                    <div className="block__titles">
+                      <h5 className="author subtitle h6">
+                        {testimonial.author}
+                      </h5>
+                      <h6 className="position subtitle">
+                        {testimonial.position}
+                      </h6>
+                    </div>
+                    <blockquote>
+                      <p>{testimonial.quote}</p>
+                    </blockquote>
+                  </li>
+                </EntranceAnimation>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

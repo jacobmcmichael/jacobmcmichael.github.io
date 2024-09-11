@@ -63,6 +63,12 @@ section {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+
+  box-sizing: content-box;
 }
 
 #Header .header__actions {
@@ -112,6 +118,13 @@ section {
   #Header .header__inner,
   #Header .header__actions {
     gap: 1rem;
+  }
+
+  #Header .header__inner {
+    max-width: calc(1200px + var(--section-margin));
+    padding: var(--section-padding);
+
+    box-sizing: border-box;
   }
 
   #Header .header__actions {
