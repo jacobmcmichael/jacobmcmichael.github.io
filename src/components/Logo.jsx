@@ -3,10 +3,10 @@ import React from "react";
 
 export default function Logo() {
   return (
-    <div className="component--logo">
+    <a className="component--logo" href="/">
       <span className="title h4">
         Jake<sup>®</sup>
       </span>
-    </div>
+    </a>
   );
 }
