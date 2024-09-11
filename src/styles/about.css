@@ -170,9 +170,12 @@
   gap: 2rem;
 }
 
-#About .block--testimonials .block__item,
-#About .block--testimonials .block__titles {
+#About .block--testimonials .block__item {
   gap: 0.5rem;
+}
+
+#About .block--testimonials .block__titles {
+  gap: 0.25rem;
 }
 
 #About .block--experience .company__position,
@@ -193,7 +196,7 @@
 @media only screen and (min-width: 768px) {
   #About .about__inner {
     flex-direction: row;
-    gap: 2rem;
+    gap: 3rem;
 
     padding-top: 1.5rem;
     border-top: 1px solid rgb(var(--color-border));

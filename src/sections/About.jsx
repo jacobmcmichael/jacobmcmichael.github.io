@@ -214,21 +214,25 @@ export default function About() {
 
           <div className="bottom__block block block--testimonials">
             <h4 className="title h6">Testimonials</h4>
-            <EntranceAnimation>
-              <ul className="testimonials__list">
-                {testimonials.map((testimonial, index) => (
-                  <li key={index} className="block__item">
+            <ul className="testimonials__list">
+              {testimonials.map((testimonial, index) => (
+                <EntranceAnimation key={index}>
+                  <li className="block__item">
                     <div className="block__titles">
-                      <h5 className="author subtitle h6">{testimonial.author}</h5>
-                      <h6 className="position subtitle">{testimonial.position}</h6>
+                      <h5 className="author subtitle h6">
+                        {testimonial.author}
+                      </h5>
+                      <h6 className="position subtitle">
+                        {testimonial.position}
+                      </h6>
                     </div>
                     <blockquote>
                       <p>{testimonial.quote}</p>
                     </blockquote>
                   </li>
-                ))}
-              </ul>
-            </EntranceAnimation>
+                </EntranceAnimation>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

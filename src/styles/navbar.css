@@ -42,7 +42,9 @@
 
   border-radius: 32px;
   border: 1px solid rgba(var(--color-nav-border), 0.2);
-  background-color: rgb(var(--color-nav-highlight-background), 0.1);
+  background-color: rgb(var(--color-background), 0.4);
+  box-shadow: rgba(var(--color-background), 0.4) 1px 1px 54px 1px inset,
+    rgba(var(--color-background), 0.4) -1px -1px 54px 0px inset;
   backdrop-filter: blur(2px);
 
   list-style-type: none;
@@ -66,7 +68,9 @@
 }
 
 #Navbar .indicator {
-  --size: calc(var(--icon-size) + (var(--button-padding-y) * 2) + (var(--border-size) * 2));
+  --size: calc(
+    var(--icon-size) + (var(--button-padding-y) * 2) + (var(--border-size) * 2)
+  );
   --border-size: 1px;
 
   position: absolute;
@@ -79,7 +83,7 @@
 
   border-radius: 100%;
   border: var(--border-size) solid rgba(var(--color-nav-border), 0.2);
-  background-color: rgba(var(--color-nav-highlight-background), 0.3);
+  background-color: rgba(var(--color-nav-border), 0.6);
 }
 
 #Navbar li button span {
@@ -123,6 +127,7 @@
     border-radius: 54px;
     border: none;
     background-color: rgb(var(--color-nav-background));
+    box-shadow: unset;
   }
 
   #Navbar li {
