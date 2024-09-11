@@ -11,7 +11,7 @@
 
 p,
 .p {
-  color: rgb(var(--color-body-text));
+  color: rgb(var(--color-body-text-lighter));
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1rem;
@@ -128,6 +128,18 @@ h6,
 
 .extra-small {
   font-size: 0.694rem;
+}
+
+blockquote {
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+
+  border-left: 4px solid rgb(var(--color-border));
+}
+
+blockquote p::before,
+blockquote p::after {
+  content: '"';
 }
 
 @media only screen and (min-width: 768px) {
