@@ -18,18 +18,6 @@ import About from "@/sections/About";
 /* Stylesheets */
 import "@/styles/index.css";
 
-export function Head() {
-  return (
-    <>
-      <title>Jacob McMichael</title>
-      <meta
-        name="description"
-        content="I'm a web developer passionate about crafting digital experiences that captivate users and drive growth. With expertise in e-commerce, web design, data analysis, and marketing strategy, I blend creativity and technical skills to drive client success and customer engagement."
-      />
-    </>
-  );
-}
-
 export default function HomePage() {
   const headerRef = useRef(null);
 
