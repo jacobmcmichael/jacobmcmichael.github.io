@@ -151,6 +151,13 @@ blockquote p::after {
   }
 }
 
+@media only screen and (max-width: 425px) {
+  h1,
+  .h1 {
+    font-size: 10vw;
+  }
+}
+
 /* Buttons */
 button,
 .button {
