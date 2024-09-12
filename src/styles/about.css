@@ -70,6 +70,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 
   margin: calc(var(--button-padding-y) * -1) 0;
 }
@@ -185,6 +186,10 @@
 
 #About .block {
   padding: 1.5rem 0;
+}
+
+#About .block:last-child {
+  padding-bottom: 0
 }
 
 @media only screen and (min-width: 425px) {
