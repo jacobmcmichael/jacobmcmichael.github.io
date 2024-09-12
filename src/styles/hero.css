@@ -35,7 +35,7 @@
   align-self: flex-start;
   white-space: nowrap;
 
-  line-height: 1em;
+  /* line-height: 1em; */
 }
 
 #Hero .title__inner {
